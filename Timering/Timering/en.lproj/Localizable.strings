@@ -1,0 +1,78 @@
+/* 
+  Localizable.strings
+  Timering
+
+  Created by Yuto on 2022/04/19.
+  
+*/
+
+//MARK: Navigation
+"Navigation.Done" = "Done";
+
+//MARK: Welcome
+"Welcome.Title.Timering" = "Welcome to Timering";
+"Welcome.Icon" = "Timering Icon";
+"Welcome.Title.Features" = "Features";
+"Welcome.Title.Options" = "Options";
+"Welcome.Title.Ring" = "Ring Timer";
+"Welcome.Detail.Ring" = "Tap the screen to start or stop the count. Customize appearance, and time limits in settings.";
+"Welcome.Title.GridiPhone" = "Grid Timer";
+"Welcome.Title.GridiPad" = "Grid Timer";
+"Welcome.Detail.GridiPhone" = "Create up to 8 timers with custom titles and times. Tap the timer to start or stop.";
+"Welcome.Detail.GridiPad" = "Create up to 12 timers with custom titles and times. Tap the timer to start or stop.";
+"Welcome.Title.Switch" = "Switch Timer";
+"Welcome.Detail.Switch" = "Change timer style by long pressing the setting(gear icon) button.";
+"Welcome.Title.Customize" = "Customize";
+"Welcome.Detail.Customize" = "Change sounds, vibrations, app icon and more in the settings.\nFully customize with your favorite color styles with one time in-app purchase.";
+//"Welcome.Title.Privacy" = "Privacy";
+//"Welcome.Detail.Privacy" = "This app does not collect or send data.";
+"Welcome.Title.Permission.Notification" = "Notification";
+"Welcome.Detail.Permission.Notification" = "Allow notification to get alerts, play sounds, when timer is completed. \nTo turn off, tap the button below or open Settings app.";
+"Welcome.Title.OpenSettings" = "Notification Setting";
+"Welcome.Button.Continue" = "Continue";
+"Welcome.Button.Close" = "Close";
+"Welcome.Button.Title.Back" = "Back";
+
+//MARK: Grid
+"Grid.Title.Timer" = "Timer";
+
+//MARK: Ring
+"Ring.Title.Settings" = "Settings";
+
+//MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.Title.Ring" = "Ring";
+"Settings.Title.Grid" = "Grid";
+"Settings.Title.TimerType" = "Timer Type";
+"Settings.Title.Icons" = "Icons";
+"Settings.Title.UnlockFeatures" = "Unlock Features";
+"Settings.Title.Feedback" = "Feedback";
+"Settings.AboutDisplay" = "About Display";
+
+"Settings.DEBUG.Title.ShowWelcome" = "Show Welcome";
+
+//MARK: Grid Settings
+"Settings" = "Settings";
+"Settings.Grid.Autoplay" = "Auto Play";
+"Settings.Grid.PlayVibration" = "Play Vibration";
+"Settings.Grid.PlaySound" = "Play Sound";
+"Settings.Grid.SoundType" = "Sound Type";
+"Settings.Grid.ShapeType" = "Shape Type";
+"Settings.Grid.Shape.Default" = "Default";
+"Settings.Grid.Shape.Circle" = "Circle";
+"Settings.Grid.Shape.Square" = "Square";
+"Settings.Grid.Color" = "Color";
+"Grid.Setting.TimeSensitive" = "Time Sensitive";
+
+//MARK: Ring Settings
+"Settings.Ring.Dynamic" = "Dynamic";
+"Settings.Ring.PlayVibration" = "Play Vibration";
+"Settings.Ring.Color" = "Color";
+"Settings.Ring.SetLimit" = "Set Time Limit";
+"Settings.Ring.Time.Hour" = "Hour";
+"Settings.Ring.Time.Hours" = "Hours";
+"Settings.Ring.Time.Min" = "Min";
+"Settings.Ring.Time.Sec" = "Sec";
+"Settings.Ring.Color.Blue" = "Blue";
+"Settings.Ring.Color.Gray" = "Gray";
+"Settings.Ring.Color.Rainbow" = "Rainbow";

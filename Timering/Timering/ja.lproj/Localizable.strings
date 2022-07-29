@@ -1,0 +1,78 @@
+/* 
+  Localizable.strings
+  Timering
+
+  Created by Yuto on 2022/04/19.
+  
+*/
+
+//MARK: Navigation
+"Navigation.Done" = "完了";
+
+//MARK: Welcome
+"Welcome.Title.Timering" = "Timeringへようこそ";
+"Welcome.Icon" = "Timering のアイコン";
+"Welcome.Title.Features" = "機能";
+"Welcome.Title.Options" = "オプション";
+"Welcome.Title.Ring" = "リング";
+"Welcome.Detail.Ring" = "画面をタップし, タイマーをスタート/ストップ. 見た目や, 時間の設定などをカスタマイズできます.";
+"Welcome.Title.GridiPhone" = "グリッド";
+"Welcome.Title.GridiPad" = "グリッド";
+"Welcome.Detail.GridiPhone" = "最大8つのタイマーを作成できます. タイマーをタップし, タイマーをスタート/ストップ.";
+"Welcome.Detail.GridiPad" = "最大12つのタイマーを作成できます. タイマーをタップし, タイマーをスタート/ストップ.";
+"Welcome.Title.Switch" = "タイマーの切り替え";
+"Welcome.Detail.Switch" = "設定(ギア)を長押しするとタイマーの切り替えをできます.";
+"Welcome.Title.Customize" = "カスタマイズ";
+"Welcome.Detail.Customize" = "設定画面から効果音, バイブレーションなどをカスタマイズできます.\nアプリ内課金でタイマーの見た目を自分のスタイルにカスタマイズできるようになります.";
+//"Welcome.Title.Privacy" = "Privacy";
+//"Welcome.Detail.Privacy" = ".";
+"Welcome.Title.Permission.Notification" = "通知";
+"Welcome.Detail.Permission.Notification" = "オンにするとタイマーが終了した際, 通知が配信, 音が再生されます. \nオフまたは調整したい場合, 設定アプリの「通知」または下のボタンをタップしてください.";
+"Welcome.Title.OpenSettings" = "通知の設定";
+"Welcome.Button.Continue" = "続ける";
+"Welcome.Button.Close" = "閉じる";
+"Welcome.Button.Title.Back" = "戻る";
+
+//MARK: Settings
+"Settings.Title" = "設定";
+"Settings.Title.Ring" = "リング";
+"Settings.Title.Grid" = "グリッド";
+"Settings.Title.TimerType" = "タイマーの種類";
+"Settings.Title.Icons" = "アイコン";
+"Settings.Title.UnlockFeatures" = "機能を解放";
+"Settings.Title.Feedback" = "フィードバック";
+"Settings.AboutDisplay" = "ディスプレイについて";
+
+"Settings.DEBUG.Title.ShowWelcome" = "ようこそを表示";
+
+//MARK: Grid
+"Grid.Title.Timer" = "タイマー";
+
+//MARK: Ring
+"Ring.Title.Settings" = "設定";
+
+//MARK: Grid Settings
+"Settings" = "設定";
+"Settings.Grid.Autoplay" = "自動開始";
+"Settings.Grid.PlayVibration" = "バイブレーション";
+"Settings.Grid.SoundType" = "音の種類";
+"Settings.Grid.PlaySound" = "音";
+"Settings.Grid.ShapeType" = "形の種類";
+"Settings.Grid.Shape.Default" = "デフォルト";
+"Settings.Grid.Shape.Circle" = "円";
+"Settings.Grid.Shape.Square" = "四角";
+"Settings.Grid.Color" = "色";
+"Grid.Setting.TimeSensitive" = "即時通知";
+
+//MARK: Ring Settings
+"Settings.Ring.Dynamic" = "ダイナミック";
+"Settings.Ring.PlayVibration" = "バイブレーション";
+"Settings.Ring.Color" = "色";
+"Settings.Ring.SetLimit" = "時間を設定";
+"Settings.Ring.Time.Hour" = "時間";
+"Settings.Ring.Time.Hours" = "時間";
+"Settings.Ring.Time.Min" = "分";
+"Settings.Ring.Time.Sec" = "秒";
+"Settings.Ring.Color.Blue" = "ブルー";
+"Settings.Ring.Color.Gray" = "グレー";
+"Settings.Ring.Color.Rainbow" = "レインボー";
