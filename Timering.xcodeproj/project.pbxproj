@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1687E25289520D000DDD4D3 /* TimerView.swift */; };
+		D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B772F27F599F200C6CBFC /* TimeringApp.swift */; };
+		D16B773227F599F200C6CBFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B773127F599F200C6CBFC /* ContentView.swift */; };
+		D16B773427F599F400C6CBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16B773327F599F400C6CBFC /* Assets.xcassets */; };
+		D16B773727F599F400C6CBFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16B773627F599F400C6CBFC /* Preview Assets.xcassets */; };
+		D16B774127F599F400C6CBFC /* TimeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B774027F599F400C6CBFC /* TimeringTests.swift */; };
+		D16B774B27F599F400C6CBFC /* TimeringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B774A27F599F400C6CBFC /* TimeringUITests.swift */; };
+		D16B774D27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B774C27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift */; };
+		D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775927F5A25B00C6CBFC /* RingTimerView.swift */; };
+		D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775B27F5A28400C6CBFC /* GridTimerView.swift */; };
+		D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775D27F6F9E800C6CBFC /* SettingsView.swift */; };
+		D16B776227F7D4FB00C6CBFC /* wave1.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B775F27F7D4FA00C6CBFC /* wave1.png */; };
+		D16B776327F7D4FB00C6CBFC /* wave2.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B776027F7D4FA00C6CBFC /* wave2.png */; };
+		D16B776427F7D4FB00C6CBFC /* wave3.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B776127F7D4FB00C6CBFC /* wave3.png */; };
+		D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B776927F7DB5400C6CBFC /* IconsView.swift */; };
+		D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B776C27F7DE3000C6CBFC /* RingSettingsView.swift */; };
+		D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B776E27F7DE3800C6CBFC /* GridSettingsView.swift */; };
+		D16B777127F7E34400C6CBFC /* DefaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B777027F7E34400C6CBFC /* DefaultIcon.png */; };
+		D1779493281B8356006A421D /* AUDIO_8166.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D177948E281B8356006A421D /* AUDIO_8166.m4a */; };
+		D1779494281B8356006A421D /* AUDIO_6413.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D177948F281B8356006A421D /* AUDIO_6413.m4a */; };
+		D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779490281B8356006A421D /* AUDIO_0004.m4a */; };
+		D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779491281B8356006A421D /* AUDIO_7063.m4a */; };
+		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
+		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
+		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D16B773D27F599F400C6CBFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D16B772427F599F200C6CBFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D16B772B27F599F200C6CBFC;
+			remoteInfo = Timering;
+		};
+		D16B774727F599F400C6CBFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D16B772427F599F200C6CBFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D16B772B27F599F200C6CBFC;
+			remoteInfo = Timering;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D11CB1F6282E7272007F44C6 /* Timering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timering.entitlements; sourceTree = "<group>"; };
+		D1687E25289520D000DDD4D3 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		D16B772C27F599F200C6CBFC /* TimeRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16B772F27F599F200C6CBFC /* TimeringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeringApp.swift; sourceTree = "<group>"; };
+		D16B773127F599F200C6CBFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D16B773327F599F400C6CBFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D16B773627F599F400C6CBFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D16B773C27F599F400C6CBFC /* TimeringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16B774027F599F400C6CBFC /* TimeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeringTests.swift; sourceTree = "<group>"; };
+		D16B774627F599F400C6CBFC /* TimeringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16B774A27F599F400C6CBFC /* TimeringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeringUITests.swift; sourceTree = "<group>"; };
+		D16B774C27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeringUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D16B775927F5A25B00C6CBFC /* RingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingTimerView.swift; sourceTree = "<group>"; };
+		D16B775B27F5A28400C6CBFC /* GridTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTimerView.swift; sourceTree = "<group>"; };
+		D16B775D27F6F9E800C6CBFC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D16B775F27F7D4FA00C6CBFC /* wave1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave1.png; sourceTree = "<group>"; };
+		D16B776027F7D4FA00C6CBFC /* wave2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave2.png; sourceTree = "<group>"; };
+		D16B776127F7D4FB00C6CBFC /* wave3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave3.png; sourceTree = "<group>"; };
+		D16B776927F7DB5400C6CBFC /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
+		D16B776B27F7DD9E00C6CBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D16B776C27F7DE3000C6CBFC /* RingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingSettingsView.swift; sourceTree = "<group>"; };
+		D16B776E27F7DE3800C6CBFC /* GridSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSettingsView.swift; sourceTree = "<group>"; };
+		D16B777027F7E34400C6CBFC /* DefaultIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultIcon.png; sourceTree = "<group>"; };
+		D177948E281B8356006A421D /* AUDIO_8166.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_8166.m4a; sourceTree = "<group>"; };
+		D177948F281B8356006A421D /* AUDIO_6413.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_6413.m4a; sourceTree = "<group>"; };
+		D1779490281B8356006A421D /* AUDIO_0004.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_0004.m4a; sourceTree = "<group>"; };
+		D1779491281B8356006A421D /* AUDIO_7063.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_7063.m4a; sourceTree = "<group>"; };
+		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
+		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D16B772927F599F200C6CBFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B773927F599F400C6CBFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B774327F599F400C6CBFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D16B772327F599F200C6CBFC = {
+			isa = PBXGroup;
+			children = (
+				D16B772E27F599F200C6CBFC /* Timering */,
+				D16B773F27F599F400C6CBFC /* TimeringTests */,
+				D16B774927F599F400C6CBFC /* TimeringUITests */,
+				D16B772D27F599F200C6CBFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D16B772D27F599F200C6CBFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D16B772C27F599F200C6CBFC /* TimeRing.app */,
+				D16B773C27F599F400C6CBFC /* TimeringTests.xctest */,
+				D16B774627F599F400C6CBFC /* TimeringUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D16B772E27F599F200C6CBFC /* Timering */ = {
+			isa = PBXGroup;
+			children = (
+				D11CB1F6282E7272007F44C6 /* Timering.entitlements */,
+				D16B776B27F7DD9E00C6CBFC /* Info.plist */,
+				D16B772F27F599F200C6CBFC /* TimeringApp.swift */,
+				D16B773127F599F200C6CBFC /* ContentView.swift */,
+				D1B84789280E4F3E00B7CCF5 /* Localizable.strings */,
+				D16B773327F599F400C6CBFC /* Assets.xcassets */,
+				D16B773527F599F400C6CBFC /* Preview Content */,
+				D1687E25289520D000DDD4D3 /* TimerView.swift */,
+				D16B775927F5A25B00C6CBFC /* RingTimerView.swift */,
+				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
+				D1B57F0B2829E902002D751C /* WelcomeView.swift */,
+				D16B776827F7DAE100C6CBFC /* Settings */,
+				D16B776527F7D50000C6CBFC /* Icons */,
+				D1779498281B8361006A421D /* Sounds */,
+			);
+			path = Timering;
+			sourceTree = "<group>";
+		};
+		D16B773527F599F400C6CBFC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D16B773627F599F400C6CBFC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D16B773F27F599F400C6CBFC /* TimeringTests */ = {
+			isa = PBXGroup;
+			children = (
+				D16B774027F599F400C6CBFC /* TimeringTests.swift */,
+			);
+			path = TimeringTests;
+			sourceTree = "<group>";
+		};
+		D16B774927F599F400C6CBFC /* TimeringUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D16B774A27F599F400C6CBFC /* TimeringUITests.swift */,
+				D16B774C27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift */,
+			);
+			path = TimeringUITests;
+			sourceTree = "<group>";
+		};
+		D16B776527F7D50000C6CBFC /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				D16B777027F7E34400C6CBFC /* DefaultIcon.png */,
+				D16B776127F7D4FB00C6CBFC /* wave3.png */,
+				D16B776027F7D4FA00C6CBFC /* wave2.png */,
+				D16B775F27F7D4FA00C6CBFC /* wave1.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		D16B776827F7DAE100C6CBFC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D16B775D27F6F9E800C6CBFC /* SettingsView.swift */,
+				D16B776927F7DB5400C6CBFC /* IconsView.swift */,
+				D16B776C27F7DE3000C6CBFC /* RingSettingsView.swift */,
+				D16B776E27F7DE3800C6CBFC /* GridSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D1779498281B8361006A421D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D1779490281B8356006A421D /* AUDIO_0004.m4a */,
+				D1779492281B8356006A421D /* AUDIO_5242.m4a */,
+				D177948F281B8356006A421D /* AUDIO_6413.m4a */,
+				D1779491281B8356006A421D /* AUDIO_7063.m4a */,
+				D177948E281B8356006A421D /* AUDIO_8166.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D16B772B27F599F200C6CBFC /* Timering */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D16B775027F599F400C6CBFC /* Build configuration list for PBXNativeTarget "Timering" */;
+			buildPhases = (
+				D16B772827F599F200C6CBFC /* Sources */,
+				D16B772927F599F200C6CBFC /* Frameworks */,
+				D16B772A27F599F200C6CBFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timering;
+			productName = Timering;
+			productReference = D16B772C27F599F200C6CBFC /* TimeRing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D16B773B27F599F400C6CBFC /* TimeringTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D16B775327F599F400C6CBFC /* Build configuration list for PBXNativeTarget "TimeringTests" */;
+			buildPhases = (
+				D16B773827F599F400C6CBFC /* Sources */,
+				D16B773927F599F400C6CBFC /* Frameworks */,
+				D16B773A27F599F400C6CBFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D16B773E27F599F400C6CBFC /* PBXTargetDependency */,
+			);
+			name = TimeringTests;
+			productName = TimeringTests;
+			productReference = D16B773C27F599F400C6CBFC /* TimeringTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D16B774527F599F400C6CBFC /* TimeringUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D16B775627F599F400C6CBFC /* Build configuration list for PBXNativeTarget "TimeringUITests" */;
+			buildPhases = (
+				D16B774227F599F400C6CBFC /* Sources */,
+				D16B774327F599F400C6CBFC /* Frameworks */,
+				D16B774427F599F400C6CBFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D16B774827F599F400C6CBFC /* PBXTargetDependency */,
+			);
+			name = TimeringUITests;
+			productName = TimeringUITests;
+			productReference = D16B774627F599F400C6CBFC /* TimeringUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D16B772427F599F200C6CBFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					D16B772B27F599F200C6CBFC = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					D16B773B27F599F400C6CBFC = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = D16B772B27F599F200C6CBFC;
+					};
+					D16B774527F599F400C6CBFC = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = D16B772B27F599F200C6CBFC;
+					};
+				};
+			};
+			buildConfigurationList = D16B772727F599F200C6CBFC /* Build configuration list for PBXProject "Timering" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = D16B772327F599F200C6CBFC;
+			productRefGroup = D16B772D27F599F200C6CBFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D16B772B27F599F200C6CBFC /* Timering */,
+				D16B773B27F599F400C6CBFC /* TimeringTests */,
+				D16B774527F599F400C6CBFC /* TimeringUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D16B772A27F599F200C6CBFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1779494281B8356006A421D /* AUDIO_6413.m4a in Resources */,
+				D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */,
+				D16B776227F7D4FB00C6CBFC /* wave1.png in Resources */,
+				D16B776427F7D4FB00C6CBFC /* wave3.png in Resources */,
+				D16B773727F599F400C6CBFC /* Preview Assets.xcassets in Resources */,
+				D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */,
+				D1779493281B8356006A421D /* AUDIO_8166.m4a in Resources */,
+				D16B776327F7D4FB00C6CBFC /* wave2.png in Resources */,
+				D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */,
+				D16B773427F599F400C6CBFC /* Assets.xcassets in Resources */,
+				D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */,
+				D16B777127F7E34400C6CBFC /* DefaultIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B773A27F599F400C6CBFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B774427F599F400C6CBFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D16B772827F599F200C6CBFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
+				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
+				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
+				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
+				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
+				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
+				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
+				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
+				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
+				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B773827F599F400C6CBFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16B774127F599F400C6CBFC /* TimeringTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16B774227F599F400C6CBFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16B774D27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift in Sources */,
+				D16B774B27F599F400C6CBFC /* TimeringUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D16B773E27F599F400C6CBFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D16B772B27F599F200C6CBFC /* Timering */;
+			targetProxy = D16B773D27F599F400C6CBFC /* PBXContainerItemProxy */;
+		};
+		D16B774827F599F400C6CBFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D16B772B27F599F200C6CBFC /* Timering */;
+			targetProxy = D16B774727F599F400C6CBFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1B84789280E4F3E00B7CCF5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1B84788280E4F3E00B7CCF5 /* en */,
+				D1B8478A280E4F4100B7CCF5 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D16B774E27F599F400C6CBFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D16B774F27F599F400C6CBFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D16B775127F599F400C6CBFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Timering;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Timering/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timering;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeRing;
+				PRODUCT_NAME = TimeRing;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D16B775227F599F400C6CBFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Timering;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Timering/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timering;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeRing;
+				PRODUCT_NAME = TimeRing;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D16B775427F599F400C6CBFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timering.app/Timering";
+			};
+			name = Debug;
+		};
+		D16B775527F599F400C6CBFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timering.app/Timering";
+			};
+			name = Release;
+		};
+		D16B775727F599F400C6CBFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Timering;
+			};
+			name = Debug;
+		};
+		D16B775827F599F400C6CBFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5U8W3XYWRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiwa.TimeringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Timering;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D16B772727F599F200C6CBFC /* Build configuration list for PBXProject "Timering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16B774E27F599F400C6CBFC /* Debug */,
+				D16B774F27F599F400C6CBFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D16B775027F599F400C6CBFC /* Build configuration list for PBXNativeTarget "Timering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16B775127F599F400C6CBFC /* Debug */,
+				D16B775227F599F400C6CBFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D16B775327F599F400C6CBFC /* Build configuration list for PBXNativeTarget "TimeringTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16B775427F599F400C6CBFC /* Debug */,
+				D16B775527F599F400C6CBFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D16B775627F599F400C6CBFC /* Build configuration list for PBXNativeTarget "TimeringUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16B775727F599F400C6CBFC /* Debug */,
+				D16B775827F599F400C6CBFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D16B772427F599F200C6CBFC /* Project object */;
+}
