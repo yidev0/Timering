@@ -23,8 +23,8 @@ struct TimerView: View {
     }
 }
 
-struct TimerViews_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerViews()
-    }
-}
+//struct TimerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerView(timerType: TimerType.ring)
+//    }
+//}
