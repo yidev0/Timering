@@ -200,17 +200,10 @@ struct GridTimerCell:View{
             .frame(width: itemSize.width, height: itemSize.height, alignment: .center)
 
             VStack(alignment: .center){
-//                if #available(iOS 15.0, *) {
-//                    TextField("Title", text: $gridTimer.title)
-//                        .multilineTextAlignment(.center)
-//                        .focused($isEditing)
-//                        .aspectRatio(contentMode: .fit)
-//                } else {
-                    TextField("Title", text: $gridTimer.title){ editing in
-                        isEditing = editing
-                    }
+                TextField("Title", text: $gridTimer.title)
                     .multilineTextAlignment(.center)
-//                }
+                    .focused($isEditing)
+                    .aspectRatio(contentMode: .fit)
                 Text("\(gridTimer.time, specifier: "%.2f")")
                     .multilineTextAlignment(.center)
             }
@@ -242,9 +235,7 @@ struct GridTimerCell:View{
         self.timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
         let content = UNMutableNotificationContent()
-        if #available(iOS 15.0, *) {
-            content.interruptionLevel = .timeSensitive
-        }
+        content.interruptionLevel = .timeSensitive
         content.title = gridTimer.title
         content.body = "Timer Completed"
         if soundType == 1{

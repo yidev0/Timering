@@ -19,11 +19,7 @@ struct TimeringApp: App {
                 .sheet(isPresented: $showWelcome) {
                     //dimiss
                 } content: {
-                    if #available(iOS 15.0, *) {
                         WelcomeView()
-                    } else {
-                        // Fallback on earlier versions
-                    }
                 }
                 .onAppear {
                     if userDefaults?.bool(forKey: "hasShownWelcomeBeta") != true{

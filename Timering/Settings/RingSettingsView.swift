@@ -21,13 +21,8 @@ struct RingSettingsView: View {
             Label {
                 Text("Settings.Ring.Dynamic")
             } icon: {
-                if #available(iOS 15.0, *) {
-                    Image(systemName: "circle.circle")
-                        .symbolRenderingMode(.hierarchical)
-                } else {
-                    Image(systemName: "circle.circle")
-                        .foregroundColor(.gray)
-                }
+                Image(systemName: "circle.circle")
+                    .symbolRenderingMode(.hierarchical)
             }
         }
         .onChange(of: dynamicRing) { newValue in
