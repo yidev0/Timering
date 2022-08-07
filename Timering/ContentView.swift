@@ -56,7 +56,6 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                if #available(iOS 15.0, *) {
                     Menu {
                         Picker(selection: $timerType) {
                             Label("Settings.Title.Ring", systemImage: "circle.circle")
@@ -72,24 +71,6 @@ struct ContentView: View {
                         showSettings = true
                     }
                     .accessibilityLabel(Text("Settings"))
-                } else {
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    .accessibilityLabel(Text("Settings"))
-                    .contextMenu{
-                        Picker(selection: $timerType) {
-                            Label("Settings.Title.Ring", systemImage: "circle.circle")
-                                .tag(TimerType.ring)
-                            Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
-                                .tag(TimerType.grid)
-                        } label: {
-                            Text("Settings.Title.TimerType")
-                        }
-                    }
-                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)

@@ -44,41 +44,32 @@ struct RingTimerView: View {
         }
         .toolbar{
             ToolbarItem(placement: .principal) {
-                if #available(iOS 15.0, *) {
-                    Menu {
-                        Section{
-                            Toggle(isOn: $dynamicRing) {
-                                Label("Settings.Ring.Dynamic", systemImage: "circle.circle")
-                            }
-                            Toggle(isOn: $vibrate) {
-                                Label("Settings.Ring.PlayVibration", systemImage: "waveform")
-                            }
+                Menu {
+                    Section{
+                        Toggle(isOn: $dynamicRing) {
+                            Label("Settings.Ring.Dynamic", systemImage: "circle.circle")
                         }
-                        
-                        Section{
-                            Button(action: { showSettings = true }) {
-                                Text("Ring.Title.Settings")
-                            }
+                        Toggle(isOn: $vibrate) {
+                            Label("Settings.Ring.PlayVibration", systemImage: "waveform")
                         }
-                    } label: {
-                        Text("\(counter, specifier: "%.2f")")
-                            .font(.system(.body, design: .rounded))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.primary)
-                            .padding(.all, 8)
-                            .background(.thinMaterial)
-                            .cornerRadius(8)
-                    } primaryAction: {
-                        triggerTimer()
                     }
-                } else {
-                    Button(action: { triggerTimer() }) {
-                        Text("\(counter, specifier: "%.2f")")
-                            .font(.system(.body, design: .rounded))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.primary)
+                    
+                    Section{
+                        Button(action: { showSettings = true }) {
+                            Text("Ring.Title.Settings")
+                        }
                     }
-                }
+                } label: {
+                    Text("\(counter, specifier: "%.2f")")
+                        .font(.system(.body, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.primary)
+                        .padding(.all, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(8)
+                } primaryAction: {
+                    triggerTimer()
+                    }
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {

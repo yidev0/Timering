@@ -106,9 +106,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(isPresented: $showWelcome) {
-                if #available(iOS 15.0, *) {
-                    WelcomeView()
-                }
+                WelcomeView()
             }
         }
     }
