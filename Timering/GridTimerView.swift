@@ -157,7 +157,7 @@ struct GridTimerCell:View{
     @Binding var itemSize:CGSize
     @Binding var popoverTimer:GridTimer?
     
-    @State var isEditing = false
+    @FocusState var isEditing
     @State var showTools = true
     @State var startTime = Date()
     @State var timeStamp = 0.0
