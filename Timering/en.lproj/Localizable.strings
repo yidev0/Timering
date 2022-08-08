@@ -33,6 +33,11 @@
 "Welcome.Button.Close" = "Close";
 "Welcome.Button.Title.Back" = "Back";
 
+//MARK: Sidebar
+"Sidebar.Section.Groups" = "Groups";
+"Sidebar.Section.Overview" = "Overview";
+"Sidebar.Button.NewGroup" = "New Group";
+
 //MARK: Grid
 "Grid.Title.Timer" = "Timer";
 
@@ -43,11 +48,13 @@
 "Settings.Title" = "Settings";
 "Settings.Title.Ring" = "Ring";
 "Settings.Title.Grid" = "Grid";
+"Settings.Title.Gauge" = "Gauge";
 "Settings.Title.TimerType" = "Timer Type";
 "Settings.Title.Icons" = "Icons";
 "Settings.Title.UnlockFeatures" = "Unlock Features";
 "Settings.Title.Feedback" = "Feedback";
 "Settings.AboutDisplay" = "About Display";
+"Settings.OpenSettings" = "Open Settings";
 
 "Settings.DEBUG.Title.ShowWelcome" = "Show Welcome";
 

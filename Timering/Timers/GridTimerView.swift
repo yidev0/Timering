@@ -22,7 +22,7 @@ class GridTimer: Identifiable{
         self.id = UUID().uuidString
         self.title = title
         self.time = time
-        self.maxTime = time
+        self.maxTime = 15
         self.isActive = isActive
     }
 }
@@ -46,44 +46,42 @@ struct GridTimerView: View {
     
     @State var timerCount = 1
     
-    let gridLimit = UIDevice.current.userInterfaceIdiom == .phone ? 8:12
+    let gridLimit = 6
     @State var orientation:DeviceOrientation = UIDevice.current.userInterfaceIdiom == .phone ? .vertical:.horizontal
     @State var showTimer:GridTimer? = nil
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .center){
-//                ScrollView{
-                    LazyVGrid(columns: gridItems, spacing: spacing) {
-                        ForEach($timers, id: \.id) { $timer in
-                            GridTimerCell(gridTimer: $timer, itemSize: $itemSize, popoverTimer: $showTimer){
-                                withAnimation {
-                                    timers = timers.filter({ $0.id != timer.id })
-                                }
-                            } showInfo: {
-                                showTimer = timer
+                LazyVGrid(columns: gridItems, spacing: spacing) {
+                    ForEach($timers, id: \.id) { $timer in
+                        GridTimerCell(gridTimer: $timer, itemSize: $itemSize, popoverTimer: $showTimer){
+                            withAnimation {
+                                timers = timers.filter({ $0.id != timer.id })
                             }
-                        }
-                        if timers.count < gridLimit{
-                            Button {
-                                withAnimation {
-                                    let timer = GridTimer(title: "Grid.Title.Timer".localize() + " \(timerCount)", time: Double.random(in: 0..<15), isActive: autoPlay)
-                                    timers.append(timer)
-                                    timerCount += 1
-                                }
-                            } label: {
-                                ZStack{
-                                    Color.blue.opacity(0.2)
-                                    
-                                    Image(systemName: "plus")
-                                        .font(.largeTitle)
-                                }.cornerRadius(itemSize.width / 12.8)
-                            }
-                            .frame(width: itemSize.width, height: itemSize.height)
+                        } showInfo: {
+                            showTimer = timer
                         }
                     }
-                    .padding(.all, spacing)
-//                }
+                    if timers.count < gridLimit{
+                        Button {
+                            withAnimation {
+                                let timer = GridTimer(title: "Grid.Title.Timer".localize() + " \(timerCount)", time: 0, isActive: autoPlay)
+                                timers.append(timer)
+                                timerCount += 1
+                            }
+                        } label: {
+                            ZStack{
+                                Color.blue.opacity(0.2)
+                                
+                                Image(systemName: "plus")
+                                    .font(.largeTitle)
+                            }.cornerRadius(itemSize.width / 12.8)
+                        }
+                        .frame(width: itemSize.width, height: itemSize.height)
+                    }
+                }
+                .padding(.all, spacing)
             }
             .onAppear{
                 DispatchQueue.main.async {
@@ -99,20 +97,7 @@ struct GridTimerView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        withAnimation {
-                            if timers.count < gridLimit{
-                                let timer = GridTimer(title: "Grid.Title.Timer".localize() + " \(timerCount)", time: Double.random(in: 0..<15), isActive: autoPlay)
-                                timers.append(timer)
-                                timerCount += 1
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .disabled(timers.count >= gridLimit)
-                }
+                
             }
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -124,11 +109,11 @@ struct GridTimerView: View {
             var horizontalCount:CGFloat = 0
             var verticalCount:CGFloat = 0
             if UIDevice.current.userInterfaceIdiom == .phone{
-                horizontalCount = (orientation == .horizontal) ? 4:2
-                verticalCount   = (orientation == .horizontal) ? 2:4
+                horizontalCount = (orientation == .horizontal) ? 3:2
+                verticalCount   = (orientation == .horizontal) ? 2:3
             } else {
-                horizontalCount = (orientation == .horizontal) ? 4:3
-                verticalCount   = (orientation == .horizontal) ? 3:4
+                horizontalCount = (orientation == .horizontal) ? 3:3
+                verticalCount   = (orientation == .horizontal) ? 3:3
             }
             
             let spacing:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 12:8
@@ -171,27 +156,21 @@ struct GridTimerCell:View{
     var body: some View{
         ZStack{
             Button {
-                if gridTimer.time < 0.01{
-                    showInfo()
-                } else {
-                    gridTimer.isActive.toggle()
-                    gridTimer.isActive == false ? stopTimer():startTimer()
-                    timeStamp = gridTimer.time
-                    showTools = !gridTimer.isActive
-                    startTime = Date()
-                }
+                gridTimer.isActive.toggle()
+                gridTimer.isActive == false ? stopTimer():startTimer()
+                timeStamp = gridTimer.time
+                showTools = !gridTimer.isActive
+                startTime = Date()
             } label: {
                 GridGaugeView(gridTimer: gridTimer,
                               shape: GridShape(rawValue: shape)!,
                               itemSize: itemSize)
-                .onReceive(timer) { output in
-                    withAnimation {
-                        if gridTimer.isActive == true && gridTimer.time >= 0.01{
-                            gridTimer.time -= 0.01
-                            adjustTime()
-                        } else if gridTimer.time < 0.01 {
-                            completed()
-                        }
+            }
+            .onReceive(timer) { output in
+                withAnimation {
+                    if gridTimer.isActive == true{
+                        gridTimer.time += 0.01
+                        adjustTime()
                     }
                 }
             }
@@ -213,15 +192,24 @@ struct GridTimerCell:View{
             }
 
             if showTools{
-                GridToolView(gridTimer: $gridTimer, deleteAction: deleteAction, showInfo: showInfo, stopTimer: {
-                    stopTimer()
-                })
+                GridToolView(gridTimer: $gridTimer, showInfo: showInfo)
                     .padding(.all, 8)
             }
         }
         .frame(width: itemSize.width, height: itemSize.height, alignment: .center)
-        .onAppear {
-            stopTimer()
+        .contextMenu{
+            Button {
+                showInfo()
+            } label: {
+                Label("Timer.Button.ShowInfo", systemImage: "info")
+            }
+            
+            Button(role: .destructive) {
+                stopTimer()
+                deleteAction()
+            } label: {
+                Label("Timer.Button.Delete", systemImage: "trash")
+            }
         }
     }
     
@@ -245,7 +233,7 @@ struct GridTimerCell:View{
             content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: soundNames[soundType - 2] + ".m4a"))
         }
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: gridTimer.time, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: gridTimer.maxTime, repeats: false)
         let request = UNNotificationRequest(identifier: cellID, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request)
@@ -287,13 +275,11 @@ struct GridTimerCell:View{
         isAdjusting = true
         let currentTime = Date()
         let dif = currentTime.timeIntervalSince(startTime)
-        let adjustTime = dif - (timeStamp - gridTimer.time)
+        let adjustTime = dif - (gridTimer.time - timeStamp)
         if adjustTime > 0{
             print("dif", String(format: "%.2f", adjustTime))
-            if gridTimer.time - adjustTime < 0.01{
-                completed()
-            } else {
-                gridTimer.time -= adjustTime
+            if gridTimer.time - adjustTime > 0.01{
+                gridTimer.time += adjustTime
             }
         }
         isAdjusting = false
@@ -324,7 +310,7 @@ struct GridGaugeView: View{
             switch shape {
             case .defaultShape:
                 RoundedRectangle(cornerRadius: itemSize.height/25.6)
-                    .trim(from: 0.0, to: gridTimer.time/gridTimer.maxTime)
+                    .trim(from: 0.0, to: (gridTimer.time.truncatingRemainder(dividingBy: gridTimer.maxTime))/gridTimer.maxTime)
                     .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                     .foregroundColor(gridTimer.isActive ?  gridTimer.tint:Color(.secondarySystemFill))
                     .rotationEffect(Angle(degrees: 270.0))
@@ -434,30 +420,11 @@ struct GridTimerDetailView: View {
 struct GridToolView: View{
     
     @Binding var gridTimer:GridTimer
-    var deleteAction: () -> Void
     var showInfo: () -> Void
-    var stopTimer: () -> Void
     
     var body: some View{
         VStack{
             HStack{
-                Button {
-                    stopTimer()
-                    deleteAction()
-                } label: {
-                    ZStack{
-                        Circle()
-                            .foregroundColor(Color(.systemFill))
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 12, height: 12, alignment: .center)
-                            .foregroundColor(.red)
-                    }
-                    .padding(.all, 4)
-                }
-                .frame(width: 36, height: 36, alignment: .center)
-                
                 Spacer()
 
                 if UIDevice.current.userInterfaceIdiom == .phone{

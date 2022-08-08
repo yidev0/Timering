@@ -32,7 +32,9 @@
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
 		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
-		D1DFBA6528A0ABAC00D83FF6 /* TestActRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA6428A0ABAC00D83FF6 /* TestActRingView.swift */; };
+		D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5A289FBED900D83FF6 /* Symbols.swift */; };
+		D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */; };
+		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +86,9 @@
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D1DFBA6428A0ABAC00D83FF6 /* TestActRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestActRingView.swift; sourceTree = "<group>"; };
+		D1DFBA5A289FBED900D83FF6 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timering.xcdatamodel; sourceTree = "<group>"; };
+		D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,17 +143,17 @@
 				D16B776B27F7DD9E00C6CBFC /* Info.plist */,
 				D16B772F27F599F200C6CBFC /* TimeringApp.swift */,
 				D16B773127F599F200C6CBFC /* ContentView.swift */,
+				D1DFBA5A289FBED900D83FF6 /* Symbols.swift */,
+				D1B57F0B2829E902002D751C /* WelcomeView.swift */,
 				D1B84789280E4F3E00B7CCF5 /* Localizable.strings */,
 				D16B773327F599F400C6CBFC /* Assets.xcassets */,
-				D16B773527F599F400C6CBFC /* Preview Content */,
-				D1687E25289520D000DDD4D3 /* TimerView.swift */,
-				D16B775927F5A25B00C6CBFC /* RingTimerView.swift */,
-				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
-				D1B57F0B2829E902002D751C /* WelcomeView.swift */,
-				D1DFBA6428A0ABAC00D83FF6 /* TestActRingView.swift */,
+				D1DFBA6328A0855700D83FF6 /* CoreData */,
+				D1DFBA61289FC59400D83FF6 /* Sidebar */,
+				D1DFBA62289FC5A400D83FF6 /* Timers */,
 				D16B776827F7DAE100C6CBFC /* Settings */,
 				D16B776527F7D50000C6CBFC /* Icons */,
 				D1779498281B8361006A421D /* Sounds */,
+				D16B773527F599F400C6CBFC /* Preview Content */,
 			);
 			path = Timering;
 			sourceTree = "<group>";
@@ -211,6 +215,32 @@
 				D177948E281B8356006A421D /* AUDIO_8166.m4a */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		D1DFBA61289FC59400D83FF6 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		D1DFBA62289FC5A400D83FF6 /* Timers */ = {
+			isa = PBXGroup;
+			children = (
+				D1687E25289520D000DDD4D3 /* TimerView.swift */,
+				D16B775927F5A25B00C6CBFC /* RingTimerView.swift */,
+				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
+			);
+			path = Timers;
+			sourceTree = "<group>";
+		};
+		D1DFBA6328A0855700D83FF6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +307,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					D16B772B27F599F200C6CBFC = {
 						CreatedOnToolsVersion = 13.3;
@@ -354,16 +384,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
 				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
-				D1DFBA6528A0ABAC00D83FF6 /* TestActRingView.swift in Sources */,
+				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
+				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -477,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -709,6 +743,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */,
+			);
+			currentVersion = D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */;
+			path = Timering.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D16B772427F599F200C6CBFC /* Project object */;
 }

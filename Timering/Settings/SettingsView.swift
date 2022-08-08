@@ -23,26 +23,45 @@ struct SettingsView: View {
                         RingSettingsView()
                     case .grid:
                         GridSettingsView()
+                    case .gauge:
+                        RingSettingsView()
                     }
                 } header: {
                     Text(timerType == .ring ? "Ring":"Grid")
                 }
                 
                 Section{
-                    NavigationLink {
-                        List{
-                            switch timerType {
-                            case .ring:
-                                GridSettingsView()
-                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
-                            case .grid:
+                    if timerType != .ring{
+                        NavigationLink {
+                            List{
                                 RingSettingsView()
                                     .toggleStyle(SwitchToggleStyle(tint: .blue))
                             }
+                        } label: {
+                            Label("Settings.Title.Ring", systemImage: "circle.circle")
                         }.navigationBarTitleDisplayMode(.inline)
-                    } label: {
-                        Label(timerType != .ring ? "Settings.Title.Ring":"Settings.Title.Grid",
-                              systemImage: timerType != .ring ? "circle.circle":"square.grid.2x2")
+                    }
+                    
+                    if timerType != .grid{
+                        NavigationLink{
+                            List{
+                                GridSettingsView()
+                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                            }
+                        } label: {
+                            Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
+                        }.navigationBarTitleDisplayMode(.inline)
+                    }
+                    
+                    if timerType != .gauge{
+                        NavigationLink{
+                            List{
+                                GridSettingsView()
+                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                            }
+                        } label: {
+                            Label("Settings.Title.Gauge", systemImage: "circle.dashed")
+                        }.navigationBarTitleDisplayMode(.inline)
                     }
                     
                     Link(destination: URL(string: UIApplication.openSettingsURLString + Bundle.main.bundleIdentifier!)!) {
