@@ -33,15 +33,22 @@
 "Welcome.Button.Close" = "閉じる";
 "Welcome.Button.Title.Back" = "戻る";
 
+//MARK: Sidebar
+"Sidebar.Section.Groups" = "グループ";
+"Sidebar.Section.Overview" = "概要";
+"Sidebar.Button.NewGroup" = "新規グループ";
+
 //MARK: Settings
 "Settings.Title" = "設定";
 "Settings.Title.Ring" = "リング";
 "Settings.Title.Grid" = "グリッド";
+"Settings.Title.Gauge" = "ゲージ";
 "Settings.Title.TimerType" = "タイマーの種類";
 "Settings.Title.Icons" = "アイコン";
 "Settings.Title.UnlockFeatures" = "機能を解放";
 "Settings.Title.Feedback" = "フィードバック";
 "Settings.AboutDisplay" = "ディスプレイについて";
+"Settings.OpenSettings" = "設定を開く";
 
 "Settings.DEBUG.Title.ShowWelcome" = "ようこそを表示";
 
