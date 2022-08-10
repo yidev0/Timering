@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SidebarView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var groups:FetchedResults<TRGroup>
     
     var body: some View {
@@ -24,19 +25,24 @@ struct SidebarView: View {
                     NavigationLink {
                         TimerView(group: group)
                     } label: {
-                        Label(group.title ?? "Untitled", image: group.icon ?? "folder")
+                        Label(group.title ?? "Untitled", systemImage: group.icon ?? "folder")
                     }
                 }
             } header: {
                 Text("Sidebar.Section.Groups")
             }
         }
+        .navigationTitle("Timering")
         .listStyle(.sidebar)
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 HStack{
                     Button {
-                        
+                        let newGroup = TRGroup(context: viewContext)
+                        newGroup.title = "Group\(Int.random(in: 0..<100))"
+                        newGroup.timerType = 1
+                        newGroup.icon = categorySymbols.randomElement()
+                        try? viewContext.save()
                     } label: {
                         HStack(alignment: .center, spacing: 8){
                             Image(systemName: "plus.circle.fill")
@@ -55,7 +61,6 @@ struct SidebarView: View {
                 }
             }
         }
-        .navigationTitle("Timering")
     }
     
     init(){

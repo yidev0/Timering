@@ -13,6 +13,7 @@ enum TimerType:Int{
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
     @State var timerType:TimerType
     
     var body: some View {
@@ -38,5 +39,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

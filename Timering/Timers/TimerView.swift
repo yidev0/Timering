@@ -9,8 +9,12 @@ import SwiftUI
 
 struct TimerView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    
     @State var showSettings = false
-    @State var timerType:TimerType = .ring
+    @State var timerType:TimerType
+    @State var totalValue:Double
     
     var group:TRGroup
     var fetchedTimers: FetchRequest<TRTimer>
@@ -24,7 +28,7 @@ struct TimerView: View {
             case .ring:
                 RingTimerView()
             case .grid:
-                GridTimerView()
+                GridTimerView(group: group)
             case .gauge:
                 GaugeTimerView()
             }
@@ -59,13 +63,16 @@ struct TimerView: View {
                         }
                     }
                 } label: {
-//                    Text("\(counter, specifier: "%.2f")")
-//                        .font(.system(.body, design: .rounded))
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(.primary)
-//                        .padding(.all, 8)
-//                        .background(.thinMaterial)
-//                        .cornerRadius(8)
+                    Text("\(totalValue, specifier: "%.2f")")
+                        .font(.system(.body, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.primary)
+                        .padding(.all, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(8)
+                }
+                .onReceive(timer) { output in
+                    totalValue = group.totalTime()
                 }
             }
             
@@ -82,7 +89,7 @@ struct TimerView: View {
                             .tag(TimerType.ring)
                         Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
                             .tag(TimerType.grid)
-                        Label("Settings.Title.Gauge", systemImage: "gauge.medium")
+                        Label("Settings.Title.Gauge", systemImage: "barometer")
                             .tag(TimerType.gauge)
                     } label: {
                         Text("Settings.Title.TimerType")
@@ -92,7 +99,10 @@ struct TimerView: View {
                 }
             }
         }
-        
+        .onChange(of: timerType) { newValue in
+            group.timerType = Int16(newValue.rawValue)
+            try? viewContext.save()
+        }
     }
     
     init(group:TRGroup){
@@ -101,6 +111,8 @@ struct TimerView: View {
                                                                              ascending: true)],
                                           predicate: NSPredicate(format: "group == %@", group),
                                           animation: .default)
+        self._timerType = .init(initialValue: TimerType(rawValue: Int(group.timerType)) ?? .ring)
+        self._totalValue = .init(initialValue: group.totalTime())
     }
     
 }
