@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SidebarView: View {
     
-    @State var timerType:TimerType
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var groups:FetchedResults<TRGroup>
     
     var body: some View {
         List{
@@ -20,29 +21,30 @@ struct SidebarView: View {
             }
             
             Section{
-                NavigationLink {
-                    TimerView(timerType: $timerType)
-                } label: {
-                    Label("School", systemImage: "graduationcap")
-                }
-                
-                NavigationLink {
-                    TimerView(timerType: $timerType)
-                } label: {
-                    Label("Work", systemImage: "briefcase")
+                ForEach(groups) { group in
+                    NavigationLink {
+                        TimerView(group: group)
+                    } label: {
+                        Label(group.title ?? "Untitled", systemImage: group.icon ?? "folder")
+                    }
                 }
             } header: {
                 Text("Sidebar.Section.Groups")
             }
         }
+        .navigationTitle("Timering")
         .listStyle(.sidebar)
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 HStack{
                     Button {
-                        
+                        let newGroup = TRGroup(context: viewContext)
+                        newGroup.title = "Group\(Int.random(in: 0..<100))"
+                        newGroup.timerType = 1
+                        newGroup.icon = categorySymbols.randomElement()
+                        try? viewContext.save()
                     } label: {
-                        HStack(spacing: 8){
+                        HStack(alignment: .center, spacing: 8){
                             Image(systemName: "plus.circle.fill")
                             Text("Sidebar.Button.NewGroup")
                         }
@@ -59,11 +61,10 @@ struct SidebarView: View {
                 }
             }
         }
-        .navigationTitle("Timering")
     }
     
     init(){
-        self.timerType = TimerType(rawValue: userDefaults?.integer(forKey: "TimerType") ?? 0)!
+        
     }
     
 }

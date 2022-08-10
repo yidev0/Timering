@@ -16,6 +16,7 @@ struct TimeringApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
                 .sheet(isPresented: $showWelcome) {
                     //dimiss
                 } content: {
@@ -31,7 +32,7 @@ struct TimeringApp: App {
     }
 }
 
-let userDefaults = UserDefaults(suiteName: "group.TimeRingApp")
+let userDefaults = UserDefaults(suiteName: "group.yiwa.Timering")
 
 extension Color {
     /// Return a random color

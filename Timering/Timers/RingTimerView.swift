@@ -9,10 +9,7 @@ import SwiftUI
 
 struct RingTimerView: View {
     
-    @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
-    @AppStorage("RingLimitTime", store: userDefaults) var limit = 30.0
-    @AppStorage("RingSetTime", store: userDefaults) var setLimit = true
     
     @State var showSettings = false
     @State var isActive = false
@@ -43,35 +40,6 @@ struct RingTimerView: View {
                 .ignoresSafeArea()
         }
         .toolbar{
-            ToolbarItem(placement: .principal) {
-                Menu {
-                    Section{
-                        Toggle(isOn: $dynamicRing) {
-                            Label("Settings.Ring.Dynamic", systemImage: "circle.circle")
-                        }
-                        Toggle(isOn: $vibrate) {
-                            Label("Settings.Ring.PlayVibration", systemImage: "waveform")
-                        }
-                    }
-                    
-                    Section{
-                        Button(action: { showSettings = true }) {
-                            Text("Ring.Title.Settings")
-                        }
-                    }
-                } label: {
-                    Text("\(counter, specifier: "%.2f")")
-                        .font(.system(.body, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.primary)
-                        .padding(.all, 8)
-                        .background(.thinMaterial)
-                        .cornerRadius(8)
-                } primaryAction: {
-                    triggerTimer()
-                    }
-            }
-            
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     
@@ -84,22 +52,13 @@ struct RingTimerView: View {
             triggerTimer()
         }
         .sheet(isPresented: $showSettings) {
-            SettingsView(timerType: Binding<TimerType>.constant(.ring))
+            SettingsView()
         }
         .onReceive(timer) { output in
-            if counter >= limit && setLimit == true{
-                times = []
-                counter = 0.001
-                isActive = false
-            } else if isActive{
+            if isActive{
                 counter += 0.01
                 (0..<times.count).forEach({ times[$0] += 0.01 })
                 adjustTime()
-            }
-        }
-        .onChange(of: dynamicRing) { newValue in
-            if newValue == false{
-                setLimit = true
             }
         }
     }
@@ -114,13 +73,7 @@ struct RingTimerView: View {
             let adjustTime = dif - times.last!
             print("dif", adjustTime)
             (0..<times.count).forEach({ times[$0] += adjustTime })
-            if counter + adjustTime + 0.009 > limit && setLimit == true{
-                times = []
-                counter = 0.001
-                isActive = false
-            } else {
-                counter += adjustTime
-            }
+            counter += adjustTime
         }
         isAdjusting = false
     }

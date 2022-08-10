@@ -13,15 +13,16 @@ enum TimerType:Int{
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
     @State var timerType:TimerType
     
     var body: some View {
         NavigationView {
             SidebarView()
             
-            ZStack{
-                TimerView(timerType: $timerType)
-            }
+//            ZStack{
+//                TimerView()
+//            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .onChange(of: timerType) { newValue in
@@ -38,5 +39,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
