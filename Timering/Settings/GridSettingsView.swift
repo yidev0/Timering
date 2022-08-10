@@ -10,10 +10,8 @@ import AVFoundation
 
 struct GridSettingsView: View {
     
-//    @AppStorage("GridColor", store: userDefault) var gridColor = Color.red
     @AppStorage("GridAutoPlay", store: userDefaults) var autoPlay = false
     @AppStorage("GridPlayVibration", store: userDefaults) var vibrate = true
-//    @AppStorage("GridPlaySound", store: userDefault) var playSound = false
     @AppStorage("GridPlayType", store: userDefaults) var soundType = 0
     @AppStorage("GridShape", store: userDefaults) var shape = 0
     let colors:[UIColor] = [.systemRed, .systemOrange, .systemYellow, .systemBlue, .systemTeal, .systemGreen, .systemPurple, .systemIndigo, .systemGray, .label]
@@ -39,8 +37,6 @@ struct GridSettingsView: View {
         }
         
         HStack{
-            Label("Settings.Grid.ShapeType", systemImage: "square.on.circle")
-            Spacer()
             Picker(selection: $shape) {
                 Label("Settings.Grid.Shape.Default", systemImage: "app.fill")
                     .tag(0)
@@ -49,22 +45,10 @@ struct GridSettingsView: View {
                 Label("Settings.Grid.Shape.Square", systemImage: "squareshape.fill")
                     .tag(2)
             } label: {
-//                Text(["Settings.Grid.ShapeType.Default", "Settings.Grid.ShapeType.Circle", "Settings.Grid.ShapeType.Square"][shape])
-            }.labelsHidden()
-//            .pickerStyle(.menu)
-
+                Label("Settings.Grid.ShapeType", systemImage: "square.on.circle")
+            }
         }
         
-        NavigationLink {
-            List{
-                ForEach(colors, id: \.self) { color in
-                    Label(color.accessibilityName, systemImage: "circle.fill")
-                        .listItemTint(Color(color))
-                }
-            }
-        } label: {
-            Text("Settings.Grid.Color")
-        }
     }
 }
 

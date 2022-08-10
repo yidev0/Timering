@@ -9,51 +9,14 @@ import SwiftUI
 
 struct RingSettingsView: View {
     
-    @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
-    @AppStorage("RingSetTime", store: userDefaults) var setLimit = true
-    @AppStorage("RingLimitTime", store: userDefaults) var ringLimitTime = 30.0
     
     let colors:[UIColor] = [.systemRed, .systemOrange, .systemYellow, .systemBlue, .systemTeal, .systemGreen, .systemPurple, .systemIndigo, .systemGray, .label]
     
     var body: some View {
-        Toggle(isOn: $dynamicRing) {
-            Label {
-                Text("Settings.Ring.Dynamic")
-            } icon: {
-                Image(systemName: "circle.circle")
-                    .symbolRenderingMode(.hierarchical)
-            }
-        }
-        .onChange(of: dynamicRing) { newValue in
-            if newValue == false{
-                setLimit = true
-            }
-        }
-        
         Toggle(isOn: $vibrate) {
             Label("Settings.Ring.PlayVibration", systemImage: "waveform")
         }
-        
-        Toggle(isOn: $setLimit) {
-            Label("Settings.Ring.SetLimit", systemImage: "dial.max")
-        }
-        .disabled(dynamicRing == false)
-        
-        if setLimit == true{
-            HStack{
-                Spacer()
-                TimerPicker(seconds: $ringLimitTime)
-                Spacer()
-            }
-        }
-        
-        NavigationLink {
-            GridColorSettings()
-        } label: {
-            Text("Settings.Ring.Color")
-        }
-        
     }
 }
 

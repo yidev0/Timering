@@ -10,59 +10,53 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @Binding var timerType:TimerType
+//    @Binding var timerType:TimerType
     
     @State var showWelcome = false
     
     var body: some View {
         NavigationView{
             List{
-                Section{
-                    switch timerType {
-                    case .ring:
-                        RingSettingsView()
-                    case .grid:
-                        GridSettingsView()
-                    case .gauge:
-                        RingSettingsView()
-                    }
-                } header: {
-                    Text(timerType == .ring ? "Ring":"Grid")
-                }
+//                Section{
+//                    switch timerType {
+//                    case .ring:
+//                        RingSettingsView()
+//                    case .grid:
+//                        GridSettingsView()
+//                    case .gauge:
+//                        RingSettingsView()
+//                    }
+//                } header: {
+//                    Text(timerType == .ring ? "Ring":"Grid")
+//                }
                 
                 Section{
-                    if timerType != .ring{
-                        NavigationLink {
-                            List{
-                                RingSettingsView()
-                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
-                            }
-                        } label: {
-                            Label("Settings.Title.Ring", systemImage: "circle.circle")
-                        }.navigationBarTitleDisplayMode(.inline)
-                    }
+                    NavigationLink {
+                        List{
+                            RingSettingsView()
+                                .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        }
+                    } label: {
+                        Label("Settings.Title.Ring", systemImage: "circle.circle")
+                    }.navigationBarTitleDisplayMode(.inline)
                     
-                    if timerType != .grid{
-                        NavigationLink{
-                            List{
-                                GridSettingsView()
-                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
-                            }
-                        } label: {
-                            Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
-                        }.navigationBarTitleDisplayMode(.inline)
-                    }
+                    NavigationLink{
+                        List{
+                            GridSettingsView()
+                                .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        }
+                    } label: {
+                        Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
+                    }.navigationBarTitleDisplayMode(.inline)
                     
-                    if timerType != .gauge{
-                        NavigationLink{
-                            List{
-                                GridSettingsView()
-                                    .toggleStyle(SwitchToggleStyle(tint: .blue))
-                            }
-                        } label: {
-                            Label("Settings.Title.Gauge", systemImage: "circle.dashed")
-                        }.navigationBarTitleDisplayMode(.inline)
-                    }
+                    NavigationLink{
+                        List{
+                            GridSettingsView()
+                                .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        }
+                    } label: {
+                        Label("Settings.Title.Gauge", systemImage: "circle.dashed")
+                    }.navigationBarTitleDisplayMode(.inline)
                     
                     Link(destination: URL(string: UIApplication.openSettingsURLString + Bundle.main.bundleIdentifier!)!) {
                         Label(title: { Text("Welcome.Title.OpenSettings").foregroundColor(.primary) },
@@ -116,7 +110,7 @@ struct SettingsView: View {
             }
             .listStyle(.insetGrouped)
             .toggleStyle(SwitchToggleStyle(tint: .blue))
-            .navigationTitle("Settings.Title")
+            .navigationBarTitle("Settings.Title", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: { presentationMode.wrappedValue.dismiss() }) {
@@ -158,6 +152,6 @@ struct SettingsView_Previews: PreviewProvider {
     @State var timerType:TimerType
     
     static var previews: some View {
-        SettingsView(timerType: .constant(.ring))
+        SettingsView()
     }
 }

@@ -19,9 +19,9 @@ struct ContentView: View {
         NavigationView {
             SidebarView()
             
-            ZStack{
-                TimerView(timerType: $timerType)
-            }
+//            ZStack{
+//                TimerView()
+//            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .onChange(of: timerType) { newValue in

@@ -31,7 +31,7 @@ struct TimeringApp: App {
     }
 }
 
-let userDefaults = UserDefaults(suiteName: "group.TimeRingApp")
+let userDefaults = UserDefaults(suiteName: "group.yiwa.Timering")
 
 extension Color {
     /// Return a random color

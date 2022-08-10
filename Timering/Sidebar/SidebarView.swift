@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SidebarView: View {
     
-    @State var timerType:TimerType
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var groups:FetchedResults<TRGroup>
     
     var body: some View {
         List{
@@ -20,16 +20,12 @@ struct SidebarView: View {
             }
             
             Section{
-                NavigationLink {
-                    TimerView(timerType: $timerType)
-                } label: {
-                    Label("School", systemImage: "graduationcap")
-                }
-                
-                NavigationLink {
-                    TimerView(timerType: $timerType)
-                } label: {
-                    Label("Work", systemImage: "briefcase")
+                ForEach(groups) { group in
+                    NavigationLink {
+                        TimerView(group: group)
+                    } label: {
+                        Label(group.title ?? "Untitled", image: group.icon ?? "folder")
+                    }
                 }
             } header: {
                 Text("Sidebar.Section.Groups")
@@ -42,7 +38,7 @@ struct SidebarView: View {
                     Button {
                         
                     } label: {
-                        HStack(spacing: 8){
+                        HStack(alignment: .center, spacing: 8){
                             Image(systemName: "plus.circle.fill")
                             Text("Sidebar.Button.NewGroup")
                         }
@@ -63,7 +59,7 @@ struct SidebarView: View {
     }
     
     init(){
-        self.timerType = TimerType(rawValue: userDefaults?.integer(forKey: "TimerType") ?? 0)!
+        
     }
     
 }

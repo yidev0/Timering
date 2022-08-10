@@ -30,11 +30,15 @@
 		D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779490281B8356006A421D /* AUDIO_0004.m4a */; };
 		D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779491281B8356006A421D /* AUDIO_7063.m4a */; };
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
+		D1831D6128A0B07A00A667CF /* TRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6028A0B07A00A667CF /* TRTimer.swift */; };
+		D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6228A0B25900A667CF /* GaugeTimerView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
 		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
 		D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5A289FBED900D83FF6 /* Symbols.swift */; };
 		D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */; };
 		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
+		D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7828A26BD100D641F7 /* PersistenceController.swift */; };
+		D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,12 +87,16 @@
 		D1779490281B8356006A421D /* AUDIO_0004.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_0004.m4a; sourceTree = "<group>"; };
 		D1779491281B8356006A421D /* AUDIO_7063.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_7063.m4a; sourceTree = "<group>"; };
 		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
+		D1831D6028A0B07A00A667CF /* TRTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTimer.swift; sourceTree = "<group>"; };
+		D1831D6228A0B25900A667CF /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1DFBA5A289FBED900D83FF6 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timering.xcdatamodel; sourceTree = "<group>"; };
 		D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		D1F95E7828A26BD100D641F7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistentContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +151,7 @@
 				D16B776B27F7DD9E00C6CBFC /* Info.plist */,
 				D16B772F27F599F200C6CBFC /* TimeringApp.swift */,
 				D16B773127F599F200C6CBFC /* ContentView.swift */,
-				D1DFBA5A289FBED900D83FF6 /* Symbols.swift */,
+				D1F95E7C28A274B800D641F7 /* Data */,
 				D1B57F0B2829E902002D751C /* WelcomeView.swift */,
 				D1B84789280E4F3E00B7CCF5 /* Localizable.strings */,
 				D16B773327F599F400C6CBFC /* Assets.xcassets */,
@@ -228,9 +236,11 @@
 		D1DFBA62289FC5A400D83FF6 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
+				D1831D6028A0B07A00A667CF /* TRTimer.swift */,
 				D1687E25289520D000DDD4D3 /* TimerView.swift */,
 				D16B775927F5A25B00C6CBFC /* RingTimerView.swift */,
 				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
+				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -239,8 +249,18 @@
 			isa = PBXGroup;
 			children = (
 				D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */,
+				D1F95E7828A26BD100D641F7 /* PersistenceController.swift */,
+				D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D1F95E7C28A274B800D641F7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D1DFBA5A289FBED900D83FF6 /* Symbols.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +409,7 @@
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
 				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
+				D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
@@ -397,6 +418,9 @@
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
 				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
+				D1831D6128A0B07A00A667CF /* TRTimer.swift in Sources */,
+				D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */,
+				D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
