@@ -9,6 +9,14 @@ import Foundation
 import CoreData
 
 extension TRTimer{
+    func toEntries() -> [TREntry] {
+        if let array = self.entries?.allObjects.map({ $0 as! TREntry}){
+            return array
+        } else {
+            return []
+        }
+    }
+    
     func totalTime() -> Double{
         var returnValue:Double = 0.001
         if let entries = entries{
@@ -24,14 +32,13 @@ extension TRTimer{
     func adjustTime(){
         if self.isActive == true {
             let currentTime = Date()
-            if let entries = self.entries, let entry = entries.allObjects.last as? TREntry, let startDate = entry.input{
+            let entries = self.toEntries().sorted(by: { $0.input ?? Date() < $1.input ?? Date() })
+            if let entry = entries.last, let startDate = entry.input{
                 let dif = currentTime.timeIntervalSince(startDate)
                 let adjustTime = dif - entry.value
                 if adjustTime > 0{
                     print("dif", String(format: "%.2f", adjustTime))
-                    if entry.value - adjustTime > 0.01{
-                        entry.value += adjustTime
-                    }
+                    entry.value += adjustTime
                 }
                 entry.value += 0.01
             }
