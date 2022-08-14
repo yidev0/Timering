@@ -120,15 +120,16 @@ struct TimerView: View {
 struct TimerControlView: View{
     
     var trGroup:TRGroup
+    var trTimers:FetchRequest<TRTimer>
     
     var body: some View{
         HStack{
             Spacer()
             
             HStack(spacing: 12){
-//                ForEach($timers) { $timer in
-//                    TimerControlButton(timer: $timer, isActive: timer.isActive)
-//                }
+                ForEach(trTimers.wrappedValue, id: \.self) { timer in
+                    TimerControlButton(trTimer: timer)
+                }
             }
             .padding(.all, 10)
             .background(Color(.secondarySystemBackground))
@@ -137,38 +138,63 @@ struct TimerControlView: View{
             .shadow(radius: 4)
         }
     }
+    
+    init(trGroup:TRGroup){
+        self.trGroup = trGroup
+        self.trTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
+                                                                        ascending: true)],
+                                     predicate: NSPredicate(format: "group = %@", trGroup))
+    }
+    
 }
 
 struct TimerControlButton: View{
     
-    @Binding var timer:TRTimer
-    @State var isActive:Bool
+    @Environment(\.managedObjectContext) private var viewContext
+    var trTimer:TRTimer
     
     var body: some View{
         Button {
-            // TODO:
-            isActive.toggle()
+            buttonPressed()
         } label: {
             ZStack{
                 Circle()
-//                    .foregroundColor(isActive ? timer.tint:.clear)
-//                Image(systemName: timer.icon)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(maxWidth: 24, maxHeight: 24)
-//                    .foregroundColor(isActive ? .white:timer.tint)
+                    .foregroundColor(trTimer.isActive ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear)
+                Image(systemName: trTimer.icon ?? "folder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 24, maxHeight: 24)
+                    .foregroundColor(trTimer.isActive ? .white:Color(trTimer.tint as? UIColor ?? .systemBlue))
             }
             .frame(width: 60 - 20, height: 60 - 20)
         }
-        .onChange(of: isActive) { newValue in
-//            timer.isActive = newValue
-//
-//            if newValue{
-//                timer.lastInput.append(Date())
-//                timer.times.append(0.001)
-//            }
-        }
     }
+    
+    func buttonPressed(){
+        trTimer.adjustTime()
+        trTimer.isActive.toggle()
+        
+        if trTimer.isActive{
+            let newEntry = TREntry(context: viewContext)
+            newEntry.input = Date()
+            newEntry.value = 0.001
+            newEntry.timer = trTimer
+            do{
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else {
+            do{
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+//        trTimer.isActive == false ? stopTimer():startTimer()
+    }
+    
 }
 
 //struct TimerView_Previews: PreviewProvider {

@@ -37,8 +37,10 @@ struct GridTimerCell:View{
         ZStack{
             VStack(alignment: .center){
                 Text(trTimer.title ?? "Untitled")
+                    .foregroundColor(Color((trTimer.tint as? UIColor) ?? .systemBlue))
                     .multilineTextAlignment(.center)
                 Text("\(totalValue, specifier: "%.2f")")
+                    .foregroundColor(Color((trTimer.tint as? UIColor) ?? .systemBlue))
                     .multilineTextAlignment(.center)
             }
 
@@ -114,8 +116,8 @@ struct GridTimerCell:View{
             
             Button(role: .destructive) {
                 stopTimer()
-                //TODO: Delete Action
-//                deleteAction()
+                viewContext.delete(trTimer)
+                try? viewContext.save()
             } label: {
                 Label("Timer.Button.Delete", systemImage: "trash")
             }
