@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 import CoreData
 
 struct PersistenceController {
@@ -74,31 +74,3 @@ struct PersistenceController {
     }
 }
 
-
-extension TRTimer{
-    func totalTime() -> Double{
-        var returnValue:Double = 0
-        if let entries = entries{
-            for entry in entries{
-                if let entry = entry as? TREntry{
-                    returnValue += entry.value
-                }
-            }
-        }
-        return returnValue
-    }
-}
-
-extension TRGroup{
-    func totalTime() -> Double{
-        var returnValue:Double = 0
-        if let timers = timers{
-            for timer in timers{
-                if let timer = timer as? TRTimer{
-                    returnValue += timer.totalTime()
-                }
-            }
-        }
-        return returnValue
-    }
-}

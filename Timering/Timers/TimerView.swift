@@ -16,7 +16,7 @@ struct TimerView: View {
     @State var timerType:TimerType
     @State var totalValue:Double
     
-    var group:TRGroup
+    var trGroup:TRGroup
     var fetchedTimers: FetchRequest<TRTimer>
     
     @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
@@ -26,9 +26,9 @@ struct TimerView: View {
         ZStack{
             switch timerType {
             case .ring:
-                RingTimerView()
+                RingTimerView(group: trGroup)
             case .grid:
-                GridTimerView(group: group)
+                GridTimerView(group: trGroup)
             case .gauge:
                 GaugeTimerView()
             }
@@ -37,7 +37,7 @@ struct TimerView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    TimerControlView()
+                    TimerControlView(trGroup: trGroup)
                         .padding([.bottom, .trailing], 12)
                 }
             }
@@ -72,7 +72,7 @@ struct TimerView: View {
                         .cornerRadius(8)
                 }
                 .onReceive(timer) { output in
-                    totalValue = group.totalTime()
+                    totalValue = trGroup.totalTime()
                 }
             }
             
@@ -100,13 +100,13 @@ struct TimerView: View {
             }
         }
         .onChange(of: timerType) { newValue in
-            group.timerType = Int16(newValue.rawValue)
+            trGroup.timerType = Int16(newValue.rawValue)
             try? viewContext.save()
         }
     }
     
     init(group:TRGroup){
-        self.group = group
+        self.trGroup = group
         self.fetchedTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
                                                                              ascending: true)],
                                           predicate: NSPredicate(format: "group == %@", group),
@@ -119,7 +119,7 @@ struct TimerView: View {
 
 struct TimerControlView: View{
     
-//    @State var timers = testTimers
+    var trGroup:TRGroup
     
     var body: some View{
         HStack{

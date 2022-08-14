@@ -96,13 +96,8 @@ struct GridTimerCell:View{
                 .onReceive(timer) { output in
                     print(output)
                     withAnimation {
-                        if trTimer.isActive == true{
-                            if let entries = trTimer.entries, let entry = entries.allObjects.last as? TREntry{
-                                entry.value += 0.01
-                                adjustTime()
-                                totalValue = trTimer.totalTime()
-                            }
-                        }
+                        trTimer.adjustTime()
+                        totalValue = trTimer.totalTime()
                     }
                 }
             }
