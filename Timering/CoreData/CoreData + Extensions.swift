@@ -1,0 +1,72 @@
+//
+//  CoreData + Extensions.swift
+//  Timering
+//
+//  Created by Yuto on 2022/08/13.
+//
+
+import Foundation
+import CoreData
+
+extension TRTimer{
+    func totalTime() -> Double{
+        var returnValue:Double = 0.001
+        if let entries = entries{
+            for entry in entries{
+                if let entry = entry as? TREntry{
+                    returnValue += entry.value
+                }
+            }
+        }
+        return returnValue
+    }
+    
+    func adjustTime(){
+        if self.isActive == true {
+            let currentTime = Date()
+            if let entries = self.entries, let entry = entries.allObjects.last as? TREntry, let startDate = entry.input{
+                let dif = currentTime.timeIntervalSince(startDate)
+                let adjustTime = dif - entry.value
+                if adjustTime > 0{
+                    print("dif", String(format: "%.2f", adjustTime))
+                    if entry.value - adjustTime > 0.01{
+                        entry.value += adjustTime
+                    }
+                }
+                entry.value += 0.01
+            }
+        }
+    }
+}
+
+extension TRGroup{
+    func totalTime() -> Double{
+        var returnValue:Double = 0.001
+        if let timers = timers{
+            for timer in timers{
+                if let timer = timer as? TRTimer{
+                    returnValue += timer.totalTime()
+                }
+            }
+        }
+        return returnValue
+    }
+    
+    func delete(){
+        do {
+            let viewContext = PersistenceController.shared.container.viewContext
+            let timers = try viewContext.fetch(NSFetchRequest<TRTimer>(entityName: "TRTimer")).filter({ $0.group == self })
+            let entries = try viewContext.fetch(NSFetchRequest<TREntry>(entityName: "TREntry")).filter{
+                if let timer = $0.timer{
+                    return timers.contains(timer)
+                }
+                return false
+            }
+            
+            timers.forEach(viewContext.delete)
+            entries.forEach(viewContext.delete)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}

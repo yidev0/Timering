@@ -47,7 +47,7 @@ struct GridTimerView: View {
                                 timer.title = "Test\(Int.random(in: 0..<100))"
                                 timer.group = group
                                 timer.goalTime = 10
-                                timer.tint = UIColor.systemBlue
+                                timer.tint = UIColor.random
                                 timer.icon = timerSymbols.randomElement()
                                 try? viewContext.save()
                             }
