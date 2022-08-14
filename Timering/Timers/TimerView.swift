@@ -30,7 +30,7 @@ struct TimerView: View {
             case .grid:
                 GridTimerView(group: trGroup)
             case .gauge:
-                GaugeTimerView()
+                GaugeTimerView(timers: testGaugeTimers)
             }
             
             VStack{
@@ -128,7 +128,7 @@ struct TimerControlView: View{
             
             HStack(spacing: 12){
                 ForEach(trTimers.wrappedValue, id: \.self) { timer in
-                    TimerControlButton(trTimer: timer)
+                    TimerControlButton(trTimer: timer, isActive: timer.isActive)
                 }
             }
             .padding(.all, 10)
@@ -152,6 +152,7 @@ struct TimerControlButton: View{
     
     @Environment(\.managedObjectContext) private var viewContext
     var trTimer:TRTimer
+    @State var isActive:Bool
     
     var body: some View{
         Button {
@@ -168,13 +169,21 @@ struct TimerControlButton: View{
             }
             .frame(width: 60 - 20, height: 60 - 20)
         }
+        .onChange(of: isActive) { newValue in
+            trTimer.isActive = newValue
+            do{
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func buttonPressed(){
         trTimer.adjustTime()
-        trTimer.isActive.toggle()
+        isActive.toggle()
         
-        if trTimer.isActive{
+        if isActive{
             let newEntry = TREntry(context: viewContext)
             newEntry.input = Date()
             newEntry.value = 0.001
@@ -192,7 +201,7 @@ struct TimerControlButton: View{
             }
         }
         
-//        trTimer.isActive == false ? stopTimer():startTimer()
+//        isActive == false ? stopTimer():startTimer()
     }
     
 }
