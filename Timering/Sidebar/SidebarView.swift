@@ -19,7 +19,7 @@ struct SidebarView: View {
     var body: some View {
         List{
             NavigationLink {
-                //TODO: 
+                //TODO:
             } label: {
                 Label("Sidebar.Section.Overview", systemImage: "timer")
             }
@@ -36,8 +36,8 @@ struct SidebarView: View {
                 Text("Sidebar.Section.Groups")
             }
         }
-        .navigationTitle("Timering")
         .listStyle(.sidebar)
+        .navigationTitle("Timering")
         .popover(item: $popGroup){ group in
             //TODO: グループの詳細表示画面
         }

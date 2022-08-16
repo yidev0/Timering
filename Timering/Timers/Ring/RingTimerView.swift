@@ -30,26 +30,19 @@ struct RingTimerView: View {
         ZStack{
             Color(.systemBackground)
                 .ignoresSafeArea()
-            RingView(counter: $counter, entries: trEntries, timers: fetchedTimers)
+            RingView(group: group, entries: trEntries)
                 .ignoresSafeArea()
         }
-        .toolbar{
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Menu {
-                    
-                } label: {
-                    Image(systemName: "info.circle")
-                }
-            }
-        }
         .onTapGesture {
-//            triggerTimer()
+            print(trEntries.wrappedValue.count)
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
         .onReceive(timer) { output in
-            
+            for timer in fetchedTimers.wrappedValue{
+                timer.adjustTime()
+            }
         }
     }
     
@@ -61,41 +54,10 @@ struct RingTimerView: View {
                                           animation: .default)
         self.trEntries = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.input,
                                                                          ascending: true)],
+                                      predicate: NSPredicate(format: "timer.group == %@", group),
                                       animation: .default)
         self._counter = .init(initialValue: group.totalTime())
     }
-    
-//    func adjustTime(){
-//        if isAdjusting == true { return }
-//
-//        isAdjusting = true
-//        let currentTime = Date()
-//        let dif = currentTime.timeIntervalSince(startTime)
-//        if let last = times.last, dif > last{
-//            let adjustTime = dif - times.last!
-//            print("dif", adjustTime)
-//            (0..<times.count).forEach({ times[$0] += adjustTime })
-//            counter += adjustTime
-//        }
-//        isAdjusting = false
-//    }
-    
-//    func triggerTimer(){
-//        if isActive{
-//            print(times)
-//        } else {
-//            startTime = Date()
-//            withAnimation {
-//                times.append(0.001)
-//            }
-//        }
-//
-//        if vibrate{
-//            let generator = UIImpactFeedbackGenerator(style: .soft)
-//            generator.impactOccurred()
-//        }
-//        isActive.toggle()
-//    }
     
 }
 

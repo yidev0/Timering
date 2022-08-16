@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 extension TRTimer{
     func toEntries() -> [TREntry] {
@@ -72,8 +73,33 @@ extension TRGroup{
             
             timers.forEach(viewContext.delete)
             entries.forEach(viewContext.delete)
+            viewContext.delete(self)
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+extension TREntry{
+    func sum(entries:[TREntry]) -> Double {
+        var returnValue:Double = 0
+        if let index = entries.firstIndex(of: self){
+            for i in index..<entries.count{
+                returnValue += entries[i].value
+            }
+        }
+//        print("Ring Entry Sum: ", self.value, returnValue, self.timer?.totalTime())
+        return returnValue
+    }
+    
+    func sum(entries:FetchedResults<TREntry>) -> Double {
+        var returnValue:Double = 0
+        if let index = entries.firstIndex(of: self){
+            for i in index..<entries.count{
+                returnValue += entries[i].value
+            }
+        }
+//        print("Ring Entry Sum: ", self.value, returnValue, self.timer?.totalTime())
+        return returnValue
     }
 }

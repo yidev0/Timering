@@ -78,12 +78,6 @@ struct TimerView: View {
             
             ToolbarItem(placement: .navigationBarLeading) {
                 Menu{
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Text("Settings.OpenSettings")
-                    }
-                    
                     Picker(selection: $timerType) {
                         Label("Settings.Title.Ring", systemImage: "circle.circle")
                             .tag(TimerType.ring)
@@ -94,8 +88,21 @@ struct TimerView: View {
                     } label: {
                         Text("Settings.Title.TimerType")
                     }
+                    
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Text("Settings.OpenSettings")
+                    }
                 } label: {
-                    Image(systemName: "gearshape")
+                    switch timerType {
+                    case .ring:
+                        Image(systemName: "circle.circle")
+                    case .grid:
+                        Image(systemName: "square.grid.2x2")
+                    case .gauge:
+                        Image(systemName: "barometer")
+                    }
                 }
             }
         }
