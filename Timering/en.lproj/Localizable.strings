@@ -38,6 +38,11 @@
 "Sidebar.Section.Overview" = "Overview";
 "Sidebar.Button.NewGroup" = "New Group";
 
+//MARK: Tabbar
+"Tabbar.Section.Groups" = "Groups";
+"Tabbar.Section.Overview" = "Overview";
+"Tabbar.Button.NewGroup" = "New Group";
+
 //MARK: Grid
 "Grid.Title.Timer" = "Timer";
 

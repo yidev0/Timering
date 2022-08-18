@@ -25,7 +25,6 @@ struct RingView: View{
                 
                 ForEach(entries.wrappedValue, id: \.self) { entry in
                     Circle()
-                        .ignoresSafeArea()
                         .frame(width: entry.sum(entries: entries.wrappedValue)/counter * maxSize, alignment: .center)
                         .aspectRatio(1, contentMode: .fill)
                         .foregroundColor(Color(entry.timer?.tint as? UIColor ?? .random))
@@ -34,24 +33,24 @@ struct RingView: View{
                                   String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
                                   "+",
                                   String(format: "%.2f", counter),
-                                  String(format: "%.2f", entry.timer!.group!.totalTime()))
+                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
                         }
                         .onChange(of: entry.value) { _ in
                             print("Change",
                                   String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
                                   "+",
                                   String(format: "%.2f", counter),
-                                  String(format: "%.2f", entry.timer!.group!.totalTime()))
-                            if let group = entry.timer?.group{
+                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
+                            if let session = entry.timer?.session{
                                 withAnimation {
-                                    counter = group.totalTime()
+                                    counter = session.totalTime()
                                 }
                             }
                         }
                 }
             }
-//            .offset(x: (geometry.size.width < geometry.size.height) ? -(geometry.size.height - geometry.size.width)/2:0,
-//                    y: (geometry.size.width > geometry.size.height) ? -(geometry.size.width  - geometry.size.height)/2:0)
+            .offset(x: (geometry.size.width < geometry.size.height) ? -(geometry.size.height - geometry.size.width)/2:0,
+                    y: (geometry.size.width > geometry.size.height) ? -(geometry.size.width  - geometry.size.height)/2:0)
             .onChange(of: geometry.size) { newValue in
                 maxSize = (newValue.width > newValue.height) ? newValue.width:newValue.height
             }

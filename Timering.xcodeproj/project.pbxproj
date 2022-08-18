@@ -34,6 +34,8 @@
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
 		D1831D6128A0B07A00A667CF /* TRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6028A0B07A00A667CF /* TRTimer.swift */; };
 		D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6228A0B25900A667CF /* GaugeTimerView.swift */; };
+		D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589228ADDAD1002B4EA9 /* OverviewView.swift */; };
+		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
 		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
 		D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */; };
@@ -94,6 +96,8 @@
 		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
 		D1831D6028A0B07A00A667CF /* TRTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTimer.swift; sourceTree = "<group>"; };
 		D1831D6228A0B25900A667CF /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
+		D195589228ADDAD1002B4EA9 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		D195589428ADDC61002B4EA9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -171,7 +175,7 @@
 				D1B84789280E4F3E00B7CCF5 /* Localizable.strings */,
 				D16B773327F599F400C6CBFC /* Assets.xcassets */,
 				D1DFBA6328A0855700D83FF6 /* CoreData */,
-				D1DFBA61289FC59400D83FF6 /* Sidebar */,
+				D1DFBA61289FC59400D83FF6 /* Groups */,
 				D1DFBA62289FC5A400D83FF6 /* Timers */,
 				D16B776827F7DAE100C6CBFC /* Settings */,
 				D16B776527F7D50000C6CBFC /* Icons */,
@@ -249,12 +253,13 @@
 			path = Grid;
 			sourceTree = "<group>";
 		};
-		D1DFBA61289FC59400D83FF6 /* Sidebar */ = {
+		D1DFBA61289FC59400D83FF6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
 				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
+				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
 			);
-			path = Sidebar;
+			path = Groups;
 			sourceTree = "<group>";
 		};
 		D1DFBA62289FC5A400D83FF6 /* Timers */ = {
@@ -262,6 +267,7 @@
 			children = (
 				D1831D6028A0B07A00A667CF /* TRTimer.swift */,
 				D1687E25289520D000DDD4D3 /* TimerView.swift */,
+				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
 				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
 				D1D9012F28A38EA7001B0EA2 /* Grid */,
@@ -441,7 +447,9 @@
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
+				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
+				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
 				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,

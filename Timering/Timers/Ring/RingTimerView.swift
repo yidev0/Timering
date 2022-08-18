@@ -15,14 +15,13 @@ struct RingTimerView: View {
     @State var isActive = false
     @State var isAdjusting = false
     
-    var group:TRGroup
+    var trGroup:TRGroup
+    var trSession:TRSession
     var fetchedTimers: FetchRequest<TRTimer>
     var trEntries: FetchRequest<TREntry>
     
-//    @State var size:CGSize = .zero
     @State var counter:Double// = 0.001
-//    @State var times:[Double] = []
-//    @State var maxSize:Double = 100
+    @State var maxSize:Double = 100
     @State var startTime = Date()
     private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -30,7 +29,7 @@ struct RingTimerView: View {
         ZStack{
             Color(.systemBackground)
                 .ignoresSafeArea()
-            RingView(group: group, entries: trEntries)
+            RingView(group: trGroup, entries: trEntries)
                 .ignoresSafeArea()
         }
         .onTapGesture {
@@ -47,14 +46,15 @@ struct RingTimerView: View {
     }
     
     init(group:TRGroup){
-        self.group = group
+        self.trGroup = group
+        self.trSession = group.getActiveSession()!
         self.fetchedTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
                                                                              ascending: true)],
-                                          predicate: NSPredicate(format: "group == %@", group),
+                                          predicate: NSPredicate(format: "session == %@", trSession),
                                           animation: .default)
         self.trEntries = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.input,
                                                                          ascending: true)],
-                                      predicate: NSPredicate(format: "timer.group == %@", group),
+                                      predicate: NSPredicate(format: "timer.session == %@", trSession),
                                       animation: .default)
         self._counter = .init(initialValue: group.totalTime())
     }
