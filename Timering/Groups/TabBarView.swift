@@ -61,7 +61,6 @@ struct ActiveSessionBar<Content: View>: View{
                 content()
             }
             
-            
             VStack(spacing: 0){
                 Spacer()
                 
@@ -69,10 +68,13 @@ struct ActiveSessionBar<Content: View>: View{
                     sheetSession = selectedSession
                 } label: {
                     HStack{
+                        if let trSession = selectedSession{
+                            Image(systemName: trSession.group?.icon ?? "questionmark")
+                        }
+                        
                         VStack(alignment: .leading){
                             if let trSession = selectedSession{
-                                Label(trSession.group?.title ?? "Untitled",
-                                      systemImage: trSession.group?.icon ?? "questionmark")
+                                Text(trSession.group?.title ?? "Untitled")
                             } else {
                                 Text("N/A")
                             }
@@ -82,7 +84,7 @@ struct ActiveSessionBar<Content: View>: View{
                                     .font(.footnote)
                                     .onReceive(timer) { _ in
                                         totalValue = trSession.totalTime()
-                                        trSession.
+                                        //TODO: 時間差を計算
                                     }
                             }   
                         }

@@ -130,6 +130,8 @@ extension TRGroup{
             timers.forEach(viewContext.delete)
             entries.forEach(viewContext.delete)
             viewContext.delete(self)
+            
+            try viewContext.save()
         } catch {
             print(error.localizedDescription)
         }

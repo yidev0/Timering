@@ -18,15 +18,15 @@ struct ContentView: View {
     
     var body: some View {
         if horizontalSizeClass == .compact{
-            NavigationView{
+//            NavigationView{
                 TabBarView()
-            }.navigationViewStyle(.stack)
+//            }.navigationViewStyle(.stack)
         } else {
             NavigationView {
                 SidebarView()
                 Text("")
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationViewStyle(.columns)
         }
     }
     

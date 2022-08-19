@@ -37,6 +37,19 @@
 "Sidebar.Section.Groups" = "グループ";
 "Sidebar.Section.Overview" = "概要";
 "Sidebar.Button.NewGroup" = "新規グループ";
+"Sidebar.Button.Delete" = "削除";
+"Sidebar.Button.ShowDetail" = "編集";
+
+//MARK: Tabbar
+"Tabbar.Section.Groups" = "グループ";
+"Tabbar.Section.Overview" = "概要";
+"Tabbar.Button.NewGroup" = "新しいグループ";
+
+//MARK: Grid
+"Grid.Title.Timer" = "タイマー";
+
+//MARK: Ring
+"Ring.Title.Settings" = "設定";
 
 //MARK: Settings
 "Settings.Title" = "設定";
@@ -83,3 +96,9 @@
 "Settings.Ring.Color.Blue" = "ブルー";
 "Settings.Ring.Color.Gray" = "グレー";
 "Settings.Ring.Color.Rainbow" = "レインボー";
+
+//MARK: Group
+"Group.Detail.Button.Cancel" = "キャンセル";
+"Group.Detail.Button.Save" = "保存";
+"Group.Detail.AutoFill" = "自動入力";
+"Group.Detail.Field.Title" = "タイトル";

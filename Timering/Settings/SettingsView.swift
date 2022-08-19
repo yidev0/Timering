@@ -17,19 +17,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationView{
             List{
-//                Section{
-//                    switch timerType {
-//                    case .ring:
-//                        RingSettingsView()
-//                    case .grid:
-//                        GridSettingsView()
-//                    case .gauge:
-//                        RingSettingsView()
-//                    }
-//                } header: {
-//                    Text(timerType == .ring ? "Ring":"Grid")
-//                }
-                
                 Section{
                     NavigationLink {
                         List{
@@ -110,7 +97,7 @@ struct SettingsView: View {
             }
             .listStyle(.insetGrouped)
             .toggleStyle(SwitchToggleStyle(tint: .blue))
-            .navigationBarTitle("Settings.Title", displayMode: .large)
+            .navigationBarTitle("Settings.Title")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: { presentationMode.wrappedValue.dismiss() }) {

@@ -28,7 +28,7 @@
 //"Welcome.Detail.Privacy" = "This app does not collect or send data.";
 "Welcome.Title.Permission.Notification" = "Notification";
 "Welcome.Detail.Permission.Notification" = "Allow notification to get alerts, play sounds, when timer is completed. \nTo turn off, tap the button below or open Settings app.";
-"Welcome.Title.OpenSettings" = "Notification Setting";
+"Welcome.Title.OpenSettings" = "Notification Settings";
 "Welcome.Button.Continue" = "Continue";
 "Welcome.Button.Close" = "Close";
 "Welcome.Button.Title.Back" = "Back";
@@ -37,6 +37,8 @@
 "Sidebar.Section.Groups" = "Groups";
 "Sidebar.Section.Overview" = "Overview";
 "Sidebar.Button.NewGroup" = "New Group";
+"Sidebar.Button.Delete" = "Delete";
+"Sidebar.Button.ShowDetail" = "Edit";
 
 //MARK: Tabbar
 "Tabbar.Section.Groups" = "Groups";
@@ -88,3 +90,9 @@
 "Settings.Ring.Color.Blue" = "Blue";
 "Settings.Ring.Color.Gray" = "Gray";
 "Settings.Ring.Color.Rainbow" = "Rainbow";
+
+//MARK: Group
+"Group.Detail.Button.Cancel" = "Cancel";
+"Group.Detail.Button.Save" = "Save";
+"Group.Detail.AutoFill" = "Auto Fill";
+"Group.Detail.Field.Title" = "Title";

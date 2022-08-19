@@ -7,6 +7,66 @@
 
 import SwiftUI
 
+struct GroupListCell: View{
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
+    var group:TRGroup
+    @Binding var popGroup:TRGroup?
+    @Binding var sheetSession:TRSession?
+    
+    var LinkCell: some View{
+        NavigationLink {
+            TimerView(group: group)
+        } label: {
+            Label(group.title ?? "Untitled", systemImage: group.icon ?? "folder")
+        }
+    }
+    
+    var ButtonCell: some View{
+        Button {
+            sheetSession = group.getActiveSession()
+        } label: {
+            Label(title: { Text(group.title ?? "Untitled").foregroundColor(.primary) },
+                  icon: { Image(systemName: group.icon ?? "folder") })
+        }
+    }
+    
+    var TrashButton: some View{
+        Button(role: .destructive) {
+            group.delete()
+        } label: {
+            Label("Sidebar.Button.Delete", systemImage: "trash")
+        }
+    }
+    
+    var DetailButton: some View{
+        Button {
+            popGroup = group
+        } label: {
+            Label("Sidebar.Button.ShowDetail", systemImage: "info.circle")
+        }
+    }
+    
+    var body: some View{
+        Group{
+            if horizontalSizeClass == .compact{
+                ButtonCell
+            } else {
+                LinkCell
+            }
+        }
+        .swipeActions {
+            TrashButton
+            DetailButton
+        }
+        .contextMenu{
+            DetailButton
+            TrashButton
+        }
+    }
+}
+
 struct SidebarView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -17,6 +77,8 @@ struct SidebarView: View {
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var entries:FetchedResults<TREntry>
     
     @State var popGroup:TRGroup?
+    @State var newGroup = false
+    @State var sheetSession:TRSession?
     
     var body: some View {
         List{
@@ -28,47 +90,32 @@ struct SidebarView: View {
             
             Section{
                 ForEach(groups) { group in
-                    NavigationLink {
-                        TimerView(group: group)
-                    } label: {
-                        Label(group.title ?? "Untitled", systemImage: group.icon ?? "folder")
-                    }
-                }.onDelete(perform: deleteGroup(offsets:))
+                    GroupListCell(group: group, popGroup: $popGroup, sheetSession: $sheetSession)
+                }
             } header: {
                 Text("Sidebar.Section.Groups")
+            }
+            .sheet(item: $popGroup){ group in
+                GroupDetailView(group: group)
             }
         }
         .listStyle(.sidebar)
         .navigationTitle("Timering")
-        .popover(item: $popGroup){ group in
-            //TODO: グループの詳細表示画面
-        }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 HStack{
                     Button {
-                        let newGroup = TRGroup(context: viewContext)
-                        newGroup.title = "Group \(Int.random(in: 0..<100))"
-                        newGroup.timerType = 1
-                        newGroup.icon = categorySymbols.randomElement()
-                        
-                        let newSession = TRSession(context: viewContext)
-                        newSession.group = newGroup
-                        newSession.createDate = Date()
-                        
-                        try? viewContext.save()
+                        newGroup = true
                     } label: {
-//                        HStack(alignment: .center, spacing: 8){
-//                            Image(systemName: "plus.circle.fill")
-//                            Text("Sidebar.Button.NewGroup")
-//                        }
                         Image(systemName: "folder.badge.plus")
+                    }
+                    .sheet(isPresented: $newGroup) {
+                        GroupDetailView(group: nil)
                     }
                     
                     Spacer()
                 }
             }
-            
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 if horizontalSizeClass == .compact{
@@ -79,16 +126,6 @@ struct SidebarView: View {
                     }
                 }
             }
-        }
-    }
-    
-    init(){
-        
-    }
-    
-    func deleteGroup(offsets: IndexSet){
-        offsets.map { groups[$0] }.forEach{ group in
-            group.delete()
         }
     }
     
@@ -105,42 +142,51 @@ struct GroupListView: View {
     
     @State var popGroup:TRGroup?
     @Binding var sheetSession:TRSession?
+    @State var showSettings = false
+    @State var newGroup = false
     
     var body: some View {
         List{
             Section{
                 ForEach(groups) { group in
-                    Button {
-                        sheetSession = group.getActiveSession()
-                    } label: {
-                        Label(group.title ?? "Untitled", systemImage: group.icon ?? "folder")
-                    }
-                }.onDelete(perform: deleteGroup(offsets:))
-            } header: {
-                Text("Sidebar.Section.Groups")
+                    GroupListCell(group: group, popGroup: $popGroup, sheetSession: $sheetSession)
+                }
+            }
+            .sheet(item: $popGroup){ group in
+                GroupDetailView(group: group)
+            }
+            
+            Section{
+                Button {
+                    newGroup = true
+                } label: {
+                    Label("Sidebar.Button.NewGroup", systemImage: "folder.badge.plus")
+                }
+            }
+            .sheet(isPresented: $newGroup) {
+                GroupDetailView(group: nil)
             }
         }
-        .listStyle(.sidebar)
         .navigationTitle("Timering")
-        .popover(item: $popGroup){ group in
-            //TODO: グループの詳細表示画面
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if horizontalSizeClass == .compact{
-                    Menu {
-                        EditButton()
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
+                Menu {
+                    EditButton()
+                } label: {
+                    Image(systemName: "ellipsis.circle")
                 }
             }
-        }
-    }
-    
-    func deleteGroup(offsets: IndexSet){
-        offsets.map { groups[$0] }.forEach{ group in
-            group.delete()
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showSettings = true
+                } label: {
+                    Image(systemName: "gear")
+                }
+            }
         }
     }
     

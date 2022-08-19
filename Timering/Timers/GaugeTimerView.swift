@@ -48,7 +48,7 @@ struct GaugeTimerView: View {
     
     var body: some View {
         ForEach(timers, id: \.self) { timer in
-            GaugeView(trTimer: timer)
+            GaugeView(trTimer: timer, timers: timers)
         }
     }
 }
@@ -56,6 +56,7 @@ struct GaugeTimerView: View {
 struct GaugeView: View{
     
     var trTimer:GaugeTimer
+    var timers:[GaugeTimer]
     
     var body: some View{
         //TODO: タイマーの表示、大きさなどの計算を作る
