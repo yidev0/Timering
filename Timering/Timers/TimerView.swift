@@ -46,10 +46,41 @@ struct TimerView: View {
                     }
                 }
                 Spacer()
-                HStack{
-                    Spacer()
-                    TimerControlView(trGroup: trGroup)
-                        .padding([.bottom, .trailing], 12)
+                
+                ZStack{
+                    if horizontalSizeClass == .compact{
+                        HStack{
+                            Picker(selection: $timerType) {
+                                Label("Settings.Title.Ring", systemImage: "circle.circle")
+                                    .tag(TimerType.ring)
+                                Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
+                                    .tag(TimerType.grid)
+                                Label("Settings.Title.Gauge", systemImage: "barometer")
+                                    .tag(TimerType.gauge)
+                            } label: {
+                                switch timerType {
+                                case .ring:
+                                    Image(systemName: "circle.circle")
+                                case .grid:
+                                    Image(systemName: "square.grid.2x2")
+                                case .gauge:
+                                    Image(systemName: "barometer")
+                                }
+                            }
+                            .accessibilityLabel(Text("Settings.Title.TimerType"))
+                            .padding()
+                            .background(Color(.systemFill))
+                            .cornerRadius(6)
+                            
+                            Spacer()
+                        }
+                    }
+                    
+                    HStack{
+                        Spacer()
+                        TimerControlView(trGroup: trGroup)
+                            .padding([.bottom, .trailing], 12)
+                    }
                 }
             }
         }
@@ -150,16 +181,41 @@ struct TimerControlView: View{
     var trSession:TRSession
     var trTimers:FetchRequest<TRTimer>
     
+    @State var showTimers = true
+    
     var body: some View{
         HStack{
             Spacer()
             
-            HStack(spacing: 12){
-                ForEach(trTimers.wrappedValue, id: \.self) { timer in
-                    TimerControlButton(trTimer: timer, isActive: timer.isActive)
+            HStack(spacing: 6){
+                if showTimers{
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing: 12){
+                            ForEach(trTimers.wrappedValue, id: \.self) { timer in
+                                TimerControlButton(trTimer: timer, isActive: timer.isActive)
+                            }
+                        }
+                    }.padding(.all, 10)
                 }
+                
+                Button {
+                    withAnimation {
+                        showTimers.toggle()
+                    }
+                } label: {
+                    ZStack{
+                        Image(systemName: "timer")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                    }
+                    .frame(width: 56, height: 56, alignment: .center)
+                    .background(Color(.systemBackground))
+                }
+                .frame(width: 56, height: 56, alignment: .center)
+                .cornerRadius(28)
+                .shadow(radius: 2)
             }
-            .padding(.all, 10)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(28)
             .frame(height: 56)
@@ -196,7 +252,7 @@ struct TimerControlButton: View{
                     .frame(maxWidth: 24, maxHeight: 24)
                     .foregroundColor(trTimer.isActive ? .white:Color(trTimer.tint as? UIColor ?? .systemBlue))
             }
-            .frame(width: 60 - 20, height: 60 - 20)
+            .frame(width: 56 - 20, height: 56 - 20)
         }
         .onChange(of: isActive) { newValue in
             trTimer.isActive = newValue

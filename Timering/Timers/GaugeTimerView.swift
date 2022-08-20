@@ -67,25 +67,19 @@ struct GaugeTimerView: View {
 struct GaugeView: View{
     var trTimer:GaugeTimer
     var timers: [GaugeTimer]
+    var width:CGFloat = 12
     
     var body: some View{
-        //TODO: タイマーの表示、大きさなどの計算を作る
-        
         Circle()
             .trim(from: 0, to: (trTimer.value)/(trTimer.goal))
-            .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+            .stroke(style: StrokeStyle(lineWidth: width, lineCap: .round, lineJoin: .round))
             .foregroundColor(trTimer.tint)
             .rotationEffect(Angle(degrees: -90))
             .padding(.all, 4)
-            .frame(width:100+30*(timers.firstIndex(of: trTimer)), height:100+30*(timers.firstIndex(of: trTimer))
-        
-//            .trim(from: 0.0, to: gaugeTimer.times.reduce(0, +).truncatingRemainder(dividingBy: gaugeTimer.goalTime)/gaugeTimer.goalTime)
-//            .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-//            .foregroundColor(gaugeTimer.tint)
-//            .rotationEffect(Angle(degrees: -90))
-//            .padding(.all, 4)
-        }
+            .frame(width:  100 + (width*3) * CGFloat(timers.firstIndex(of: trTimer) ?? 0),
+                   height: 100 + (width*3) * CGFloat(timers.firstIndex(of: trTimer) ?? 0))
     }
+}
 
 struct GaugeTimerView_Previews: PreviewProvider {
     static var previews: some View {

@@ -33,7 +33,6 @@
 		D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779490281B8356006A421D /* AUDIO_0004.m4a */; };
 		D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779491281B8356006A421D /* AUDIO_7063.m4a */; };
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
-		D1831D6128A0B07A00A667CF /* TRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6028A0B07A00A667CF /* TRTimer.swift */; };
 		D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6228A0B25900A667CF /* GaugeTimerView.swift */; };
 		D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589228ADDAD1002B4EA9 /* OverviewView.swift */; };
 		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
@@ -96,7 +95,6 @@
 		D1779490281B8356006A421D /* AUDIO_0004.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_0004.m4a; sourceTree = "<group>"; };
 		D1779491281B8356006A421D /* AUDIO_7063.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_7063.m4a; sourceTree = "<group>"; };
 		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
-		D1831D6028A0B07A00A667CF /* TRTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTimer.swift; sourceTree = "<group>"; };
 		D1831D6228A0B25900A667CF /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
 		D195589228ADDAD1002B4EA9 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		D195589428ADDC61002B4EA9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 		D1DFBA62289FC5A400D83FF6 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
-				D1831D6028A0B07A00A667CF /* TRTimer.swift */,
 				D1687E25289520D000DDD4D3 /* TimerView.swift */,
 				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
@@ -458,7 +455,6 @@
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
 				D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */,
 				D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */,
-				D1831D6128A0B07A00A667CF /* TRTimer.swift in Sources */,
 				D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */,
 				D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */,
 			);
