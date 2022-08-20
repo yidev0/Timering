@@ -123,7 +123,7 @@ struct GridTimerCell:View{
             }
         }
         .onAppear{
-            stopTimer()
+//            stopTimer()
         }
     }
     

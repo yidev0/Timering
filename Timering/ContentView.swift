@@ -14,24 +14,20 @@ enum TimerType:Int{
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @State var timerType:TimerType
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
-        NavigationView {
-            SidebarView()
-            
-//            ZStack{
-//                TimerView()
-//            }
+        if horizontalSizeClass == .compact{
+//            NavigationView{
+                TabBarView()
+//            }.navigationViewStyle(.stack)
+        } else {
+            NavigationView {
+                SidebarView()
+                Text("")
+            }
+            .navigationViewStyle(.columns)
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: timerType) { newValue in
-            userDefaults?.set(timerType.rawValue, forKey: "TimerType")
-        }
-    }
-    
-    init(){
-        self.timerType = TimerType(rawValue: userDefaults?.integer(forKey: "TimerType") ?? 0)!
     }
     
 }

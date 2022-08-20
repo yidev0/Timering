@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TimerView: View {
     
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -17,7 +19,7 @@ struct TimerView: View {
     @State var totalValue:Double
     
     var trGroup:TRGroup
-    var fetchedTimers: FetchRequest<TRTimer>
+    var trSession:TRSession
     
     @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
@@ -34,6 +36,15 @@ struct TimerView: View {
             }
             
             VStack{
+                if horizontalSizeClass == .compact{
+                    Button {
+                        dismiss.callAsFunction()
+                    } label: {
+                        Image(systemName: "chevron.compact.down")
+                            .foregroundColor(.secondary)
+                            .padding()
+                    }
+                }
                 Spacer()
                 HStack{
                     Spacer()
@@ -78,12 +89,6 @@ struct TimerView: View {
             
             ToolbarItem(placement: .navigationBarLeading) {
                 Menu{
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Text("Settings.OpenSettings")
-                    }
-                    
                     Picker(selection: $timerType) {
                         Label("Settings.Title.Ring", systemImage: "circle.circle")
                             .tag(TimerType.ring)
@@ -94,8 +99,33 @@ struct TimerView: View {
                     } label: {
                         Text("Settings.Title.TimerType")
                     }
+                    
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Text("Settings.OpenSettings")
+                    }
                 } label: {
-                    Image(systemName: "gearshape")
+                    switch timerType {
+                    case .ring:
+                        Image(systemName: "circle.circle")
+                    case .grid:
+                        Image(systemName: "square.grid.2x2")
+                    case .gauge:
+                        Image(systemName: "barometer")
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Button {
+                        //TODO: Session
+                    } label: {
+                        Label("Session.Close", systemImage: "checkmark.circle")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
                 }
             }
         }
@@ -107,10 +137,7 @@ struct TimerView: View {
     
     init(group:TRGroup){
         self.trGroup = group
-        self.fetchedTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
-                                                                             ascending: true)],
-                                          predicate: NSPredicate(format: "group == %@", group),
-                                          animation: .default)
+        self.trSession = group.getActiveSession()!
         self._timerType = .init(initialValue: TimerType(rawValue: Int(group.timerType)) ?? .ring)
         self._totalValue = .init(initialValue: group.totalTime())
     }
@@ -120,6 +147,7 @@ struct TimerView: View {
 struct TimerControlView: View{
     
     var trGroup:TRGroup
+    var trSession:TRSession
     var trTimers:FetchRequest<TRTimer>
     
     var body: some View{
@@ -141,9 +169,10 @@ struct TimerControlView: View{
     
     init(trGroup:TRGroup){
         self.trGroup = trGroup
+        self.trSession = trGroup.getActiveSession()!
         self.trTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
                                                                         ascending: true)],
-                                     predicate: NSPredicate(format: "group = %@", trGroup))
+                                     predicate: NSPredicate(format: "session = %@", trSession))
     }
     
 }

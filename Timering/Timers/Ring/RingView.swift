@@ -9,13 +9,10 @@ import SwiftUI
 
 struct RingView: View{
     
-    @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
-    @AppStorage("RingLimitTime", store: userDefaults) var limit = 30.0
-    @AppStorage("RingSetTime", store: userDefaults) var setLimit = true
     
-    @Binding var counter:Double
-    var entries:[TREntry]
+    @State var counter:Double
+    var entries:FetchRequest<TREntry>
     @State var maxSize:Double = 100
     
     var body: some View{
@@ -23,15 +20,33 @@ struct RingView: View{
             ZStack{
                 Circle()
                     .hidden()
-//                    .foregroundColor(.random)
+                //                    .foregroundColor(.random)
                     .frame(width: maxSize, height: maxSize, alignment: .center)
                 
-                ForEach(entries, id: \.self) { entry in
+                ForEach(entries.wrappedValue, id: \.self) { entry in
                     Circle()
-                        .ignoresSafeArea()
-                        .frame(width: entry.value/(setLimit ? (dynamicRing ? counter:limit):counter) * maxSize, alignment: .center)
+                        .frame(width: entry.sum(entries: entries.wrappedValue)/counter * maxSize, alignment: .center)
                         .aspectRatio(1, contentMode: .fill)
                         .foregroundColor(Color(entry.timer?.tint as? UIColor ?? .random))
+                        .onAppear{
+                            print("Appear",
+                                  String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
+                                  "+",
+                                  String(format: "%.2f", counter),
+                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
+                        }
+                        .onChange(of: entry.value) { _ in
+                            print("Change",
+                                  String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
+                                  "+",
+                                  String(format: "%.2f", counter),
+                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
+                            if let session = entry.timer?.session{
+                                withAnimation {
+                                    counter = session.totalTime()
+                                }
+                            }
+                        }
                 }
             }
             .offset(x: (geometry.size.width < geometry.size.height) ? -(geometry.size.height - geometry.size.width)/2:0,
@@ -45,14 +60,10 @@ struct RingView: View{
         }
     }
     
-    init(counter: Binding<Double>, entries:FetchRequest<TREntry>, timers:FetchRequest<TRTimer>){
-        self._counter = counter
-        self.entries = entries.wrappedValue.filter({
-            if let timer = $0.timer{
-                return (timers.wrappedValue.contains(timer) == true)
-            }
-            return false
-        })
+    init(group:TRGroup, entries:FetchRequest<TREntry>){
+        self._counter = .init(initialValue: group.totalTime())
+        self.entries = entries
+        //TODO: Entries not updated
     }
     
 }

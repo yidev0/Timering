@@ -9,7 +9,14 @@
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="timerType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String" defaultValueString="Untitled"/>
-        <relationship name="timers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TRTimer" inverseName="group" inverseEntity="TRTimer"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TRSession" inverseName="group" inverseEntity="TRSession"/>
+    </entity>
+    <entity name="TRSession" representedClassName="TRSession" syncable="YES" codeGenerationType="class">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TRGroup" inverseName="sessions" inverseEntity="TRGroup"/>
+        <relationship name="timers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TRTimer" inverseName="session" inverseEntity="TRTimer"/>
     </entity>
     <entity name="TRTimer" representedClassName="TRTimer" syncable="YES" codeGenerationType="class">
         <attribute name="goalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -19,6 +26,6 @@
         <attribute name="tint" optional="YES" attributeType="Transformable"/>
         <attribute name="title" optional="YES" attributeType="String" defaultValueString="Untitled"/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TREntry" inverseName="timer" inverseEntity="TREntry"/>
-        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TRGroup" inverseName="timers" inverseEntity="TRGroup"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TRSession" inverseName="timers" inverseEntity="TRSession"/>
     </entity>
 </model>

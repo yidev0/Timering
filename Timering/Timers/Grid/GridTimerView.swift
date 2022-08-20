@@ -21,7 +21,8 @@ struct GridTimerView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("GridAutoPlay", store: userDefaults) var autoPlay = false
     
-    var group:TRGroup
+    var trGroup:TRGroup
+    var trSession:TRSession
     var fetchedTimers: FetchRequest<TRTimer>
     
     @State var gridItems:[GridItem] = [GridItem(.fixed(100), spacing: 8, alignment: .center)]
@@ -45,7 +46,7 @@ struct GridTimerView: View {
                             withAnimation {
                                 let timer = TRTimer(context: viewContext)
                                 timer.title = "Test\(Int.random(in: 0..<100))"
-                                timer.group = group
+                                timer.session = trGroup.getActiveSession()
                                 timer.goalTime = 10
                                 timer.tint = UIColor.random
                                 timer.icon = timerSymbols.randomElement()
@@ -77,10 +78,10 @@ struct GridTimerView: View {
     }
     
     init(group:TRGroup){
-        self.group = group
-        self.fetchedTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
-                                                                             ascending: true)],
-                                          predicate: NSPredicate(format: "group == %@", group),
+        self.trGroup = group
+        self.trSession = group.getActiveSession()!
+        self.fetchedTimers = FetchRequest(sortDescriptors: [],
+                                          predicate: NSPredicate(format: "session == %@", trSession),
                                           animation: .default)
     }
     
