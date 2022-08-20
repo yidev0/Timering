@@ -50,7 +50,7 @@ struct GroupListCell: View{
     
     var body: some View{
         Group{
-            if horizontalSizeClass == .compact{
+            if UIDevice.current.userInterfaceIdiom == .phone{
                 ButtonCell
             } else {
                 LinkCell

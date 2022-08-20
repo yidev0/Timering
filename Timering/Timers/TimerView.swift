@@ -185,8 +185,6 @@ struct TimerControlView: View{
     
     var body: some View{
         HStack{
-            Spacer()
-            
             HStack(spacing: 6){
                 if showTimers{
                     ScrollView(.horizontal, showsIndicators: false){
@@ -195,7 +193,9 @@ struct TimerControlView: View{
                                 TimerControlButton(trTimer: timer, isActive: timer.isActive)
                             }
                         }
-                    }.padding(.all, 10)
+                    }
+                    .padding(.all, 10)
+                    .frame(maxWidth: (36 + 12) * CGFloat(trTimers.wrappedValue.count))
                 }
                 
                 Button {

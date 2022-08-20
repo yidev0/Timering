@@ -17,58 +17,68 @@ struct GroupDetailView: View {
     @State var title:String
     @State var icon:String
     
+    let paddingValue:CGFloat
+    
     var body: some View {
         NavigationView{
-            VStack{
-                Spacer()
-                Image(systemName: icon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 100, maxHeight: 100)
-                
-                TextField("Group.Detail.Field.Title", text: $title)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 6)
-                    .font(.title2)
-                    .background(Color(.secondarySystemFill))
-                    .cornerRadius(8)
-                    .padding()
-                Spacer()
-                
-                Toggle(isOn: $autoFill) {
-                    Text("Group.Detail.AutoFill")
-                }
-                .padding()
-                .tint(.blue)
-                
-                Divider()
-                    .ignoresSafeArea(.keyboard)
-                
-                ScrollView(.horizontal){
-                    LazyHGrid(rows: [GridItem(.adaptive(minimum: 48), spacing: 8)], spacing: 8){
-                        ForEach(timerSymbols, id: \.self) { symbol in
-                            Button {
-                                withAnimation {
-                                    icon = symbol
+            ScrollView{
+                VStack(spacing: 12){
+                    GroupBox {
+                        VStack(spacing: 20){
+                            ZStack{
+                                Image(systemName: icon)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 100, maxHeight: 100)
+                            }.frame(width: 100, height: 100)
+                            
+                            TextField("Group.Detail.Field.Title", text: $title)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 6)
+                                .font(.title2)
+                                .background(Color(.systemFill))
+                                .cornerRadius(8)
+                                .frame(maxWidth: 500)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, paddingValue)
+                        .frame(maxWidth: .infinity)
+                    }
+                    
+                    Divider()
+                    
+                    GroupBox {
+                        Toggle(isOn: $autoFill) {
+                            Text("Group.Detail.AutoFill")
+                        }
+                        .tint(.blue)
+                    }
+                    
+                    GroupBox{
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 48), spacing: 8)], spacing: 8){
+                            ForEach(timerSymbols, id: \.self) { symbol in
+                                Button {
+                                    withAnimation {
+                                        icon = symbol
+                                    }
+                                } label: {
+                                    ZStack{
+                                        Image(systemName: symbol)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .font(.system(.body).weight(.semibold))
+                                            .foregroundColor(symbol == icon ? .white:.secondary)
+                                            .padding(.all, 8)
+                                    }
+                                    .frame(width: 48, height: 48)
+                                    .background(symbol == icon ? Color.blue:Color.clear)
+                                    .cornerRadius(48/6.4)
                                 }
-                            } label: {
-                                ZStack{
-                                    Image(systemName: symbol)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .font(.system(.body).weight(.semibold))
-                                        .foregroundColor(symbol == icon ? .white:.secondary)
-                                        .padding(.all, 8)
-                                }
-                                .frame(width: 48, height: 48)
-                                .background(symbol == icon ? Color.blue:Color.clear)
-                                .cornerRadius(48/6.4)
                             }
                         }
                     }
-                    .padding()
-                    .ignoresSafeArea(.keyboard)
-                }.ignoresSafeArea(.keyboard)
+                }
+                .padding(.all, paddingValue)
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -78,7 +88,7 @@ struct GroupDetailView: View {
                         Text("Group.Detail.Button.Cancel")
                     }
                 }
-
+                
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         save()
@@ -87,7 +97,7 @@ struct GroupDetailView: View {
                     }
                 }
             }
-
+            
         }
         .navigationViewStyle(.stack)
         .onChange(of: autoFill) { newValue in
@@ -101,6 +111,12 @@ struct GroupDetailView: View {
         self.group  = group
         self._title = .init(initialValue: self.group?.title ?? "")
         self._icon  = .init(initialValue: self.group?.icon ?? "folder")
+        
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            paddingValue = 24
+        } else {
+            paddingValue = 16
+        }
     }
     
     func save(){
