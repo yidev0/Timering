@@ -42,38 +42,17 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: "chevron.compact.down")
                             .foregroundColor(.secondary)
-                            .padding()
+                            .font(.system(.body).weight(.bold))
+                            .padding(.vertical, 8)
                     }
                 }
                 Spacer()
                 
                 ZStack{
-                    if horizontalSizeClass == .compact{
-                        HStack{
-                            Picker(selection: $timerType) {
-                                Label("Settings.Title.Ring", systemImage: "circle.circle")
-                                    .tag(TimerType.ring)
-                                Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
-                                    .tag(TimerType.grid)
-                                Label("Settings.Title.Gauge", systemImage: "barometer")
-                                    .tag(TimerType.gauge)
-                            } label: {
-                                switch timerType {
-                                case .ring:
-                                    Image(systemName: "circle.circle")
-                                case .grid:
-                                    Image(systemName: "square.grid.2x2")
-                                case .gauge:
-                                    Image(systemName: "barometer")
-                                }
-                            }
-                            .accessibilityLabel(Text("Settings.Title.TimerType"))
-                            .padding()
-                            .background(Color(.systemFill))
-                            .cornerRadius(6)
-                            
-                            Spacer()
-                        }
+                    HStack{
+                        TimerTypeControlView(timerType: $timerType)
+                            .padding([.bottom, .leading], 12)
+                        Spacer()
                     }
                     
                     HStack{
@@ -175,6 +154,55 @@ struct TimerView: View {
     
 }
 
+struct TimerTypeControlView: View{
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Binding var timerType:TimerType
+    
+    var body: some View{
+        HStack{
+            Menu{
+                Picker("Settings.Title.TimerType", selection: $timerType) {
+                    Label("Settings.Title.Ring", systemImage: "circle.circle")
+                        .tag(TimerType.ring)
+                    Label("Settings.Title.Grid", systemImage: "square.grid.2x2")
+                        .tag(TimerType.grid)
+                    Label("Settings.Title.Gauge", systemImage: "barometer")
+                        .tag(TimerType.gauge)
+                }
+            } label: {
+                ZStack{
+                    Circle()
+                        .frame(width: 56, height: 56, alignment: .center)
+                        .foregroundColor(Color(.systemBackground))
+                    
+                    switch timerType {
+                    case .ring:
+                        Image(systemName: "circle.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                    case .grid:
+                        Image(systemName: "square.grid.2x2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                    case .gauge:
+                        Image(systemName: "barometer")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                    }
+                }
+            }
+            .accessibilityLabel(Text("Settings.Title.TimerType"))
+            .shadow(radius: 4)
+            
+            Spacer()
+        }
+    }
+}
+
 struct TimerControlView: View{
     
     var trGroup:TRGroup
@@ -185,37 +213,53 @@ struct TimerControlView: View{
     
     var body: some View{
         HStack{
-            HStack(spacing: 6){
+            Spacer()
+            
+            ZStack(){
                 if showTimers{
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing: 12){
+                            if trTimers.wrappedValue.count < 6{
+                                Button {
+                                    // TODO: 追加処理
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                }.frame(width: 36, height: 36)
+                            }
+                            
                             ForEach(trTimers.wrappedValue, id: \.self) { timer in
                                 TimerControlButton(trTimer: timer, isActive: timer.isActive)
                             }
-                        }
+                        }.padding(.horizontal, 12)
                     }
-                    .padding(.all, 10)
-                    .frame(maxWidth: (36 + 12) * CGFloat(trTimers.wrappedValue.count))
+                    .padding(.vertical, 10)
                 }
                 
-                Button {
-                    withAnimation {
-                        showTimers.toggle()
+                HStack{
+                    if showTimers{
+                        Spacer()
                     }
-                } label: {
-                    ZStack{
-                        Image(systemName: "timer")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                    
+                    Button {
+                        withAnimation {
+                            showTimers.toggle()
+                        }
+                    } label: {
+                        ZStack{
+                            Image(systemName: "timer")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+                        }
+                        .frame(width: 56, height: 56, alignment: .center)
+                        .background(Color(.systemBackground))
                     }
                     .frame(width: 56, height: 56, alignment: .center)
-                    .background(Color(.systemBackground))
+                    .cornerRadius(28)
+                    .shadow(radius: 2)
                 }
-                .frame(width: 56, height: 56, alignment: .center)
-                .cornerRadius(28)
-                .shadow(radius: 2)
             }
+            .frame(maxWidth: (36 + 12) * CGFloat(trTimers.wrappedValue.count + 1) + 56+12)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(28)
             .frame(height: 56)
