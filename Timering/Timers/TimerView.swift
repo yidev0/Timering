@@ -259,7 +259,7 @@ struct TimerControlView: View{
                     .shadow(radius: 2)
                 }
             }
-            .frame(maxWidth: (36 + 12) * CGFloat(trTimers.wrappedValue.count + 1) + 56+12)
+            .frame(maxWidth: (36 + 12) * CGFloat(isTimerLimit() ? 6:trTimers.wrappedValue.count + 1) + 56+12)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(28)
             .frame(height: 56)
@@ -273,6 +273,13 @@ struct TimerControlView: View{
         self.trTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
                                                                         ascending: true)],
                                      predicate: NSPredicate(format: "session = %@", trSession))
+    }
+    
+    func isTimerLimit() -> Bool{
+        if trTimers.wrappedValue.count == 6{
+            return true
+        }
+        return false
     }
     
 }

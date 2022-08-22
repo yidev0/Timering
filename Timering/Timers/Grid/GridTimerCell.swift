@@ -35,8 +35,9 @@ struct GridTimerCell:View{
     
     var gauge: some View{
         ZStack{
-            VStack(alignment: .center){
-                Text(trTimer.title ?? "Untitled")
+            VStack(alignment: .center, spacing: 12){
+                Label(trTimer.title ?? "Untitled",
+                      systemImage: trTimer.icon ?? "folder")
                     .foregroundColor(Color((trTimer.tint as? UIColor) ?? .systemBlue))
                     .multilineTextAlignment(.center)
                 Text("\(totalValue, specifier: "%.2f")")
@@ -179,7 +180,7 @@ struct GridTimerCell:View{
     
     func stopTimer() {
         print("stop")
-        self.timer.upstream.connect().cancel()
+//        self.timer.upstream.connect().cancel()
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [cellID])
         
         do{
