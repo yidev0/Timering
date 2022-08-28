@@ -130,9 +130,11 @@ struct WelcomeInitialView: View{
     var body: some View{
         HStack{
             Spacer()
-            RoundedRectangle(cornerRadius: 100/6.4)
+            Image("AppIcon")
+                .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(maxWidth: 100)
+                .cornerRadius(100/6.4)
                 .foregroundColor(.white)
                 .shadow(color: .gray.opacity(0.4), radius: 4)
                 .matchedGeometryEffect(id: "AppIcon", in: namespace)
@@ -159,8 +161,10 @@ struct WelcomeFeatureView: View{
     var body: some View{
         VStack{
             HStack(spacing: 16){
-                RoundedRectangle(cornerRadius: 40/6.4)
+                Image("AppIcon")
+                    .resizable()
                     .frame(width: 40, height: 40)
+                    .cornerRadius(40/6.4)
                     .foregroundColor(.white)
                     .shadow(color: .gray.opacity(0.4), radius: 4)
                     .matchedGeometryEffect(id: "AppIcon", in: namespace)
@@ -210,8 +214,10 @@ struct WelcomePermissionView: View{
     var body: some View{
         VStack{
             HStack(spacing: 16){
-                RoundedRectangle(cornerRadius: 40/6.4)
+                Image("AppIcon")
+                    .resizable()
                     .frame(width: 40, height: 40)
+                    .cornerRadius(40/6.4)
                     .foregroundColor(.white)
                     .shadow(color: .gray.opacity(0.4), radius: 4)
                     .matchedGeometryEffect(id: "AppIcon", in: namespace)
@@ -293,15 +299,17 @@ struct LayeredCircleBackground: View{
     var body: some View{
         GeometryReader { geometry in
             ZStack{
+                Circle()
+                    .frame(height: geometry.size.height*1.6)
+                    .aspectRatio(1, contentMode: .fill)
+                    .foregroundColor(.clear)
+                
                 ForEach(0..<sizes.count, id: \.self) { i in
                     Circle()
                         .frame(height: sizes[i])
                         .aspectRatio(1, contentMode: .fill)
                         .foregroundColor(colors[i])
                 }
-                Circle()
-                    .frame(height: geometry.size.height*1.6)
-                    .foregroundColor(.clear)
             }
             .offset(x: -(geometry.size.height * 1.6 - geometry.size.width)/2,
                     y: -300)

@@ -134,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D13068EA28BB6DBC00228BC3 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
 		D14A80F628A6622A00855E59 /* Ring */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +184,7 @@
 				D16B773327F599F400C6CBFC /* Assets.xcassets */,
 				D1DFBA6328A0855700D83FF6 /* CoreData */,
 				D1DFBA61289FC59400D83FF6 /* Groups */,
+				D13068EA28BB6DBC00228BC3 /* Overview */,
 				D1DFBA62289FC5A400D83FF6 /* Timers */,
 				D16B776827F7DAE100C6CBFC /* Settings */,
 				D16B776527F7D50000C6CBFC /* Icons */,
@@ -267,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				D1687E25289520D000DDD4D3 /* TimerView.swift */,
-				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
 				D1D9012F28A38EA7001B0EA2 /* Grid */,
 				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
@@ -628,7 +636,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
 				DEVELOPMENT_TEAM = 5U8W3XYWRU;
 				ENABLE_PREVIEWS = YES;
@@ -660,7 +668,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
 				DEVELOPMENT_TEAM = 5U8W3XYWRU;
 				ENABLE_PREVIEWS = YES;

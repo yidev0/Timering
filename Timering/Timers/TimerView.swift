@@ -47,13 +47,15 @@ struct TimerView: View {
                 Spacer()
                 
                 ZStack{
-                    TimerValueControlView(totalValue: $totalValue)
-                        .padding(.bottom, 12)
-                    
-                    HStack{
-                        TimerTypeControlView(timerType: $timerType, showTimers: $showTimers)
-                            .padding([.bottom, .leading], 12)
-                        Spacer()
+                    if horizontalSizeClass == .compact{
+                        TimerValueControlView(totalValue: $totalValue)
+                            .padding(.bottom, 12)
+                        
+                        HStack{
+                            TimerTypeControlView(timerType: $timerType, showTimers: $showTimers)
+                                .padding([.bottom, .leading], 12)
+                            Spacer()
+                        }
                     }
                     
                     HStack{
@@ -94,14 +96,20 @@ struct TimerView: View {
                         Text("Settings.OpenSettings")
                     }
                 } label: {
-                    switch timerType {
-                    case .ring:
-                        Image(systemName: "circle.circle")
-                    case .grid:
-                        Image(systemName: "square.grid.2x2")
-                    case .gauge:
-                        Image(systemName: "barometer")
+                    ZStack{
+                        switch timerType {
+                        case .ring:
+                            Image(systemName: "circle.circle")
+                        case .grid:
+                            Image(systemName: "square.grid.2x2")
+                        case .gauge:
+                            Image(systemName: "barometer")
+                        }
                     }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(.thinMaterial)
+                    .cornerRadius(8)
                 }
             }
             
@@ -149,6 +157,14 @@ struct TimerValueControlView: View {
                 }
             }
             
+            Section {
+                Button(role: .destructive) {
+                    //TODO: セッションを終了しタイマーをリセット
+                } label: {
+                    Label("Timer.Button.CloseSession", systemImage: "xmark")
+                }
+            }
+            
             Section{
                 Button(action: { showSettings = true }) {
                     Text("Timer.Button.OpenSettings")
@@ -159,7 +175,8 @@ struct TimerValueControlView: View {
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.semibold)
                 .foregroundColor(.primary)
-                .padding(.all, horizontalSizeClass == .compact ? 12:8)
+                .padding(.vertical, horizontalSizeClass == .compact ? 12:8)
+                .padding(.horizontal, 12)
                 .background(.thinMaterial)
                 .cornerRadius(8)
         }

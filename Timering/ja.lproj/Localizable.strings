@@ -33,6 +33,10 @@
 "Welcome.Button.Close" = "閉じる";
 "Welcome.Button.Title.Back" = "戻る";
 
+//MARK: Overview
+"Overview.Header.Total" = "全体";
+"Overview.Header.TodayTotal" = "今日";
+
 //MARK: Sidebar
 "Sidebar.Section.Groups" = "グループ";
 "Sidebar.Section.Overview" = "概要";
@@ -49,6 +53,7 @@
 "Timer.Button.ShowInfo" = "詳細を表示";
 "Timer.Button.Delete" = "削除";
 "Timer.Button.OpenSettings" = "設定を開く";
+"Timer.Button.CloseSession" = "セッションを終了";
 
 //MARK: Grid
 "Grid.Title.Timer" = "タイマー";

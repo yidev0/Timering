@@ -33,6 +33,11 @@
 "Welcome.Button.Close" = "Close";
 "Welcome.Button.Title.Back" = "Back";
 
+
+//MARK: Overview
+"Overview.Header.Total" = "Total";
+"Overview.Header.TodayTotal" = "Today";
+
 //MARK: Sidebar
 "Sidebar.Section.Groups" = "Groups";
 "Sidebar.Section.Overview" = "Overview";
@@ -49,6 +54,7 @@
 "Timer.Button.ShowInfo" = "Show Detail";
 "Timer.Button.Delete" = "Delete";
 "Timer.Button.OpenSettings" = "Open Settings";
+"Timer.Button.CloseSession" = "Close Session";
 
 //MARK: Grid
 "Grid.Title.Timer" = "Timer";
