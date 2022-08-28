@@ -45,6 +45,11 @@
 "Tabbar.Section.Overview" = "概要";
 "Tabbar.Button.NewGroup" = "新しいグループ";
 
+//MARK: Timer
+"Timer.Button.ShowInfo" = "詳細を表示";
+"Timer.Button.Delete" = "削除";
+"Timer.Button.OpenSettings" = "設定を開く";
+
 //MARK: Grid
 "Grid.Title.Timer" = "タイマー";
 

@@ -88,24 +88,21 @@ struct GridTimerCell:View{
             Button {
                 buttonPressed()
             } label: {
-                ZStack{
-                    gauge
-
-                    if showTools{
-                        GridToolView(trTimer: $trTimer, fetchedEntry: fetchedEntry)
-                            .padding(.all, 8)
+                gauge
+                    .onReceive(timer) { output in
+                        withAnimation {
+                            trTimer.adjustTime()
+                            totalValue = trTimer.totalTime()
+                        }
                     }
-                }
-                .onReceive(timer) { output in
-                    print(output)
-                    withAnimation {
-                        trTimer.adjustTime()
-                        totalValue = trTimer.totalTime()
-                    }
-                }
             }
             .buttonStyle(.plain)
             .frame(width: itemSize.width, height: itemSize.height, alignment: .center)
+            
+            if showTools{
+                GridToolView(trTimer: $trTimer, fetchedEntry: fetchedEntry)
+                    .padding(.all, 8)
+            }
         }
         .frame(width: itemSize.width, height: itemSize.height, alignment: .center)
         .contextMenu{

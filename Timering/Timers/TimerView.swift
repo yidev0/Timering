@@ -15,14 +15,12 @@ struct TimerView: View {
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     @State var showSettings = false
+    @State var showTimers = true
     @State var timerType:TimerType
     @State var totalValue:Double
     
     var trGroup:TRGroup
     var trSession:TRSession
-    
-    @AppStorage("DynamicRing", store: userDefaults) var dynamicRing = true
-    @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
     
     var body: some View {
         ZStack{
@@ -49,15 +47,18 @@ struct TimerView: View {
                 Spacer()
                 
                 ZStack{
+                    TimerValueControlView(totalValue: $totalValue)
+                        .padding(.bottom, 12)
+                    
                     HStack{
-                        TimerTypeControlView(timerType: $timerType)
+                        TimerTypeControlView(timerType: $timerType, showTimers: $showTimers)
                             .padding([.bottom, .leading], 12)
                         Spacer()
                     }
                     
                     HStack{
                         Spacer()
-                        TimerControlView(trGroup: trGroup)
+                        TimerControlView(trGroup: trGroup, showTimers: $showTimers)
                             .padding([.bottom, .trailing], 12)
                     }
                 }
@@ -68,30 +69,7 @@ struct TimerView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Menu {
-                    Section{
-                        Toggle(isOn: $dynamicRing) {
-                            Label("Settings.Ring.Dynamic", systemImage: "circle.circle")
-                        }
-                        Toggle(isOn: $vibrate) {
-                            Label("Settings.Ring.PlayVibration", systemImage: "waveform")
-                        }
-                    }
-                    
-                    Section{
-                        Button(action: { showSettings = true }) {
-                            Text("Ring.Title.Settings")
-                        }
-                    }
-                } label: {
-                    Text("\(totalValue, specifier: "%.2f")")
-                        .font(.system(.body, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.primary)
-                        .padding(.all, 8)
-                        .background(.thinMaterial)
-                        .cornerRadius(8)
-                }
+                TimerValueControlView(totalValue: $totalValue)
                 .onReceive(timer) { output in
                     totalValue = trGroup.totalTime()
                 }
@@ -154,10 +132,48 @@ struct TimerView: View {
     
 }
 
+struct TimerValueControlView: View {
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Binding var totalValue:Double
+    
+    @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
+    
+    @State var showSettings:Bool = false
+    
+    var body: some View{
+        Menu {
+            Section{
+                Toggle(isOn: $vibrate) {
+                    Label("Settings.Ring.PlayVibration", systemImage: "waveform")
+                }
+            }
+            
+            Section{
+                Button(action: { showSettings = true }) {
+                    Text("Timer.Button.OpenSettings")
+                }
+            }
+        } label: {
+            Text("\(totalValue, specifier: "%.2f")")
+                .font(.system(.body, design: .rounded))
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+                .padding(.all, horizontalSizeClass == .compact ? 12:8)
+                .background(.thinMaterial)
+                .cornerRadius(8)
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+        }
+    }
+}
+
 struct TimerTypeControlView: View{
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Binding var timerType:TimerType
+    @Binding var showTimers:Bool
     
     var body: some View{
         HStack{
@@ -174,7 +190,7 @@ struct TimerTypeControlView: View{
                 ZStack{
                     Circle()
                         .frame(width: 56, height: 56, alignment: .center)
-                        .foregroundColor(Color(.systemBackground))
+                        .foregroundColor(Color(.secondarySystemBackground))
                     
                     switch timerType {
                     case .ring:
@@ -193,10 +209,15 @@ struct TimerTypeControlView: View{
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
                     }
-                }
+                }.overlay(Circle().strokeBorder(lineWidth: 1))
             }
             .accessibilityLabel(Text("Settings.Title.TimerType"))
-            .shadow(radius: 4)
+            .onTapGesture {
+                if showTimers{
+                    showTimers = false
+                }
+            }
+            .shadow(color: .gray, radius: 2)
             
             Spacer()
         }
@@ -209,7 +230,7 @@ struct TimerControlView: View{
     var trSession:TRSession
     var trTimers:FetchRequest<TRTimer>
     
-    @State var showTimers = true
+    @Binding var showTimers:Bool
     
     var body: some View{
         HStack{
@@ -246,33 +267,36 @@ struct TimerControlView: View{
                         }
                     } label: {
                         ZStack{
+                            Circle()
+                                .frame(width: 56, height: 56, alignment: .center)
+                                .foregroundColor(Color(.secondarySystemBackground))
+                            
                             Image(systemName: "timer")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
                         }
                         .frame(width: 56, height: 56, alignment: .center)
-                        .background(Color(.systemBackground))
+                        .overlay(Circle().strokeBorder(lineWidth: 1))
                     }
-                    .frame(width: 56, height: 56, alignment: .center)
-                    .cornerRadius(28)
-                    .shadow(radius: 2)
                 }
             }
-            .frame(maxWidth: (36 + 12) * CGFloat(isTimerLimit() ? 6:trTimers.wrappedValue.count + 1) + 56+12)
+            .frame(maxWidth: showTimers ? ((36 + 12) * CGFloat(isTimerLimit() ? 6:trTimers.wrappedValue.count + 1) + 56+12):56)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(28)
             .frame(height: 56)
-            .shadow(radius: 4)
+            .shadow(color: .gray, radius: 2)
         }
     }
     
-    init(trGroup:TRGroup){
+    init(trGroup:TRGroup, showTimers:Binding<Bool>){
         self.trGroup = trGroup
         self.trSession = trGroup.getActiveSession()!
         self.trTimers = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TRTimer.title,
                                                                         ascending: true)],
                                      predicate: NSPredicate(format: "session = %@", trSession))
+        
+        self._showTimers = showTimers
     }
     
     func isTimerLimit() -> Bool{

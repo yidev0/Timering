@@ -45,6 +45,11 @@
 "Tabbar.Section.Overview" = "Overview";
 "Tabbar.Button.NewGroup" = "New Group";
 
+//MARK: Timer
+"Timer.Button.ShowInfo" = "Show Detail";
+"Timer.Button.Delete" = "Delete";
+"Timer.Button.OpenSettings" = "Open Settings";
+
 //MARK: Grid
 "Grid.Title.Timer" = "Timer";
 
