@@ -14,6 +14,7 @@ struct OverviewView: View {
                            spacing: 8)]
     
     var trGroups:FetchRequest<TRGroup>
+    @State var showSettings = false
     
     var body: some View {
         ScrollView{
@@ -21,7 +22,7 @@ struct OverviewView: View {
                 ForEach(0..<3) { i in
                     TotalOverviewGrid(type: [.overall, .today, .session][i])
                 }
-            }.padding()
+            }.padding(.horizontal, 16)
         }
         .navigationTitle(Text("Sidebar.Section.Overview"))
         .background(Color(.systemGroupedBackground))
@@ -33,6 +34,17 @@ struct OverviewView: View {
                     Image(systemName: "plus")
                 }
             }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showSettings = true
+                } label: {
+                    Image(systemName: "gear")
+                }
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
     }
     

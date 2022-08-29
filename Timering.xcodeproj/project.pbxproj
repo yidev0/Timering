@@ -101,6 +101,7 @@
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChartView.swift; sourceTree = "<group>"; };
 		D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTimerCell.swift; sourceTree = "<group>"; };
 		D1DFBA5A289FBED900D83FF6 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timering.xcdatamodel; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
+				D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
