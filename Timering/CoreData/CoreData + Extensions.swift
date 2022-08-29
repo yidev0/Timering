@@ -115,6 +115,22 @@ extension TRGroup{
         return returnValue
     }
     
+    func overallTime() -> Double{
+        var returnValue:Double = 0.001
+        if let sessions = self.sessions?.allObjects as? [TRSession]{
+            for session in sessions {
+                if let timers = session.timers{
+                    for timer in timers{
+                        if let timer = timer as? TRTimer{
+                            returnValue += timer.totalTime()
+                        }
+                    }
+                }
+            }
+        }
+        return returnValue
+    }
+    
     func delete(){
         do {
             let viewContext = PersistenceController.shared.container.viewContext

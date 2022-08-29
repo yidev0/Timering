@@ -44,6 +44,7 @@ extension Color {
         )
     }
 }
+
 extension UIColor {
     /// Return a random color
     static var random: UIColor {
@@ -53,6 +54,18 @@ extension UIColor {
             blue: .random(in: 0...1),
             alpha: 1
         )
+    }
+}
+
+extension Date {
+    func isToday() -> Bool{
+        let date = Date()
+        let currentCalendar = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        let selfCalendar = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        
+        return currentCalendar.year == selfCalendar.year &&
+               currentCalendar.month == selfCalendar.month &&
+               currentCalendar.day == selfCalendar.day
     }
 }
 

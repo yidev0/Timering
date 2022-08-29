@@ -37,6 +37,7 @@
 //MARK: Overview
 "Overview.Header.Total" = "Total";
 "Overview.Header.TodayTotal" = "Today";
+"Overview.Header.SessionTotal" = "Session";
 
 //MARK: Sidebar
 "Sidebar.Section.Groups" = "Groups";

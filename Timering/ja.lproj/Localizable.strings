@@ -36,6 +36,7 @@
 //MARK: Overview
 "Overview.Header.Total" = "全体";
 "Overview.Header.TodayTotal" = "今日";
+"Overview.Header.SessionTotal" = "セッション";
 
 //MARK: Sidebar
 "Sidebar.Section.Groups" = "グループ";
