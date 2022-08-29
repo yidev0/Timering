@@ -25,7 +25,7 @@ struct GridTimerView: View {
     var trSession:TRSession
     var fetchedTimers: FetchRequest<TRTimer>
     
-    @State var gridItems:[GridItem] = [GridItem(.fixed(100), spacing: 8, alignment: .center)]
+    @State var gridItems:[GridItem] = [GridItem(.fixed((375-32-12)/2), spacing: 8, alignment: .center)]
     @State var itemSize = CGSize(width: 100, height: 100)
     @State var spacing:CGFloat = 8
     

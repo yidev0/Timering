@@ -20,9 +20,6 @@ struct RingTimerView: View {
     var fetchedTimers: FetchRequest<TRTimer>
     var trEntries: FetchRequest<TREntry>
     
-    @State var counter:Double// = 0.001
-    @State var maxSize:Double = 100
-    @State var startTime = Date()
     private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -56,7 +53,6 @@ struct RingTimerView: View {
                                                                          ascending: true)],
                                       predicate: NSPredicate(format: "timer.session == %@", trSession),
                                       animation: .default)
-        self._counter = .init(initialValue: group.totalTime())
     }
     
 }

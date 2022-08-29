@@ -29,6 +29,7 @@ struct TimerView: View {
                 RingTimerView(group: trGroup)
             case .grid:
                 GridTimerView(group: trGroup)
+                    .padding(.top, horizontalSizeClass == .compact ? 20:0)
             case .gauge:
                 GaugeTimerView(timers: testGaugeTimers)
             }
@@ -40,7 +41,7 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: "chevron.compact.down")
                             .foregroundColor(.secondary)
-                            .font(.system(.body).weight(.bold))
+                            .font(.system(.title).weight(.bold))
                             .padding(.vertical, 8)
                     }
                 }
