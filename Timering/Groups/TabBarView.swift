@@ -33,7 +33,13 @@ struct TabBarView: View {
         }
         .sheet(item: $sheetSession) { session in
             if let group = session.group{
-                TimerView(group: group)
+                //TODO: iOS 16
+//                if #available(iOS 16.0, *) {
+//                    TimerView(group: group)
+//                        .presentationDetents([.medium, .large])
+//                } else {
+                    TimerView(group: group)
+//                }
             }
         }
         .onChange(of: sheetSession) { newValue in

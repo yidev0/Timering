@@ -29,13 +29,13 @@ struct TimerView: View {
                 RingTimerView(group: trGroup)
             case .grid:
                 GridTimerView(group: trGroup)
-                    .padding(.top, horizontalSizeClass == .compact ? 20:0)
+                    .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
                 GaugeTimerView(timers: testGaugeTimers)
             }
             
             VStack{
-                if horizontalSizeClass == .compact{
+                if horizontalSizeClass == .compact, (Double(UIDevice.current.systemVersion) ?? 15) < 16{
                     Button {
                         dismiss.callAsFunction()
                     } label: {
@@ -249,6 +249,8 @@ struct TimerControlView: View{
     var trTimers:FetchRequest<TRTimer>
     
     @Binding var showTimers:Bool
+    @State var createTimer = false
+    @State var editTimer:TRTimer?
     
     var body: some View{
         HStack{
@@ -260,14 +262,16 @@ struct TimerControlView: View{
                         HStack(spacing: 12){
                             if trTimers.wrappedValue.count < 6{
                                 Button {
-                                    // TODO: 追加処理
+                                    createTimer = true
                                 } label: {
                                     Image(systemName: "plus.circle.fill")
                                 }.frame(width: 36, height: 36)
                             }
                             
                             ForEach(trTimers.wrappedValue, id: \.self) { timer in
-                                TimerControlButton(trTimer: timer, isActive: timer.isActive)
+                                TimerControlButton(trTimer: timer){
+                                    editTimer = timer
+                                }
                             }
                         }.padding(.horizontal, 12)
                     }
@@ -297,6 +301,7 @@ struct TimerControlView: View{
                         .frame(width: 56, height: 56, alignment: .center)
                         .overlay(Circle().strokeBorder(lineWidth: 1))
                     }
+                    .hoverEffect(.lift)
                 }
             }
             .frame(maxWidth: showTimers ? ((36 + 12) * CGFloat(isTimerLimit() ? 6:trTimers.wrappedValue.count + 1) + 56+12):56)
@@ -304,6 +309,18 @@ struct TimerControlView: View{
             .cornerRadius(28)
             .frame(height: 56)
             .shadow(color: .gray, radius: 2)
+        }
+        .sheet(item: $editTimer) { timer in
+            TimerDetailView(trTimer: timer)
+        }
+        .sheet(isPresented: $createTimer) {
+            //TODO: iOS 16
+//            if #available(iOS 16.0, *) {
+//                TimerDetailView()
+//                    .presentationDetents([.large, .medium])
+//            } else {
+                TimerDetailView()
+//            }
         }
     }
     
@@ -331,14 +348,28 @@ struct TimerControlButton: View{
     @Environment(\.managedObjectContext) private var viewContext
     var trTimer:TRTimer
     @State var isActive:Bool
+    @State var color:Color
+    
+    var showInfo:() -> Void
     
     var body: some View{
-        Button {
-            buttonPressed()
+        Menu {
+            Button {
+                showInfo()
+            } label: {
+                Label("Timer.Button.ShowInfo", systemImage: "info")
+            }
+            
+            Button(role: .destructive) {
+                viewContext.delete(trTimer)
+                try? viewContext.save()
+            } label: {
+                Label("Timer.Button.Delete", systemImage: "trash")
+            }
         } label: {
             ZStack{
                 Circle()
-                    .foregroundColor(trTimer.isActive ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear)
+                    .foregroundColor(color)
                 Image(systemName: trTimer.icon ?? "folder")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -346,15 +377,36 @@ struct TimerControlButton: View{
                     .foregroundColor(trTimer.isActive ? .white:Color(trTimer.tint as? UIColor ?? .systemBlue))
             }
             .frame(width: 56 - 20, height: 56 - 20)
+        } primaryAction: {
+            buttonPressed()
         }
         .onChange(of: isActive) { newValue in
             trTimer.isActive = newValue
+            color = newValue ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear
             do{
                 try viewContext.save()
             } catch {
                 print(error.localizedDescription)
             }
         }
+        .onChange(of: trTimer.isActive) { newValue in
+            isActive = newValue
+            color = newValue ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear
+        }
+        .onHover { isHovering in
+            if isHovering{
+                color = Color(.systemFill)
+            } else {
+                color = trTimer.isActive ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear
+            }
+        }
+    }
+    
+    init(trTimer:TRTimer, showInfo:@escaping ()->Void){
+        self.trTimer = trTimer
+        self.isActive = trTimer.isActive
+        self.color = trTimer.isActive ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear
+        self.showInfo = showInfo
     }
     
     func buttonPressed(){

@@ -45,6 +45,24 @@ extension Color {
     }
 }
 
+extension Double{
+    func toTimeStamp() -> String{
+        var returnValue = ""
+        var sec = 0; var min = 0; var hour = 0;
+        hour =  Int(self) /  60 / 60
+        min  = (Int(self) % (60 * 60)) / 60
+        sec  =  Int(self) %  60
+        if hour > 0{
+            returnValue += String(format: "%02d", hour)
+            returnValue += ":"
+        }
+        returnValue += String(format: "%02d", min)
+        returnValue += ":"
+        returnValue += String(format: "%02d", sec)
+        return returnValue
+    }
+}
+
 extension UIColor {
     /// Return a random color
     static var random: UIColor {

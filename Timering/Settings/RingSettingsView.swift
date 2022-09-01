@@ -139,9 +139,9 @@ struct TimerPicker: UIViewRepresentable{
     init(seconds:Binding<Double>){
         self._seconds = seconds
         
-        self.hour   = Int(seconds.wrappedValue) / 60 / 60
-        self.minute = (Int(seconds.wrappedValue)%(60*60)) / 60
-        self.second = Int(seconds.wrappedValue) % 60
+        self.hour   = Int(seconds.wrappedValue)  /  60 / 60
+        self.minute = (Int(seconds.wrappedValue) % (60 * 60)) / 60
+        self.second = Int(seconds.wrappedValue)  %  60
     }
     
     func makeCoordinator() -> Coordinator {
@@ -165,7 +165,7 @@ struct TimerPicker: UIViewRepresentable{
     }
     
     func updateUIView(_ uiPickerView: UIPickerView, context: Context) {
-        context.coordinator.setPickerLabels(labels: [1:hourLabel, 3:minuteLabel, 5:secondLabel], containedView: picker)
+//        context.coordinator.setPickerLabels(labels: [1:hourLabel, 3:minuteLabel, 5:secondLabel], containedView: picker)
     }
 }
 
@@ -187,27 +187,28 @@ extension TimerPicker{
         
         func setPickerLabels(labels: [Int:UILabel], containedView: UIView) { // [component number:label]
             
-            let fontSize:CGFloat = UIFont.labelFontSize
+            let fontSize = UIFont.preferredFont(forTextStyle: .subheadline).pointSize
             let labelWidth:CGFloat = (containedView.bounds.width) / 7
-            let numberWidth = (containedView.bounds.width) / 6//(containedView.bounds.width - (containedView.bounds.width / 7 * 3)) / 3
+            let numberWidth = (containedView.bounds.width) / 6
             let x:CGFloat = parent.picker.frame.origin.x
             let y:CGFloat = (parent.picker.frame.size.height / 2) - (fontSize / 2)
             
             for i in 0...parent.picker.numberOfComponents {
                 
                 if let label = labels[i] {
+                    label.removeFromSuperview()
                     
-                    if parent.picker.subviews.contains(label) {
-                        label.removeFromSuperview()
-                    }
                     //0 1 2 3 4 5
                     label.frame = CGRect(x: x + (labelWidth * CGFloat(i/2) + (numberWidth * CGFloat((i+1)/2))),
-                                         y: y, width: labelWidth, height: fontSize)
+                                         y: y,
+                                         width: labelWidth, height: fontSize)
                     label.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
                     label.backgroundColor = .clear
                     label.textAlignment = NSTextAlignment.center
+                    label.textColor = .secondaryLabel
                     
                     parent.picker.addSubview(label)
+                    parent.picker.bringSubviewToFront(label)
                 }
             }
         }
@@ -222,7 +223,7 @@ extension TimerPicker{
         
         func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
             if component % 2 == 0{
-                return pickerView.bounds.width / 6//(pickerView.bounds.width - (pickerView.bounds.width / 7 * 3)) / 3
+                return pickerView.bounds.width / 6
             } else {
                 return pickerView.bounds.width / 7
             }
@@ -242,8 +243,6 @@ extension TimerPicker{
             parent.second = pickerView.selectedRow(inComponent: 4)
             
             parent.hourLabel.text = parent.hour > 1 ? "Settings.Ring.Time.Hours".localize():"Settings.Ring.Time.Hour".localize()
-            //            parent.minuteLabel.text = parent.minute > 1 ? "minutes":"minute"
-            //            parent.secondLabel.text = parent.second > 1 ? "seconds":"second"
             
             if parent.hour + parent.minute + parent.second == 0{
                 parent.picker.selectRow(1, inComponent: 4, animated: true)

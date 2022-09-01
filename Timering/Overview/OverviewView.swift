@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OverviewView: View {
     
-    let column = [GridItem(.flexible(minimum: (375-32-8)/2,
-                                     maximum: (420-32)),
+    let column = [GridItem(.adaptive(minimum: (375-32-8),
+                                     maximum: (420-32-8)),
                            spacing: 8)]
     
     var trGroups:FetchRequest<TRGroup>
@@ -139,14 +139,17 @@ struct TotalOverviewGrid: View{
 
 struct ColorGroupBox: GroupBoxStyle {
     
+    var hideLabel = false
     var color:Color
     
     func makeBody(configuration: Configuration) -> some View {
         VStack {
-            HStack {
-                configuration.label
-                    .font(.headline)
-                Spacer()
+            if !hideLabel{
+                HStack {
+                    configuration.label
+                        .font(.headline)
+                    Spacer()
+                }
             }
             
             configuration.content
