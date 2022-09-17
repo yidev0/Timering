@@ -315,12 +315,12 @@ struct TimerControlView: View{
         }
         .sheet(isPresented: $createTimer) {
             //TODO: iOS 16
-//            if #available(iOS 16.0, *) {
-//                TimerDetailView()
-//                    .presentationDetents([.large, .medium])
-//            } else {
+            if #available(iOS 16.0, *) {
                 TimerDetailView()
-//            }
+                    .presentationDetents([.fraction(0.5)])
+            } else {
+                TimerDetailView()
+            }
         }
     }
     

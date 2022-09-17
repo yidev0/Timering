@@ -70,8 +70,8 @@ struct GridTimerView: View {
                     calculateGrid(size: geometry.size)
                 }
             }
-            .onChange(of: geometry.size.width) { _ in
-                calculateGrid(size: geometry.size)
+            .onChange(of: geometry.size) { size in
+                calculateGrid(size: size)
             }
             .navigationBarTitleDisplayMode(.inline)
         }
