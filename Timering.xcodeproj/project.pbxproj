@@ -38,6 +38,7 @@
 		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
 		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
+		D1C5079128D5B64D0001ABB7 /* GridTimerToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */; };
 		D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABAD928BF555E0013A23F /* TimerDetailView.swift */; };
 		D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */; };
 		D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5A289FBED900D83FF6 /* Symbols.swift */; };
@@ -102,6 +103,7 @@
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTimerToolView.swift; sourceTree = "<group>"; };
 		D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChartView.swift; sourceTree = "<group>"; };
 		D1CABAD928BF555E0013A23F /* TimerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetailView.swift; sourceTree = "<group>"; };
 		D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTimerCell.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
 				D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */,
+				D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */,
 			);
 			path = Grid;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
+				D1C5079128D5B64D0001ABB7 /* GridTimerToolView.swift in Sources */,
 				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
 				D14A80F828A6623800855E59 /* RingView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,

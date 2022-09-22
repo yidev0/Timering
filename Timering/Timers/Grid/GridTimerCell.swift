@@ -19,6 +19,7 @@ struct GridTimerCell:View{
     @State var audioPlayer:AVAudioPlayer?
     
     @State var trTimer:TRTimer
+    @Binding var editTimer:TRTimer?
     var fetchedEntry: FetchRequest<TREntry>
     
     @State private var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
@@ -100,7 +101,9 @@ struct GridTimerCell:View{
             .frame(width: itemSize.width, height: itemSize.height, alignment: .center)
             
             if showTools{
-                GridToolView(trTimer: $trTimer, fetchedEntry: fetchedEntry)
+                GridTimerToolView(trTimer: $trTimer, fetchedEntry: fetchedEntry, showInfo: {
+                    editTimer = trTimer
+                })
                     .padding(.all, 8)
             }
         }
@@ -125,7 +128,7 @@ struct GridTimerCell:View{
         }
     }
     
-    init(timer: TRTimer, size:Binding<CGSize>){
+    init(timer: TRTimer, editTimer:Binding<TRTimer?>, size:Binding<CGSize>){
         self._trTimer = /*State<TRTimer>*/.init(initialValue: timer)
         self.fetchedEntry = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.input,
                                                                             ascending: true)],
@@ -133,6 +136,7 @@ struct GridTimerCell:View{
                                          animation: .default)
         self._itemSize = size
         self._totalValue = .init(initialValue: timer.totalTime())
+        self._editTimer = editTimer
     }
     
     func adjustTime(){
