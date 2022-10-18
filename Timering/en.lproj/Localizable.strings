@@ -9,6 +9,10 @@
 //MARK: Navigation
 "Navigation.Done" = "Done";
 
+//MARK: Alert
+"Alert.Button.Cancel" = "Cancel";
+"Alert.Button.Delete" = "Delete";
+
 //MARK: Welcome
 "Welcome.Title.Timering" = "Welcome to Timering";
 "Welcome.Icon" = "Timering Icon";
@@ -56,6 +60,7 @@
 "Timer.Button.Delete" = "Delete";
 "Timer.Button.OpenSettings" = "Open Settings";
 "Timer.Button.CloseSession" = "Close Session";
+"Timer.Alert.Delete" = "Delete Timer?";
 
 //MARK: Grid
 "Grid.Title.Timer" = "Timer";

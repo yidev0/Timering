@@ -22,7 +22,7 @@ struct TimerView: View {
     @State var editTimer:TRTimer?
     
     var trGroup:TRGroup
-    var trSession:TRSession
+    @State var trSession:TRSession
     
     var body: some View {
         ZStack{
@@ -51,7 +51,7 @@ struct TimerView: View {
                 
                 ZStack{
                     if horizontalSizeClass == .compact{
-                        TimerValueControlView(totalValue: $totalValue)
+                        TimerValueControlView(totalValue: $totalValue, trSession: $trSession)
                             .padding(.bottom, 12)
                         
                         HStack{
@@ -77,10 +77,10 @@ struct TimerView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                TimerValueControlView(totalValue: $totalValue)
-                .onReceive(timer) { output in
-                    totalValue = trGroup.totalTime()
-                }
+                TimerValueControlView(totalValue: $totalValue, trSession: $trSession)
+                    .onReceive(timer) { output in
+                        totalValue = trGroup.totalTime()
+                    }
             }
             
             ToolbarItem(placement: .navigationBarLeading) {
@@ -139,7 +139,7 @@ struct TimerView: View {
     
     init(group:TRGroup){
         self.trGroup = group
-        self.trSession = group.getActiveSession()!
+        self._trSession = .init(initialValue: group.getActiveSession()!)
         self._timerType = .init(initialValue: TimerType(rawValue: Int(group.timerType)) ?? .ring)
         self._totalValue = .init(initialValue: group.totalTime())
     }
@@ -149,11 +149,15 @@ struct TimerView: View {
 struct TimerValueControlView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.managedObjectContext) private var viewContext
     @Binding var totalValue:Double
     
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
     
     @State var showSettings:Bool = false
+    @State var showAlert = false
+    
+    @Binding var trSession:TRSession
     
     var body: some View{
         Menu {
@@ -188,6 +192,21 @@ struct TimerValueControlView: View {
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
+        }
+        .alert("Timer.Alert.Title.CloseSession", isPresented: $showAlert) {
+            Button(role: .destructive) {
+                
+            } label: {
+                Text("Alert.Button.Close")
+            }
+            
+            Button(role: .cancel) {
+                
+            } label: {
+                Text("Alert.Button.Cancel")
+            }
+        } message: {
+            Text("Timer.Alert.Message.CloseSession")
         }
     }
 }
@@ -240,7 +259,7 @@ struct TimerTypeControlView: View{
                     showTimers = false
                 }
             }
-            .shadow(color: .gray, radius: 2)
+//            .shadow(color: .gray, radius: 2)
             
             Spacer()
         }
@@ -313,7 +332,7 @@ struct TimerControlView: View{
             .background(Color(.secondarySystemBackground))
             .cornerRadius(28)
             .frame(height: 56)
-            .shadow(color: .gray, radius: 2)
+//            .shadow(color: .gray, radius: 2)
         }
         .sheet(item: $editTimer) { timer in
             TimerDetailView(trTimer: timer)
@@ -354,6 +373,7 @@ struct TimerControlButton: View{
     var trTimer:TRTimer
     @State var isActive:Bool
     @State var color:Color
+    @State var showAlert = false
     
     var showInfo:() -> Void
     
@@ -366,8 +386,7 @@ struct TimerControlButton: View{
             }
             
             Button(role: .destructive) {
-                viewContext.delete(trTimer)
-                try? viewContext.save()
+                showAlert = true
             } label: {
                 Label("Timer.Button.Delete", systemImage: "trash")
             }
@@ -404,6 +423,22 @@ struct TimerControlButton: View{
             } else {
                 color = trTimer.isActive ? Color(trTimer.tint as? UIColor ?? .systemBlue):.clear
             }
+        }
+        .alert("Timer.Alert.Delete", isPresented: $showAlert) {
+            Button(role: .destructive) {
+                viewContext.delete(trTimer)
+                try? viewContext.save()
+            } label: {
+                Text("Alert.Button.Delete")
+            }
+            
+            Button(role: .cancel) {
+                
+            } label: {
+                Text("Alert.Button.Cancel")
+            }
+        } message: {
+            Text(trTimer.title ?? "Untitled")
         }
     }
     

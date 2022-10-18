@@ -9,6 +9,10 @@
 //MARK: Navigation
 "Navigation.Done" = "完了";
 
+//MARK: Alert
+"Alert.Button.Cancel" = "キャンセル";
+"Alert.Button.Delete" = "削除";
+
 //MARK: Welcome
 "Welcome.Title.Timering" = "Timeringへようこそ";
 "Welcome.Icon" = "Timering のアイコン";
@@ -55,6 +59,7 @@
 "Timer.Button.Delete" = "削除";
 "Timer.Button.OpenSettings" = "設定を開く";
 "Timer.Button.CloseSession" = "セッションを終了";
+"Timer.Alert.Delete" = "タイマーを削除しますか？";
 
 //MARK: Grid
 "Grid.Title.Timer" = "タイマー";

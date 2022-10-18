@@ -72,6 +72,16 @@ extension TRSession{
         }
         return false
     }
+    
+    func closeSession(viewContext: NSManagedObjectContext){
+        self.isCompleted = true
+        self.endDate = Date()
+        
+        let newSession = TRSession(context: viewContext)
+        newSession.group = self.group
+        newSession.isCompleted = false
+        newSession.createDate = Date()
+    }
 }
 
 extension TRGroup{
