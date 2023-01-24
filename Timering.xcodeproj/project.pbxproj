@@ -275,10 +275,10 @@
 		D1DFBA61289FC59400D83FF6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				D11D5CF9297F7EDB002E455B /* ListViewType.swift */,
-				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
-				D11D5CF7297F7E3C002E455B /* CompactListView.swift */,
 				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
+				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
+				D11D5CF9297F7EDB002E455B /* ListViewType.swift */,
+				D11D5CF7297F7E3C002E455B /* CompactListView.swift */,
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
 				D11D5CFB297F7F3A002E455B /* GroupListCell.swift */,
 			);
