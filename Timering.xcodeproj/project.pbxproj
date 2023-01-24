@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D11D5CF8297F7E3C002E455B /* CompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CF7297F7E3C002E455B /* CompactListView.swift */; };
+		D11D5CFA297F7EDB002E455B /* ListViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CF9297F7EDB002E455B /* ListViewType.swift */; };
+		D11D5CFC297F7F3A002E455B /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CFB297F7F3A002E455B /* GroupListCell.swift */; };
 		D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134CA2828AE36800034A203 /* GroupDetailView.swift */; };
 		D14A80F828A6623800855E59 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F728A6623800855E59 /* RingView.swift */; };
 		D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */; };
@@ -66,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		D11CB1F6282E7272007F44C6 /* Timering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timering.entitlements; sourceTree = "<group>"; };
+		D11D5CF7297F7E3C002E455B /* CompactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactListView.swift; sourceTree = "<group>"; };
+		D11D5CF9297F7EDB002E455B /* ListViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewType.swift; sourceTree = "<group>"; };
+		D11D5CFB297F7F3A002E455B /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		D134CA2828AE36800034A203 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		D14A80F728A6623800855E59 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData + Extensions.swift"; sourceTree = "<group>"; };
@@ -269,9 +275,12 @@
 		D1DFBA61289FC59400D83FF6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				D11D5CF9297F7EDB002E455B /* ListViewType.swift */,
 				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
+				D11D5CF7297F7E3C002E455B /* CompactListView.swift */,
 				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
+				D11D5CFB297F7F3A002E455B /* GroupListCell.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -449,11 +458,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */,
+				D11D5CFC297F7F3A002E455B /* GroupListCell.swift in Sources */,
 				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
 				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
 				D14A80F828A6623800855E59 /* RingView.swift in Sources */,
+				D11D5CFA297F7EDB002E455B /* ListViewType.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
 				D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
@@ -462,6 +473,7 @@
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
+				D11D5CF8297F7E3C002E455B /* CompactListView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,

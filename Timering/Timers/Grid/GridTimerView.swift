@@ -110,56 +110,6 @@ struct GridTimerView: View {
     }
 }
 
-struct GridToolView: View{
-    
-    @Binding var trTimer:TRTimer
-    var fetchedEntry: FetchRequest<TREntry>
-//    var showInfo: () -> Void
-    
-    var body: some View{
-        VStack{
-            HStack{
-                Spacer()
-                
-                if UIDevice.current.userInterfaceIdiom == .phone{
-                    NavigationLink {
-//                        NavigationView{
-//                            GridTimerDetailView(gridTimer: gridTimer, showToolbar: false)
-//                        }
-                    } label: {
-                        ZStack{
-                            Circle()
-                                .foregroundColor(Color(.systemFill))
-                            Image(systemName: "info")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 12, height: 12, alignment: .center)
-                                .foregroundColor(.blue)
-                        }
-                        .padding(.all, 4)
-                    }.frame(width: 36, height: 36, alignment: .center)
-                } else {
-                    Button(action: { /*showInfo()*/ }) {
-                        ZStack{
-                            Circle()
-                                .foregroundColor(Color(.systemFill))
-                            Image(systemName: "info")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 12, height: 12, alignment: .center)
-                                .foregroundColor(.blue)
-                        }
-                        .padding(.all, 4)
-                    }
-                    .frame(width: 36, height: 36, alignment: .center)
-                }
-            }
-            
-            Spacer()
-        }
-    }
-}
-
 //struct GridTimerView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        GridTimerView()

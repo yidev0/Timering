@@ -24,7 +24,7 @@ struct TabBarView: View {
             }
             
             ActiveSessionBar(selectedSession: $selectedSession, sheetSession: $sheetSession){
-                GroupListView(sheetSession: $sheetSession)
+                CompactListView(sheetSession: $sheetSession)
             }
             .tag(1)
             .tabItem {

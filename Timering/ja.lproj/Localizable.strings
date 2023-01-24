@@ -51,10 +51,10 @@
 "Tabbar.Button.NewGroup" = "新しいグループ";
 
 //MARK: Timer
-"Timer.Type.Group" = "グループ";
-"Timer.Type.Session" = "セッション";
-"Timer.Type.Timer" = "タイマー";
-"Timer.Type.Entry" = "エントリー";
+"Timer.Type.Groups" = "グループ";
+"Timer.Type.Sessions" = "セッション";
+"Timer.Type.Timers" = "タイマー";
+"Timer.Type.Entries" = "エントリー";
 
 "Timer.Button.ShowInfo" = "詳細を表示";
 "Timer.Button.Delete" = "削除";
