@@ -52,6 +52,11 @@
 "Tabbar.Button.NewGroup" = "New Group";
 
 //MARK: Timer
+"Timer.Type.Group" = "Group";
+"Timer.Type.Session" = "Session";
+"Timer.Type.Timer" = "Timer";
+"Timer.Type.Entry" = "Entry";
+
 "Timer.Button.ShowInfo" = "Show Detail";
 "Timer.Button.Delete" = "Delete";
 "Timer.Button.OpenSettings" = "Open Settings";

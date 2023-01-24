@@ -140,6 +140,7 @@ struct GroupListView: View {
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var timers:FetchedResults<TRTimer>
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) var entries:FetchedResults<TREntry>
     
+    @State var viewType = 0
     @State var popGroup:TRGroup?
     @Binding var sheetSession:TRSession?
     @State var showSettings = false
@@ -155,36 +156,37 @@ struct GroupListView: View {
             .sheet(item: $popGroup){ group in
                 GroupDetailView(group: group)
             }
-            
-            Section{
-                Button {
-                    newGroup = true
-                } label: {
-                    Label("Sidebar.Button.NewGroup", systemImage: "folder.badge.plus")
-                }
-            }
-            .sheet(isPresented: $newGroup) {
-                GroupDetailView(group: nil)
-            }
         }
         .navigationTitle("Timering")
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
+        .sheet(isPresented: $newGroup) {
+            GroupDetailView(group: nil)
+        }
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Menu {
-                    EditButton()
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                }
-            }
-            
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     showSettings = true
                 } label: {
                     Image(systemName: "gear")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Picker(selection: $viewType) {
+                    Label("Timer.Type.Timer", systemImage: "timer").tag(0)
+                    Label("Timer.Type.Group", systemImage: "square.grid.2x2").tag(1)
+                } label: {
+                    Image(systemName: viewType == 0 ? "timer":"square.grid.2x2")
+                }
+                
+                if viewType == 1 {
+                    Button {
+                        newGroup = true
+                    } label: {
+                        Label("Sidebar.Button.NewGroup", systemImage: "folder.badge.plus")
+                    }
                 }
             }
         }
