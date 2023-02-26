@@ -51,6 +51,7 @@
 		D1FBB2DB29AB6C4700D19548 /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */; };
 		D1FBB2DD29AB6C7B00D19548 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */; };
 		D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */; };
+		D1FBB2E129AB6CF700D19548 /* GridTimerToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GaugeTimerView.swift; path = Gauge/GaugeTimerView.swift; sourceTree = "<group>"; };
 		D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactListView.swift; sourceTree = "<group>"; };
+		D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTimerToolView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 			children = (
 				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
 				D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */,
+				D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */,
 			);
 			path = Grid;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
+				D1FBB2E129AB6CF700D19548 /* GridTimerToolView.swift in Sources */,
 				D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
