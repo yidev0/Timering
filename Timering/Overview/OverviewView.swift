@@ -102,6 +102,16 @@ struct TotalOverviewGrid: View{
                 }
             }
         }
+        .refreshable {
+            switch type {
+            case .overall:
+                calculateOverall()
+            case .today:
+                calculateToday()
+            case .session:
+                calculateSession()
+            }
+        }
     }
     
     init(type: TotalType){

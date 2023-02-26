@@ -42,14 +42,14 @@
 //MARK: Sidebar
 "Sidebar.Section.Groups" = "Groups";
 "Sidebar.Section.Overview" = "Overview";
-"Sidebar.Button.NewGroup" = "New Group";
+"Sidebar.Button.NewGroup" = "New Timer Group";
 "Sidebar.Button.Delete" = "Delete";
 "Sidebar.Button.ShowDetail" = "Edit";
 
 //MARK: Tabbar
 "Tabbar.Section.Groups" = "Groups";
 "Tabbar.Section.Overview" = "Overview";
-"Tabbar.Button.NewGroup" = "New Group";
+"Tabbar.Button.NewGroup" = "New Timer Group";
 
 //MARK: Timer
 "Timer.Type.Groups" = "Groups";

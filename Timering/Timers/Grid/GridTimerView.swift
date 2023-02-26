@@ -29,6 +29,7 @@ struct GridTimerView: View {
     @State var itemSize = CGSize(width: 100, height: 100)
     @State var spacing:CGFloat = 8
     
+    @Binding var editTimer:TRTimer?
     @State var timerCount = 1
     
     let gridLimit = 6
@@ -39,7 +40,7 @@ struct GridTimerView: View {
             ZStack(alignment: .center){
                 LazyVGrid(columns: gridItems, spacing: spacing) {
                     ForEach(fetchedTimers.wrappedValue) { timer in
-                        GridTimerCell(timer: timer, size: $itemSize)
+                        GridTimerCell(timer: timer, editTimer: $editTimer, size: $itemSize)
                     }
                     if fetchedTimers.wrappedValue.count < gridLimit{
                         Button {
@@ -77,12 +78,13 @@ struct GridTimerView: View {
         }
     }
     
-    init(group:TRGroup){
+    init(group:TRGroup, editTimer:Binding<TRTimer?>){
         self.trGroup = group
         self.trSession = group.getActiveSession()!
         self.fetchedTimers = FetchRequest(sortDescriptors: [],
                                           predicate: NSPredicate(format: "session == %@", trSession),
                                           animation: .default)
+        self._editTimer = editTimer
     }
     
     func calculateGrid(size:CGSize){

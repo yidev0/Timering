@@ -19,6 +19,8 @@ struct TimerView: View {
     @State var timerType:TimerType
     @State var totalValue:Double
     
+    @State var editTimer:TRTimer?
+    
     var trGroup:TRGroup
     var trSession:TRSession
     
@@ -28,7 +30,7 @@ struct TimerView: View {
             case .ring:
                 RingTimerView(group: trGroup)
             case .grid:
-                GridTimerView(group: trGroup)
+                GridTimerView(group: trGroup, editTimer: $editTimer)
                     .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
                 GaugeTimerView(group: trGroup)
@@ -69,6 +71,9 @@ struct TimerView: View {
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
+        }
+        .popover(item: $editTimer) { timer in
+            TimerDetailView(trTimer: timer)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
