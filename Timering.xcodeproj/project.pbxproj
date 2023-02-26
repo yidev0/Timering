@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D11D5CF8297F7E3C002E455B /* CompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CF7297F7E3C002E455B /* CompactListView.swift */; };
-		D11D5CFA297F7EDB002E455B /* ListViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CF9297F7EDB002E455B /* ListViewType.swift */; };
-		D11D5CFC297F7F3A002E455B /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CFB297F7F3A002E455B /* GroupListCell.swift */; };
 		D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134CA2828AE36800034A203 /* GroupDetailView.swift */; };
 		D14A80F828A6623800855E59 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F728A6623800855E59 /* RingView.swift */; };
 		D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */; };
@@ -41,7 +38,6 @@
 		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
 		D1B84787280E4F3E00B7CCF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B84789280E4F3E00B7CCF5 /* Localizable.strings */; };
-		D1C5079128D5B64D0001ABB7 /* GridTimerToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */; };
 		D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABAD928BF555E0013A23F /* TimerDetailView.swift */; };
 		D1D5854D298E5031000A763B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5854C298E5031000A763B /* ActivityView.swift */; };
 		D1D5854F298E505C000A763B /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5854E298E505C000A763B /* Enum.swift */; };
@@ -52,6 +48,7 @@
 		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
 		D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7828A26BD100D641F7 /* PersistenceController.swift */; };
 		D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */; };
+		D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,9 +70,6 @@
 
 /* Begin PBXFileReference section */
 		D11CB1F6282E7272007F44C6 /* Timering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timering.entitlements; sourceTree = "<group>"; };
-		D11D5CF7297F7E3C002E455B /* CompactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactListView.swift; sourceTree = "<group>"; };
-		D11D5CF9297F7EDB002E455B /* ListViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewType.swift; sourceTree = "<group>"; };
-		D11D5CFB297F7F3A002E455B /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		D134CA2828AE36800034A203 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		D14A80F728A6623800855E59 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData + Extensions.swift"; sourceTree = "<group>"; };
@@ -112,7 +106,6 @@
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1B84788280E4F3E00B7CCF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1B8478A280E4F4100B7CCF5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTimerToolView.swift; sourceTree = "<group>"; };
 		D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChartView.swift; sourceTree = "<group>"; };
 		D1CABAD928BF555E0013A23F /* TimerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetailView.swift; sourceTree = "<group>"; };
 		D1D5854C298E5031000A763B /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -124,6 +117,7 @@
 		D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		D1F95E7828A26BD100D641F7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistentContainer.swift; sourceTree = "<group>"; };
+		D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +270,6 @@
 			children = (
 				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
 				D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */,
-				D1C5079028D5B64D0001ABB7 /* GridTimerToolView.swift */,
 			);
 			path = Grid;
 			sourceTree = "<group>";
@@ -284,14 +277,12 @@
 		D1DFBA61289FC59400D83FF6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
 				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
-				D11D5CF9297F7EDB002E455B /* ListViewType.swift */,
-				D11D5CF7297F7E3C002E455B /* CompactListView.swift */,
+				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
 				D1D5854C298E5031000A763B /* ActivityView.swift */,
 				D1D58550298E5081000A763B /* PlayerView.swift */,
-				D11D5CFB297F7F3A002E455B /* GroupListCell.swift */,
+				D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -303,7 +294,7 @@
 				D1CABAD928BF555E0013A23F /* TimerDetailView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
 				D1D9012F28A38EA7001B0EA2 /* Grid */,
-				D1F0D2452956DF5700CA2A08 /* Gauge */,
+				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -317,14 +308,6 @@
 				D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		D1F0D2452956DF5700CA2A08 /* Gauge */ = {
-			isa = PBXGroup;
-			children = (
-				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
-			);
-			path = Gauge;
 			sourceTree = "<group>";
 		};
 		D1F95E7C28A274B800D641F7 /* Data */ = {
@@ -478,25 +461,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */,
-				D11D5CFC297F7F3A002E455B /* GroupListCell.swift in Sources */,
 				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
-				D1C5079128D5B64D0001ABB7 /* GridTimerToolView.swift in Sources */,
 				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
 				D1D5854D298E5031000A763B /* ActivityView.swift in Sources */,
 				D14A80F828A6623800855E59 /* RingView.swift in Sources */,
 				D1D58551298E5081000A763B /* PlayerView.swift in Sources */,
-				D11D5CFA297F7EDB002E455B /* ListViewType.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
 				D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */,
+				D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
-				D11D5CF8297F7E3C002E455B /* CompactListView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
