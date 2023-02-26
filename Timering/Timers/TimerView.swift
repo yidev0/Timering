@@ -30,7 +30,7 @@ struct TimerView: View {
             case .ring:
                 RingTimerView(group: trGroup)
             case .grid:
-                GridTimerView(group: trGroup, editTimer: $editTimer)
+                GridTimerView(group: trGroup)
                     .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
                 GaugeTimerView(group: trGroup)
