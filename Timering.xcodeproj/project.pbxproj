@@ -291,7 +291,7 @@
 				D1CABAD928BF555E0013A23F /* TimerDetailView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
 				D1D9012F28A38EA7001B0EA2 /* Grid */,
-				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
+				D1F0D2452956DF5700CA2A08 /* Gauge */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -305,6 +305,14 @@
 				D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D1F0D2452956DF5700CA2A08 /* Gauge */ = {
+			isa = PBXGroup;
+			children = (
+				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
+			);
+			path = Gauge;
 			sourceTree = "<group>";
 		};
 		D1F95E7C28A274B800D641F7 /* Data */ = {

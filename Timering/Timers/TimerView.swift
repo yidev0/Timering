@@ -31,7 +31,7 @@ struct TimerView: View {
                 GridTimerView(group: trGroup)
                     .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
-                GaugeTimerView(timers: testGaugeTimers)
+                GaugeTimerView(group: trGroup)
             }
             
             VStack{
