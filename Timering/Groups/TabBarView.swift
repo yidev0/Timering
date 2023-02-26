@@ -23,6 +23,29 @@ struct TabBarView: View {
                 Label("Tabbar.Section.Overview", systemImage: "timer")
             }
             
+            ActivityView {
+                GroupListView(sheetSession: $sheetSession)
+            } player: {
+//                if let group = sheetSession.group {
+//                    TimerView(group: sheetSession!.group!)
+//                } else {
+//                    Text("Error")
+//                }
+                Text("Error")
+            } label: {
+                PlayerCellView(
+                    symbol: selectedSession?.group?.icon ?? "exclamationmark.triangle.fill",
+                    imageColor: .blue,
+                    title: selectedSession?.group?.title ?? "N/A",
+                    subtitle: selectedSession?.group?.title ?? "N/A",
+                    value: selectedSession?.totalTime() ?? 0
+                )
+            }
+            .tag(2)
+            .tabItem {
+                Label("Tabbar.Section.Groups", systemImage: "square.grid.2x2.fill")
+            }
+
             ActiveSessionBar(selectedSession: $selectedSession, sheetSession: $sheetSession){
                 GroupListView(sheetSession: $sheetSession)
             }
@@ -52,6 +75,7 @@ struct TabBarView: View {
 
 struct ActiveSessionBar<Content: View>: View{
     
+    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedSession:TRSession?
     @Binding var sheetSession:TRSession?
     
@@ -63,48 +87,51 @@ struct ActiveSessionBar<Content: View>: View{
     
     @ViewBuilder var body: some View{
         ZStack(alignment: .bottom) {
-            NavigationView{
+            NavigationStack {
                 content()
             }
             
             VStack(spacing: 0){
                 Spacer()
                 
-                Button {
-                    sheetSession = selectedSession
-                } label: {
-                    HStack{
-                        if let trSession = selectedSession{
-                            Image(systemName: trSession.group?.icon ?? "questionmark")
-                        }
-                        
-                        VStack(alignment: .leading){
+                VStack(spacing: 0) {
+                    Button {
+                        sheetSession = selectedSession
+                    } label: {
+                        HStack{
                             if let trSession = selectedSession{
-                                Text(trSession.group?.title ?? "Untitled")
-                            } else {
-                                Text("N/A")
+                                Image(systemName: trSession.group?.icon ?? "questionmark")
                             }
-                            if let trSession = selectedSession{
-                                Text("\(totalValue, specifier: "%.2f")")
-                                    .foregroundColor(.secondary)
-                                    .font(.footnote)
-                                    .onReceive(timer) { _ in
-                                        totalValue = trSession.totalTime()
-                                        //TODO: 時間差を計算
-                                    }
-                            }   
-                        }
-                        Spacer()
-                        
-                        if let isActive = selectedSession?.checkActivity(){
-                            Image(systemName: isActive ? "play.fill":"pause.fill")
+                            
+                            VStack(alignment: .leading){
+                                if let trSession = selectedSession{
+                                    Text(trSession.group?.title ?? "Untitled")
+                                } else {
+                                    Text("N/A")
+                                }
+                                if let trSession = selectedSession{
+                                    Text("\(totalValue, specifier: "%.2f")")
+                                        .foregroundColor(.secondary)
+                                        .font(.footnote)
+                                        .onReceive(timer) { _ in
+                                            totalValue = trSession.totalTime()
+                                            //TODO: 時間差を計算
+                                        }
+                                }
+                            }
+                            Spacer()
+                            
+                            if let isActive = selectedSession?.checkActivity(){
+                                Image(systemName: isActive ? "play.fill":"pause.fill")
+                            }
                         }
                     }
+                    .padding()
+                    
+                    Divider()
                 }
-                .padding()
-                .background(.ultraThinMaterial)
-                
-                Divider()
+                .background(.regularMaterial)
+                .shadow(color: .gray.opacity(colorScheme == .dark ? 0:0.4), radius: 2, y: -2)
             }
         }
     }
