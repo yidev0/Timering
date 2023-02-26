@@ -48,6 +48,7 @@
 		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
 		D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7828A26BD100D641F7 /* PersistenceController.swift */; };
 		D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */; };
+		D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		D1F95E7828A26BD100D641F7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistentContainer.swift; sourceTree = "<group>"; };
+		D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
 				D1D5854C298E5031000A763B /* ActivityView.swift */,
 				D1D58550298E5081000A763B /* PlayerView.swift */,
+				D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				D1D58551298E5081000A763B /* PlayerView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
 				D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */,
+				D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
