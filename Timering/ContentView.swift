@@ -22,8 +22,9 @@ struct ContentView: View {
                 TabBarView()
 //            }.navigationViewStyle(.stack)
         } else {
-            NavigationView {
+            NavigationSplitView {
                 SidebarView()
+            } detail: {
                 Text("")
             }
             .navigationViewStyle(.columns)
