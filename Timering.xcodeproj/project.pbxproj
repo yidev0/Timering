@@ -33,7 +33,6 @@
 		D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779490281B8356006A421D /* AUDIO_0004.m4a */; };
 		D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779491281B8356006A421D /* AUDIO_7063.m4a */; };
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
-		D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1831D6228A0B25900A667CF /* GaugeTimerView.swift */; };
 		D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589228ADDAD1002B4EA9 /* OverviewView.swift */; };
 		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
@@ -49,6 +48,9 @@
 		D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7828A26BD100D641F7 /* PersistenceController.swift */; };
 		D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */; };
 		D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */; };
+		D1FBB2DB29AB6C4700D19548 /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */; };
+		D1FBB2DD29AB6C7B00D19548 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */; };
+		D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +102,6 @@
 		D1779490281B8356006A421D /* AUDIO_0004.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_0004.m4a; sourceTree = "<group>"; };
 		D1779491281B8356006A421D /* AUDIO_7063.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_7063.m4a; sourceTree = "<group>"; };
 		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
-		D1831D6228A0B25900A667CF /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
 		D195589228ADDAD1002B4EA9 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		D195589428ADDC61002B4EA9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -118,6 +119,9 @@
 		D1F95E7828A26BD100D641F7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistentContainer.swift; sourceTree = "<group>"; };
 		D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
+		D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GaugeTimerView.swift; path = Gauge/GaugeTimerView.swift; sourceTree = "<group>"; };
+		D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
+		D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +287,8 @@
 				D1D5854C298E5031000A763B /* ActivityView.swift */,
 				D1D58550298E5081000A763B /* PlayerView.swift */,
 				D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */,
+				D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */,
+				D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -294,7 +300,7 @@
 				D1CABAD928BF555E0013A23F /* TimerDetailView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
 				D1D9012F28A38EA7001B0EA2 /* Grid */,
-				D1831D6228A0B25900A667CF /* GaugeTimerView.swift */,
+				D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -469,7 +475,6 @@
 				D14A80F828A6623800855E59 /* RingView.swift in Sources */,
 				D1D58551298E5081000A763B /* PlayerView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
-				D1831D6328A0B25900A667CF /* GaugeTimerView.swift in Sources */,
 				D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
@@ -477,9 +482,11 @@
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
+				D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
+				D1FBB2DB29AB6C4700D19548 /* GaugeTimerView.swift in Sources */,
 				D1D5854F298E505C000A763B /* Enum.swift in Sources */,
 				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
@@ -487,6 +494,7 @@
 				D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */,
 				D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */,
 				D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */,
+				D1FBB2DD29AB6C7B00D19548 /* GroupListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
