@@ -19,7 +19,17 @@ struct TimerGridButton: View {
     
     var body: some View {
         Menu {
-            // TODO: Button
+            Button(role: .destructive) {
+                trTimer.delete()
+            } label: {
+                Label("Delete from session", systemImage: "trash")
+            }
+            
+            Button(role: .destructive) {
+                trTimer.delete()
+            } label: {
+                Label("Delete All", systemImage: "trash.fill")
+            }
         } label: {
             TimerGridCell(
                 title: trTimer.title ?? "Untitled".localize(),

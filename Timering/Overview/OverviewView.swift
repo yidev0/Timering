@@ -25,7 +25,7 @@ struct OverviewView: View {
             }.padding(.horizontal, 16)
         }
         .navigationTitle(Text("Sidebar.Section.Overview"))
-        .background(Color(.systemGroupedBackground))
+        .background(Color.background)
         .toolbar {
             ToolbarItem {
                 Button {
@@ -89,7 +89,7 @@ struct TotalOverviewGrid: View{
             .foregroundColor(.blue)
             .font(.system(.subheadline).weight(.semibold))
         }
-        .groupBoxStyle(ColorGroupBox(color: Color(.secondarySystemGroupedBackground)))
+//        .groupBoxStyle(ColorGroupBox(color: Color(.secondarySystemGroupedBackground)))
         .onAppear{
             Task{
                 switch type {

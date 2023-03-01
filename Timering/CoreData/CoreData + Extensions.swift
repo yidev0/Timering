@@ -9,19 +9,18 @@ import Foundation
 import CoreData
 import SwiftUI
 
-
-
-
-
-
-
-
-
 extension NSObject {
     func toColor() -> Color {
         if let color = self as? UIColor {
             return Color(uiColor: color)
         }
         return .blue
+    }
+    
+    func toUIColor() -> UIColor {
+        if let color = self as? UIColor {
+            return color
+        }
+        return .systemBlue
     }
 }

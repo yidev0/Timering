@@ -1,5 +1,5 @@
 //
-//  RingView.swift
+//  TimerRingView.swift
 //  Timering
 //
 //  Created by Yuto on 2022/08/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RingView: View{
+struct TimerRingView: View{
     
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
     
@@ -33,7 +33,7 @@ struct RingView: View{
                                   String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
                                   "+",
                                   String(format: "%.2f", counter),
-                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
+                                  String(format: "%.2f", entry.timer!.session!.totalTime))
                         }
                 }
             }

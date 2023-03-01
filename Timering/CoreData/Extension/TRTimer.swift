@@ -8,7 +8,7 @@
 import Foundation
 
 extension TRTimer{
-    func toEntries() -> [TREntry] {
+    func allEntries() -> [TREntry] {
         if let array = self.entries?.allObjects.map({ $0 as! TREntry}){
             return array
         } else {
@@ -60,12 +60,27 @@ extension TRTimer{
         }
     }
     
+    func delete() {
+        let viewContext = PersistenceController.shared.container.viewContext
+        let entries = self.allEntries()
+        for entry in entries {
+            viewContext.delete(entry)
+        }
+        
+        viewContext.delete(self)
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     // TODO: check sort
     var oldestEntry: TREntry? {
-        self.toEntries().sorted(by: { $0.startDate ?? Date() < $1.startDate ?? Date() }).first!
+        self.allEntries().sorted(by: { $0.startDate ?? Date() < $1.startDate ?? Date() }).first!
     }
     
     var newestEntry: TREntry? {
-        self.toEntries().sorted(by: { $0.startDate ?? Date() > $1.startDate ?? Date() }).first
+        self.allEntries().sorted(by: { $0.startDate ?? Date() > $1.startDate ?? Date() }).first
     }
 }

@@ -26,7 +26,7 @@ struct RingTimerView: View {
         ZStack{
             Color(.systemBackground)
                 .ignoresSafeArea()
-            RingView(group: trGroup, entries: trEntries)
+            TimerRingView(group: trGroup, entries: trEntries)
                 .ignoresSafeArea()
         }
         .onTapGesture {

@@ -12,9 +12,10 @@ struct TimerDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     
+    var trSession: TRSession
     var trTimer:TRTimer?
-    var colors:[UIColor]
-    var icons:[String]
+    var colors:[UIColor] = [.systemGray, .systemRed, .systemOrange, .systemYellow, .systemGreen, .systemMint, .systemTeal, .systemCyan, .systemBlue, .systemIndigo, .systemPurple, .systemBrown]
+    var icons:[String] = timerSymbols
     
     @State var color:UIColor
     @State var icon:String
@@ -25,6 +26,18 @@ struct TimerDetailView: View {
     @State var optionExpanded = true
     @State var colorExpanded = false
     @State var iconExpanded = false
+    
+    
+    init(trTimer: TRTimer) {
+        self.trTimer = trTimer
+        self.trSession = trTimer.session!
+        
+        self._goalTime = .init(initialValue: trTimer.goalTime )
+        self._isTimeSensitive = .init(initialValue: trTimer.isTimeSensitive )
+        self._color = .init(initialValue: trTimer.tint as? UIColor ?? .systemGray)
+        self._icon = .init(initialValue: trTimer.icon ?? "trash")
+        self._title = .init(initialValue: trTimer.title ?? "Untitled".localize())
+    }
     
     var body: some View {
         NavigationView{
@@ -138,12 +151,14 @@ struct TimerDetailView: View {
                             trTimer.goalTime = goalTime
                             trTimer.isTimeSensitive = isTimeSensitive
                         } else {
-                            let trTimer = TRTimer(context: viewContext)
-                            trTimer.icon = icon
-                            trTimer.title = title
-                            trTimer.tint = color
-                            trTimer.goalTime = goalTime
-                            trTimer.isTimeSensitive = isTimeSensitive
+                            let newTimer = TRTimer(context: viewContext)
+                            newTimer.timerID = UUID()
+                            newTimer.icon = icon
+                            newTimer.title = title
+                            newTimer.tint = color
+                            newTimer.goalTime = goalTime
+                            newTimer.isTimeSensitive = isTimeSensitive
+                            newTimer.session = trSession
                         }
                         
                         do{
@@ -162,16 +177,17 @@ struct TimerDetailView: View {
             .background(Color(.systemGroupedBackground))
         }
     }
-    
-    init(trTimer: TRTimer? = nil) {
-        self.trTimer = trTimer
-        self.colors = [.systemGray, .systemRed, .systemOrange, .systemYellow, .systemGreen, .systemMint, .systemTeal, .systemCyan, .systemBlue, .systemIndigo, .systemPurple, .systemBrown]
-        self.icons = timerSymbols
-        
+}
+
+extension TimerDetailView {
+    init(timer: TRTimer?, session: TRSession) {
+        self.trTimer = timer
+        self.trSession = session
+
         self._goalTime = .init(initialValue: trTimer?.goalTime ?? 5*60)
         self._isTimeSensitive = .init(initialValue: trTimer?.isTimeSensitive ?? false)
         self._color = .init(initialValue: trTimer?.tint as? UIColor ?? .systemGray)
-        self._icon = .init(initialValue: trTimer?.icon ?? "trash")
+        self._icon = .init(initialValue: trTimer?.icon ?? timerSymbols.randomElement() ?? "flame")
         self._title = .init(initialValue: trTimer?.title ?? "Untitled".localize())
     }
 }
@@ -228,8 +244,8 @@ struct TimerDetailIconCell: View{
     }
 }
 
-struct TimerDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerDetailView()
-    }
-}
+//struct TimerDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerDetailView()
+//    }
+//}

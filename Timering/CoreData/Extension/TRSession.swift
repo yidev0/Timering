@@ -8,7 +8,7 @@
 import Foundation
 
 extension TRSession{
-    func totalTime() -> Double{
+    var totalTime: Double {
         var returnValue:Double = 0.001
         if let timers = timers{
             for timer in timers{
@@ -18,6 +18,14 @@ extension TRSession{
             }
         }
         return returnValue
+    }
+    
+    func getTimers() -> [TRTimer] {
+        if let array = self.timers?.allObjects.map({ $0 as! TRTimer}){
+            return array
+        } else {
+            return []
+        }
     }
     
     func checkActivity() -> Bool{
@@ -31,5 +39,34 @@ extension TRSession{
             }
         }
         return false
+    }
+    
+    func closeSession(withTimers: Bool = true) {
+        let context = PersistenceController.shared.container.viewContext
+        self.endDate = Date()
+        self.isCompleted = true
+        
+        let newSession = TRSession(context: context)
+        newSession.createDate = Date()
+        newSession.isCompleted = false
+        
+        let timers = self.getTimers()
+        for timer in timers {
+            TimeringManager().newTimer(
+                id: timer.timerID ?? UUID(),
+                title: timer.title,
+                icon: timer.icon,
+                tint: timer.tint?.toUIColor(),
+                goalTime: timer.goalTime,
+                timeSensitive: timer.isTimeSensitive,
+                session: newSession
+            )
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }

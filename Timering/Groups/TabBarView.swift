@@ -38,7 +38,7 @@ struct TabBarView: View {
                     imageColor: .blue,
                     title: selectedSession?.group?.title ?? "N/A",
                     subtitle: selectedSession?.group?.title ?? "N/A",
-                    value: selectedSession?.totalTime() ?? 0
+                    value: selectedSession?.totalTime ?? 0
                 )
             }
             .tag(1)
@@ -106,7 +106,7 @@ struct ActiveSessionBar<Content: View>: View{
                                         .foregroundColor(.secondary)
                                         .font(.footnote)
                                         .onReceive(timer) { _ in
-                                            totalValue = trSession.totalTime()
+                                            totalValue = trSession.totalTime
                                             //TODO: 時間差を計算
                                         }
                                 }

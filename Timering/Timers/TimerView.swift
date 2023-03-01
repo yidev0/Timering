@@ -31,10 +31,8 @@ struct TimerView: View {
                 RingTimerView(group: trGroup)
             case .grid:
                 TimerGridView(group: trGroup)
-//                GridTimerView(group: trGroup)
-//                    .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
-                GaugeTimerView(group: trGroup)
+                TimerGaugeView(group: trGroup)
             }
             
             VStack{
@@ -317,15 +315,15 @@ struct TimerControlView: View{
             .shadow(color: .gray, radius: 2)
         }
         .sheet(item: $editTimer) { timer in
-            TimerDetailView(trTimer: timer)
+            TimerDetailView(timer: timer, session: trSession)
         }
         .sheet(isPresented: $createTimer) {
             //TODO: iOS 16
             if #available(iOS 16.0, *) {
-                TimerDetailView()
-                    .presentationDetents([.fraction(0.5)])
+                TimerDetailView(timer: nil, session: trSession)
+                    .presentationDetents([.medium, .large])
             } else {
-                TimerDetailView()
+                TimerDetailView(timer: nil, session: trSession)
             }
         }
     }

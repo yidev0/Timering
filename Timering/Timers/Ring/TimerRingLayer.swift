@@ -15,6 +15,7 @@ struct TimerRingLayer: View {
     
     var body: some View {
         Circle()
+            .aspectRatio(1, contentMode: .fit)
             .foregroundColor(color)
         // TODO: Label ring
             .accessibilityLabel("")
