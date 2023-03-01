@@ -131,9 +131,9 @@ struct TotalOverviewGrid: View{
     func calculateToday(){
         var updateValue:Double = 0
         let entries = trEntries.wrappedValue
-        let validEntries = entries.filter{ $0.input?.isToday() == true }
+        let validEntries = entries.filter{ $0.startDate?.isToday() == true }
         for entry in validEntries{
-            updateValue += entry.value
+            updateValue += entry.totalTime
         }
         value = updateValue
     }

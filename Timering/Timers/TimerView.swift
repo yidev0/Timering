@@ -30,8 +30,9 @@ struct TimerView: View {
             case .ring:
                 RingTimerView(group: trGroup)
             case .grid:
-                GridTimerView(group: trGroup)
-                    .padding(.top, horizontalSizeClass == .compact ? 12:0)
+                TimerGridView(group: trGroup)
+//                GridTimerView(group: trGroup)
+//                    .padding(.top, horizontalSizeClass == .compact ? 12:0)
             case .gauge:
                 GaugeTimerView(group: trGroup)
             }
@@ -415,26 +416,26 @@ struct TimerControlButton: View{
     }
     
     func buttonPressed(){
-        trTimer.adjustTime()
-        isActive.toggle()
-        
-        if isActive{
-            let newEntry = TREntry(context: viewContext)
-            newEntry.input = Date()
-            newEntry.value = 0.001
-            newEntry.timer = trTimer
-            do{
-                try viewContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        } else {
-            do{
-                try viewContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+//        trTimer.adjustTime()
+//        isActive.toggle()
+//        
+//        if isActive{
+//            let newEntry = TREntry(context: viewContext)
+//            newEntry.input = Date()
+//            newEntry.value = 0.001
+//            newEntry.timer = trTimer
+//            do{
+//                try viewContext.save()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        } else {
+//            do{
+//                try viewContext.save()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
         
 //        isActive == false ? stopTimer():startTimer()
     }

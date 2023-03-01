@@ -12,6 +12,7 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
+    #if DEBUG
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
@@ -27,8 +28,8 @@ struct PersistenceController {
                 timer.icon = timerSymbols.randomElement()
                 
                 let entry = TREntry(context: viewContext)
-                entry.input = Date()
-                entry.value = Double((i+1) * (j+1) + Int.random(in: 1..<100))
+                let startDate:Date = [.today, .iPhone(), .newYear()][j]
+                entry.startDate = startDate
             }
             
             
@@ -46,6 +47,7 @@ struct PersistenceController {
         
         return result
     }()
+    #endif
 
     let container: CustomPersistentContainer
 

@@ -91,8 +91,7 @@ struct GridTimerCell:View{
                 gauge
                     .onReceive(timer) { output in
                         withAnimation {
-                            trTimer.adjustTime()
-                            totalValue = trTimer.totalTime()
+                            totalValue = trTimer.totalTime
                         }
                     }
             }
@@ -127,52 +126,33 @@ struct GridTimerCell:View{
     
     init(timer: TRTimer, size:Binding<CGSize>){
         self._trTimer = /*State<TRTimer>*/.init(initialValue: timer)
-        self.fetchedEntry = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.input,
+        self.fetchedEntry = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.startDate,
                                                                             ascending: true)],
                                          predicate: NSPredicate(format: "timer == %@", timer),
                                          animation: .default)
         self._itemSize = size
-        self._totalValue = .init(initialValue: timer.totalTime())
-    }
-    
-    func adjustTime(){
-        if isAdjusting == true { return }
-        
-        isAdjusting = true
-        let currentTime = Date()
-        
-        if let entries = trTimer.entries, let entry = entries.allObjects.last as? TREntry, let startDate = entry.input{
-            let dif = currentTime.timeIntervalSince(startDate)
-            let adjustTime = dif - entry.value
-            if adjustTime > 0{
-                print("dif", String(format: "%.2f", adjustTime))
-                if entry.value - adjustTime > 0.01{
-                    entry.value += adjustTime
-                }
-            }
-            isAdjusting = false
-        }
+        self._totalValue = .init(initialValue: timer.totalTime)
     }
     
     func buttonPressed(){
-        trTimer.isActive.toggle()
-        showTools = !trTimer.isActive
-        
-        if trTimer.isActive{
-            let newEntry = TREntry(context: viewContext)
-            newEntry.input = Date()
-            newEntry.value = 0
-            newEntry.timer = trTimer
-            do{
-                try viewContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        } else {
-            
-        }
-        
-        trTimer.isActive == false ? stopTimer():startTimer()
+//        trTimer.isActive.toggle()
+//        showTools = !trTimer.isActive
+//        
+//        if trTimer.isActive{
+//            let newEntry = TREntry(context: viewContext)
+//            newEntry.input = Date()
+//            newEntry.value = 0
+//            newEntry.timer = trTimer
+//            do{
+//                try viewContext.save()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        } else {
+//            
+//        }
+//        
+//        trTimer.isActive == false ? stopTimer():startTimer()
     }
     
     func stopTimer() {

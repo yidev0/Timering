@@ -29,11 +29,7 @@ struct CompactListView: View {
             switch viewType {
             case .timers:
                 ScrollView {
-                    LazyVGrid(columns: gridItems) {
-                        ForEach(timers) { timer in
-                            GridTimerCell(timer: timer, size: $itemSize)
-                        }
-                    }
+                    TimerGridView(group: nil)
                 }
                 .onChange(of: geometry.size) { newValue in
                     calculateGrid(size: newValue)
@@ -47,12 +43,15 @@ struct CompactListView: View {
                         ForEach(groups) { group in
                             GroupListCell(group: group, popGroup: $popGroup, sheetSession: $sheetSession)
                         }
+                        .listRowBackground(Color.groupedBackground)
                     }
                     .sheet(item: $popGroup){ group in
                         GroupDetailView(group: group)
                     }
                 }
                 .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
+                .background(Color.background)
             }
         }
         .navigationTitle(viewType == .timers ? "Timer.Type.Timers":"Timer.Type.Groups")

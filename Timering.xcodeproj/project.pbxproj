@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D133B3BB29ACC5A000966F55 /* TimerGridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3BA29ACC5A000966F55 /* TimerGridButton.swift */; };
+		D133B3BD29ADAE9A00966F55 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3BC29ADAE9A00966F55 /* DebugData.swift */; };
+		D133B3BF29ADB5E000966F55 /* TRSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3BE29ADB5E000966F55 /* TRSession.swift */; };
+		D133B3C429ADB60A00966F55 /* TRGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3C129ADB60A00966F55 /* TRGroup.swift */; };
+		D133B3C529ADB60A00966F55 /* TREntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3C229ADB60A00966F55 /* TREntry.swift */; };
+		D133B3C629ADB60A00966F55 /* TRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3C329ADB60A00966F55 /* TRTimer.swift */; };
+		D133B3C829ADB84C00966F55 /* TimerRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3C729ADB84C00966F55 /* TimerRingLayer.swift */; };
+		D133B3CA29ADBB8500966F55 /* TimerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3C929ADBB8500966F55 /* TimerGridView.swift */; };
+		D133B3CC29AED8EF00966F55 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133B3CB29AED8EF00966F55 /* Shapes.swift */; };
 		D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134CA2828AE36800034A203 /* GroupDetailView.swift */; };
 		D14A80F828A6623800855E59 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F728A6623800855E59 /* RingView.swift */; };
 		D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */; };
@@ -19,7 +28,6 @@
 		D16B774B27F599F400C6CBFC /* TimeringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B774A27F599F400C6CBFC /* TimeringUITests.swift */; };
 		D16B774D27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B774C27F599F400C6CBFC /* TimeringUITestsLaunchTests.swift */; };
 		D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775927F5A25B00C6CBFC /* RingTimerView.swift */; };
-		D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775B27F5A28400C6CBFC /* GridTimerView.swift */; };
 		D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B775D27F6F9E800C6CBFC /* SettingsView.swift */; };
 		D16B776227F7D4FB00C6CBFC /* wave1.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B775F27F7D4FA00C6CBFC /* wave1.png */; };
 		D16B776327F7D4FB00C6CBFC /* wave2.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B776027F7D4FA00C6CBFC /* wave2.png */; };
@@ -41,7 +49,6 @@
 		D1D5854D298E5031000A763B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5854C298E5031000A763B /* ActivityView.swift */; };
 		D1D5854F298E505C000A763B /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5854E298E505C000A763B /* Enum.swift */; };
 		D1D58551298E5081000A763B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D58550298E5081000A763B /* PlayerView.swift */; };
-		D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */; };
 		D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5A289FBED900D83FF6 /* Symbols.swift */; };
 		D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */; };
 		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
@@ -51,7 +58,8 @@
 		D1FBB2DB29AB6C4700D19548 /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DA29AB6C4700D19548 /* GaugeTimerView.swift */; };
 		D1FBB2DD29AB6C7B00D19548 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */; };
 		D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */; };
-		D1FBB2E129AB6CF700D19548 /* GridTimerToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */; };
+		D1FBB2E529ACAB3500D19548 /* TimerGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2E329ACAADF00D19548 /* TimerGridCell.swift */; };
+		D1FBB2E729ACAE7D00D19548 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2E629ACAE7D00D19548 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +81,15 @@
 
 /* Begin PBXFileReference section */
 		D11CB1F6282E7272007F44C6 /* Timering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timering.entitlements; sourceTree = "<group>"; };
+		D133B3BA29ACC5A000966F55 /* TimerGridButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGridButton.swift; sourceTree = "<group>"; };
+		D133B3BC29ADAE9A00966F55 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
+		D133B3BE29ADB5E000966F55 /* TRSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRSession.swift; sourceTree = "<group>"; };
+		D133B3C129ADB60A00966F55 /* TRGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGroup.swift; sourceTree = "<group>"; };
+		D133B3C229ADB60A00966F55 /* TREntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREntry.swift; sourceTree = "<group>"; };
+		D133B3C329ADB60A00966F55 /* TRTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTimer.swift; sourceTree = "<group>"; };
+		D133B3C729ADB84C00966F55 /* TimerRingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRingLayer.swift; sourceTree = "<group>"; };
+		D133B3C929ADBB8500966F55 /* TimerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGridView.swift; sourceTree = "<group>"; };
+		D133B3CB29AED8EF00966F55 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		D134CA2828AE36800034A203 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		D14A80F728A6623800855E59 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData + Extensions.swift"; sourceTree = "<group>"; };
@@ -124,6 +141,8 @@
 		D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactListView.swift; sourceTree = "<group>"; };
 		D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTimerToolView.swift; sourceTree = "<group>"; };
+		D1FBB2E329ACAADF00D19548 /* TimerGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGridCell.swift; sourceTree = "<group>"; };
+		D1FBB2E629ACAE7D00D19548 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +177,17 @@
 				D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */,
 			);
 			path = Overview;
+			sourceTree = "<group>";
+		};
+		D133B3C029ADB5E500966F55 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D133B3BE29ADB5E000966F55 /* TRSession.swift */,
+				D133B3C129ADB60A00966F55 /* TRGroup.swift */,
+				D133B3C329ADB60A00966F55 /* TRTimer.swift */,
+				D133B3C229ADB60A00966F55 /* TREntry.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D14A80F628A6622A00855E59 /* Ring */ = {
@@ -196,7 +226,7 @@
 				D16B776B27F7DD9E00C6CBFC /* Info.plist */,
 				D16B772F27F599F200C6CBFC /* TimeringApp.swift */,
 				D16B773127F599F200C6CBFC /* ContentView.swift */,
-				D1F95E7C28A274B800D641F7 /* Data */,
+				D1F95E7C28A274B800D641F7 /* Extension */,
 				D1B57F0B2829E902002D751C /* WelcomeView.swift */,
 				D1B84789280E4F3E00B7CCF5 /* Localizable.strings */,
 				D16B773327F599F400C6CBFC /* Assets.xcassets */,
@@ -274,6 +304,8 @@
 		D1D9012F28A38EA7001B0EA2 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				D133B3C929ADBB8500966F55 /* TimerGridView.swift */,
+				D133B3BA29ACC5A000966F55 /* TimerGridButton.swift */,
 				D16B775B27F5A28400C6CBFC /* GridTimerView.swift */,
 				D1D9012D28A38E9F001B0EA2 /* GridTimerCell.swift */,
 				D1FBB2E029AB6CF700D19548 /* GridTimerToolView.swift */,
@@ -286,12 +318,12 @@
 			children = (
 				D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */,
 				D195589428ADDC61002B4EA9 /* TabBarView.swift */,
+				D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */,
+				D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */,
+				D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */,
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
 				D1D5854C298E5031000A763B /* ActivityView.swift */,
 				D1D58550298E5081000A763B /* PlayerView.swift */,
-				D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */,
-				D1FBB2DC29AB6C7B00D19548 /* GroupListCell.swift */,
-				D1FBB2DE29AB6C8D00D19548 /* CompactListView.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -299,6 +331,7 @@
 		D1DFBA62289FC5A400D83FF6 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBB2E229ACAAC900D19548 /* View Model */,
 				D1687E25289520D000DDD4D3 /* TimerView.swift */,
 				D1CABAD928BF555E0013A23F /* TimerDetailView.swift */,
 				D14A80F628A6622A00855E59 /* Ring */,
@@ -315,17 +348,30 @@
 				D1F95E7828A26BD100D641F7 /* PersistenceController.swift */,
 				D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */,
 				D14A80F928A7B3D000855E59 /* CoreData + Extensions.swift */,
+				D133B3BC29ADAE9A00966F55 /* DebugData.swift */,
+				D133B3C029ADB5E500966F55 /* Extension */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		D1F95E7C28A274B800D641F7 /* Data */ = {
+		D1F95E7C28A274B800D641F7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				D1DFBA5A289FBED900D83FF6 /* Symbols.swift */,
 				D1D5854E298E505C000A763B /* Enum.swift */,
+				D1FBB2E629ACAE7D00D19548 /* Color.swift */,
+				D133B3CB29AED8EF00966F55 /* Shapes.swift */,
 			);
-			path = Data;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D1FBB2E229ACAAC900D19548 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBB2E329ACAADF00D19548 /* TimerGridCell.swift */,
+				D133B3C729ADB84C00966F55 /* TimerRingLayer.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,29 +515,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D9012E28A38E9F001B0EA2 /* GridTimerCell.swift in Sources */,
+				D133B3C529ADB60A00966F55 /* TREntry.swift in Sources */,
+				D133B3CC29AED8EF00966F55 /* Shapes.swift in Sources */,
 				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
+				D133B3BD29ADAE9A00966F55 /* DebugData.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
-				D16B775C27F5A28400C6CBFC /* GridTimerView.swift in Sources */,
+				D133B3BB29ACC5A000966F55 /* TimerGridButton.swift in Sources */,
+				D133B3BF29ADB5E000966F55 /* TRSession.swift in Sources */,
+				D1FBB2E729ACAE7D00D19548 /* Color.swift in Sources */,
 				D1D5854D298E5031000A763B /* ActivityView.swift in Sources */,
 				D14A80F828A6623800855E59 /* RingView.swift in Sources */,
+				D133B3C429ADB60A00966F55 /* TRGroup.swift in Sources */,
 				D1D58551298E5081000A763B /* PlayerView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
 				D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
+				D133B3C629ADB60A00966F55 /* TRTimer.swift in Sources */,
+				D133B3C829ADB84C00966F55 /* TimerRingLayer.swift in Sources */,
 				D16B775A27F5A25B00C6CBFC /* RingTimerView.swift in Sources */,
+				D1FBB2E529ACAB3500D19548 /* TimerGridCell.swift in Sources */,
 				D1687E26289520D000DDD4D3 /* TimerView.swift in Sources */,
 				D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */,
-				D1FBB2E129AB6CF700D19548 /* GridTimerToolView.swift in Sources */,
 				D1FBB2DF29AB6C8D00D19548 /* CompactListView.swift in Sources */,
 				D16B776A27F7DB5400C6CBFC /* IconsView.swift in Sources */,
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
 				D1FBB2DB29AB6C4700D19548 /* GaugeTimerView.swift in Sources */,
 				D1D5854F298E505C000A763B /* Enum.swift in Sources */,
+				D133B3CA29ADBB8500966F55 /* TimerGridView.swift in Sources */,
 				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
 				D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */,

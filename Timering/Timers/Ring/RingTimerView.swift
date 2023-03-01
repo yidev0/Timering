@@ -35,11 +35,6 @@ struct RingTimerView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
-        .onReceive(timer) { output in
-            for timer in fetchedTimers.wrappedValue{
-                timer.adjustTime()
-            }
-        }
     }
     
     init(group:TRGroup){
@@ -49,7 +44,7 @@ struct RingTimerView: View {
                                                                              ascending: true)],
                                           predicate: NSPredicate(format: "session == %@", trSession),
                                           animation: .default)
-        self.trEntries = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.input,
+        self.trEntries = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TREntry.startDate,
                                                                          ascending: true)],
                                       predicate: NSPredicate(format: "timer.session == %@", trSession),
                                       animation: .default)

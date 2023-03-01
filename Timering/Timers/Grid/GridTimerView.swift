@@ -13,10 +13,6 @@ class GridTimerValue: ObservableObject{
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
 }
 
-enum GridShape: Int{
-    case defaultShape = 0, circle, square
-}
-
 struct GridTimerView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("GridAutoPlay", store: userDefaults) var autoPlay = false
@@ -39,7 +35,8 @@ struct GridTimerView: View {
             ZStack(alignment: .center){
                 LazyVGrid(columns: gridItems, spacing: spacing) {
                     ForEach(fetchedTimers.wrappedValue) { timer in
-                        GridTimerCell(timer: timer, size: $itemSize)
+                        
+//                        GridTimerCell(timer: timer, size: $itemSize)
                     }
                     if fetchedTimers.wrappedValue.count < gridLimit{
                         Button {

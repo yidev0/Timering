@@ -35,18 +35,6 @@ struct RingView: View{
                                   String(format: "%.2f", counter),
                                   String(format: "%.2f", entry.timer!.session!.totalTime()))
                         }
-                        .onChange(of: entry.value) { _ in
-                            print("Change",
-                                  String(format: "%.2f", entry.sum(entries: entries.wrappedValue)),
-                                  "+",
-                                  String(format: "%.2f", counter),
-                                  String(format: "%.2f", entry.timer!.session!.totalTime()))
-                            if let session = entry.timer?.session{
-                                withAnimation {
-                                    counter = session.totalTime()
-                                }
-                            }
-                        }
                 }
             }
             .offset(x: (geometry.size.width < geometry.size.height) ? -(geometry.size.height - geometry.size.width)/2:0,

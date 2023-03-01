@@ -22,7 +22,7 @@ struct GaugeTimerView: View {
                        .frame(width: gaugeSize(of: timer, size: geometry.size),
                               height: gaugeSize(of: timer, size: geometry.size))
                        .onAppear{
-                           print(timer.totalTime(), timer.goalTime, timer.totalTime().remainder(dividingBy: timer.goalTime))
+                           print(timer.totalTime, timer.goalTime, timer.totalTime.remainder(dividingBy: timer.goalTime))
                        }
                 }
             }
@@ -44,7 +44,7 @@ struct GaugeTimerView: View {
     }
     
     func fillRate(of timer: TRTimer) -> CGFloat {
-        let remainder = timer.totalTime().remainder(dividingBy: timer.goalTime)
+        let remainder = timer.totalTime.remainder(dividingBy: timer.goalTime)
         return remainder < 0 ? (timer.goalTime + remainder):remainder
     }
 }

@@ -24,7 +24,7 @@ struct TabBarView: View {
             }
             
             ActivityView {
-                GroupListView(sheetSession: $sheetSession)
+                CompactListView(sheetSession: $sheetSession)
             } player: {
 //                if let group = sheetSession.group {
 //                    TimerView(group: sheetSession!.group!)
@@ -40,14 +40,6 @@ struct TabBarView: View {
                     subtitle: selectedSession?.group?.title ?? "N/A",
                     value: selectedSession?.totalTime() ?? 0
                 )
-            }
-            .tag(2)
-            .tabItem {
-                Label("Tabbar.Section.Groups", systemImage: "square.grid.2x2.fill")
-            }
-
-            ActiveSessionBar(selectedSession: $selectedSession, sheetSession: $sheetSession){
-                CompactListView(sheetSession: $sheetSession)
             }
             .tag(1)
             .tabItem {
