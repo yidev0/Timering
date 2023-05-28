@@ -65,6 +65,7 @@ class TimeringManager {
         newTimer.isActive = isActive
         newTimer.isTimeSensitive = timeSensitive
         newTimer.session = session
+        newTimer.entries = nil
         
         do {
             try viewContext.save()

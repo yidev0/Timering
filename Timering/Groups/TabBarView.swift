@@ -13,55 +13,67 @@ struct TabBarView: View {
     @State var sheetSession:TRSession?
     @State var selection = 1
     
+    @State var allowFullPlayer = false
+    
     var body: some View {
         TabView(selection: $selection) {
-            ActiveSessionBar(selectedSession: $selectedSession, sheetSession: $sheetSession){
+            ActivityView(allowFullScreen: $allowFullPlayer) {
                 OverviewView()
+            } player: {
+                ZStack {
+                    if let group = sheetSession?.group {
+                        TimerView(group: group)
+                    } else {
+                        Text("Error")
+                    }
+                }
+            } label: {
+                label
             }
             .tag(0)
             .tabItem {
                 Label("Tabbar.Section.Overview", systemImage: "timer")
             }
             
-            ActivityView {
+            ActivityView(allowFullScreen: $allowFullPlayer) {
                 CompactListView(sheetSession: $sheetSession)
             } player: {
-//                if let group = sheetSession.group {
-//                    TimerView(group: sheetSession!.group!)
-//                } else {
-//                    Text("Error")
-//                }
-                Text("Error")
+                ZStack {
+                    if let group = sheetSession?.group {
+                        TimerView(group: group)
+                    } else {
+                        Text("Error")
+                    }
+                }
             } label: {
-                PlayerCellView(
-                    symbol: selectedSession?.group?.icon ?? "exclamationmark.triangle.fill",
-                    imageColor: .blue,
-                    title: selectedSession?.group?.title ?? "N/A",
-                    subtitle: selectedSession?.group?.title ?? "N/A",
-                    value: selectedSession?.totalTime ?? 0
-                )
+                label
             }
             .tag(1)
             .tabItem {
                 Label("Tabbar.Section.Groups", systemImage: "square.grid.2x2.fill")
             }
         }
-        .sheet(item: $sheetSession) { session in
-            if let group = session.group{
-                //TODO: iOS 16
-                if #available(iOS 16.0, *) {
-                    TimerView(group: group)
-                        .presentationDetents([.medium, .large])
-                } else {
-                    TimerView(group: group)
-                }
-            }
-        }
         .onChange(of: sheetSession) { newValue in
+            allowFullPlayer = (sheetSession != nil)
             if newValue != nil{
                 selectedSession = newValue
             }
         }
+        .onAppear {
+            allowFullPlayer = (sheetSession != nil)
+        }
+    }
+    
+    var label: some View {
+        PlayerCellView(
+            symbol: selectedSession?.group?.icon ?? "exclamationmark.triangle.fill",
+            imageColor: .blue,
+            title:
+                (sheetSession == nil) ? "Select Group":selectedSession?.group?.title ?? "Untitled".localize(),
+            subtitle:
+                (sheetSession == nil) ? nil:selectedSession?.group?.title ?? "Untitled".localize(),
+            value: selectedSession?.totalTime ?? 0
+        )
     }
 }
 

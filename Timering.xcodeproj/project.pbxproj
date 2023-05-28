@@ -38,11 +38,17 @@
 		D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B776C27F7DE3000C6CBFC /* RingSettingsView.swift */; };
 		D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B776E27F7DE3800C6CBFC /* GridSettingsView.swift */; };
 		D16B777127F7E34400C6CBFC /* DefaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B777027F7E34400C6CBFC /* DefaultIcon.png */; };
+		D170A06729B1DB74006BEB5A /* OverviewTotalGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170A06629B1DB74006BEB5A /* OverviewTotalGrid.swift */; };
+		D170A06929B1DB86006BEB5A /* GroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170A06829B1DB86006BEB5A /* GroupBox.swift */; };
+		D170A06B29B1F26E006BEB5A /* OverviewGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170A06A29B1F26E006BEB5A /* OverviewGroupSection.swift */; };
+		D170A06C29B1F32F006BEB5A /* GroupChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */; };
+		D170A06E29B1F4D5006BEB5A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170A06D29B1F4D5006BEB5A /* Date.swift */; };
 		D1779493281B8356006A421D /* AUDIO_8166.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D177948E281B8356006A421D /* AUDIO_8166.m4a */; };
 		D1779494281B8356006A421D /* AUDIO_6413.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D177948F281B8356006A421D /* AUDIO_6413.m4a */; };
 		D1779495281B8356006A421D /* AUDIO_0004.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779490281B8356006A421D /* AUDIO_0004.m4a */; };
 		D1779496281B8356006A421D /* AUDIO_7063.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779491281B8356006A421D /* AUDIO_7063.m4a */; };
 		D1779497281B8356006A421D /* AUDIO_5242.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D1779492281B8356006A421D /* AUDIO_5242.m4a */; };
+		D19444F829CD91AD00AFC941 /* PlayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19444F729CD91AD00AFC941 /* PlayerCellView.swift */; };
 		D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589228ADDAD1002B4EA9 /* OverviewView.swift */; };
 		D195589528ADDC61002B4EA9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195589428ADDC61002B4EA9 /* TabBarView.swift */; };
 		D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B57F0B2829E902002D751C /* WelcomeView.swift */; };
@@ -55,6 +61,8 @@
 		D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */; };
 		D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */; };
 		D1E113EF29AF4C2700536FEA /* TimeringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E113EE29AF4C2700536FEA /* TimeringManager.swift */; };
+		D1E113F329AF635200536FEA /* ScreenCorners in Frameworks */ = {isa = PBXBuildFile; productRef = D1E113F229AF635200536FEA /* ScreenCorners */; };
+		D1E113F529AF641D00536FEA /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E113F429AF641D00536FEA /* UIApplication.swift */; };
 		D1F95E7928A26BD100D641F7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7828A26BD100D641F7 /* PersistenceController.swift */; };
 		D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */; };
 		D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */; };
@@ -119,11 +127,16 @@
 		D16B776C27F7DE3000C6CBFC /* RingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingSettingsView.swift; sourceTree = "<group>"; };
 		D16B776E27F7DE3800C6CBFC /* GridSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSettingsView.swift; sourceTree = "<group>"; };
 		D16B777027F7E34400C6CBFC /* DefaultIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultIcon.png; sourceTree = "<group>"; };
+		D170A06629B1DB74006BEB5A /* OverviewTotalGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTotalGrid.swift; sourceTree = "<group>"; };
+		D170A06829B1DB86006BEB5A /* GroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBox.swift; sourceTree = "<group>"; };
+		D170A06A29B1F26E006BEB5A /* OverviewGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewGroupSection.swift; sourceTree = "<group>"; };
+		D170A06D29B1F4D5006BEB5A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D177948E281B8356006A421D /* AUDIO_8166.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_8166.m4a; sourceTree = "<group>"; };
 		D177948F281B8356006A421D /* AUDIO_6413.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_6413.m4a; sourceTree = "<group>"; };
 		D1779490281B8356006A421D /* AUDIO_0004.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_0004.m4a; sourceTree = "<group>"; };
 		D1779491281B8356006A421D /* AUDIO_7063.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_7063.m4a; sourceTree = "<group>"; };
 		D1779492281B8356006A421D /* AUDIO_5242.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = AUDIO_5242.m4a; sourceTree = "<group>"; };
+		D19444F729CD91AD00AFC941 /* PlayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCellView.swift; sourceTree = "<group>"; };
 		D195589228ADDAD1002B4EA9 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		D195589428ADDC61002B4EA9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D1B57F0B2829E902002D751C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -138,6 +151,7 @@
 		D1DFBA5D289FC09C00D83FF6 /* Timering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timering.xcdatamodel; sourceTree = "<group>"; };
 		D1DFBA5F289FC35E00D83FF6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		D1E113EE29AF4C2700536FEA /* TimeringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeringManager.swift; sourceTree = "<group>"; };
+		D1E113F429AF641D00536FEA /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		D1F95E7828A26BD100D641F7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D1F95E7A28A26BE300D641F7 /* CustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistentContainer.swift; sourceTree = "<group>"; };
 		D1FBB2D829AB6BEF00D19548 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
@@ -153,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E113F329AF635200536FEA /* ScreenCorners in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +193,8 @@
 			children = (
 				D195589228ADDAD1002B4EA9 /* OverviewView.swift */,
 				D1CABAD628BCCBDD0013A23F /* GroupChartView.swift */,
+				D170A06629B1DB74006BEB5A /* OverviewTotalGrid.swift */,
+				D170A06A29B1F26E006BEB5A /* OverviewGroupSection.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -337,6 +354,7 @@
 				D134CA2828AE36800034A203 /* GroupDetailView.swift */,
 				D1D5854C298E5031000A763B /* ActivityView.swift */,
 				D1D58550298E5081000A763B /* PlayerView.swift */,
+				D19444F729CD91AD00AFC941 /* PlayerCellView.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -381,6 +399,9 @@
 				D1D5854E298E505C000A763B /* Enum.swift */,
 				D1FBB2E629ACAE7D00D19548 /* Color.swift */,
 				D133B3CB29AED8EF00966F55 /* Shapes.swift */,
+				D1E113F429AF641D00536FEA /* UIApplication.swift */,
+				D170A06829B1DB86006BEB5A /* GroupBox.swift */,
+				D170A06D29B1F4D5006BEB5A /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -401,6 +422,9 @@
 			dependencies = (
 			);
 			name = Timering;
+			packageProductDependencies = (
+				D1E113F229AF635200536FEA /* ScreenCorners */,
+			);
 			productName = Timering;
 			productReference = D16B772C27F599F200C6CBFC /* TimeRing.app */;
 			productType = "com.apple.product-type.application";
@@ -474,6 +498,9 @@
 				ja,
 			);
 			mainGroup = D16B772327F599F200C6CBFC;
+			packageReferences = (
+				D1E113F129AF635200536FEA /* XCRemoteSwiftPackageReference "ScreenCorners" */,
+			);
 			productRefGroup = D16B772D27F599F200C6CBFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -529,20 +556,25 @@
 				D133B3C529ADB60A00966F55 /* TREntry.swift in Sources */,
 				D133B3CC29AED8EF00966F55 /* Shapes.swift in Sources */,
 				D1DFBA5E289FC09C00D83FF6 /* Timering.xcdatamodeld in Sources */,
+				D170A06729B1DB74006BEB5A /* OverviewTotalGrid.swift in Sources */,
 				D16B775E27F6F9E800C6CBFC /* SettingsView.swift in Sources */,
 				D133B3BD29ADAE9A00966F55 /* DebugData.swift in Sources */,
 				D16B776D27F7DE3000C6CBFC /* RingSettingsView.swift in Sources */,
+				D19444F829CD91AD00AFC941 /* PlayerCellView.swift in Sources */,
 				D133B3BB29ACC5A000966F55 /* TimerGridButton.swift in Sources */,
 				D133B3BF29ADB5E000966F55 /* TRSession.swift in Sources */,
 				D1FBB2E729ACAE7D00D19548 /* Color.swift in Sources */,
 				D1D5854D298E5031000A763B /* ActivityView.swift in Sources */,
+				D170A06C29B1F32F006BEB5A /* GroupChartView.swift in Sources */,
 				D14A80F828A6623800855E59 /* TimerRingView.swift in Sources */,
 				D133B3C429ADB60A00966F55 /* TRGroup.swift in Sources */,
 				D1D58551298E5081000A763B /* PlayerView.swift in Sources */,
 				D1DFBA5B289FBED900D83FF6 /* Symbols.swift in Sources */,
+				D170A06E29B1F4D5006BEB5A /* Date.swift in Sources */,
 				D1FBB2D929AB6BEF00D19548 /* GroupListView.swift in Sources */,
 				D1CABADA28BF555E0013A23F /* TimerDetailView.swift in Sources */,
 				D16B776F27F7DE3800C6CBFC /* GridSettingsView.swift in Sources */,
+				D170A06B29B1F26E006BEB5A /* OverviewGroupSection.swift in Sources */,
 				D1B57F0C2829E902002D751C /* WelcomeView.swift in Sources */,
 				D133B3D229AEF58E00966F55 /* GaugeProgressStyle.swift in Sources */,
 				D133B3C629ADB60A00966F55 /* TRTimer.swift in Sources */,
@@ -556,12 +588,14 @@
 				D195589328ADDAD1002B4EA9 /* OverviewView.swift in Sources */,
 				D16B773227F599F200C6CBFC /* ContentView.swift in Sources */,
 				D1FBB2DB29AB6C4700D19548 /* TimerGaugeView.swift in Sources */,
+				D170A06929B1DB86006BEB5A /* GroupBox.swift in Sources */,
 				D1D5854F298E505C000A763B /* Enum.swift in Sources */,
 				D1E113EF29AF4C2700536FEA /* TimeringManager.swift in Sources */,
 				D133B3CA29ADBB8500966F55 /* TimerGridView.swift in Sources */,
 				D1DFBA60289FC35E00D83FF6 /* SidebarView.swift in Sources */,
 				D16B773027F599F200C6CBFC /* TimeringApp.swift in Sources */,
 				D133B3D029AEF46300966F55 /* TimerGaugeLayer.swift in Sources */,
+				D1E113F529AF641D00536FEA /* UIApplication.swift in Sources */,
 				D14A80FA28A7B3D000855E59 /* CoreData + Extensions.swift in Sources */,
 				D134CA2928AE36800034A203 /* GroupDetailView.swift in Sources */,
 				D1F95E7B28A26BE300D641F7 /* CustomPersistentContainer.swift in Sources */,
@@ -738,7 +772,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
 				DEVELOPMENT_TEAM = 5U8W3XYWRU;
 				ENABLE_PREVIEWS = YES;
@@ -770,7 +804,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timering/Timering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"Timering/Preview Content\"";
 				DEVELOPMENT_TEAM = 5U8W3XYWRU;
 				ENABLE_PREVIEWS = YES;
@@ -911,6 +945,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D1E113F129AF635200536FEA /* XCRemoteSwiftPackageReference "ScreenCorners" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kylebshr/ScreenCorners";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D1E113F229AF635200536FEA /* ScreenCorners */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1E113F129AF635200536FEA /* XCRemoteSwiftPackageReference "ScreenCorners" */;
+			productName = ScreenCorners;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D1DFBA5C289FC09C00D83FF6 /* Timering.xcdatamodeld */ = {

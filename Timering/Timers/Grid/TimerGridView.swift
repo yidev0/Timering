@@ -32,7 +32,7 @@ struct TimerGridView: View {
         } else {
             self.trTimers = FetchRequest(
                 sortDescriptors: [],
-//                predicate: NSPredicate(format: "session.isCompleted == %@", false),
+                predicate: NSPredicate(format: "session.isCompleted == NO"),
                 animation: .default
             )
         }

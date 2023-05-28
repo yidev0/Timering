@@ -22,7 +22,14 @@ struct TimerView: View {
     @State var editTimer:TRTimer?
     
     var trGroup:TRGroup
-    var trSession:TRSession
+    @State var trSession:TRSession
+    
+    init(group:TRGroup){
+        self.trGroup = group
+        self._trSession = .init(initialValue: group.getActiveSession()!)
+        self._timerType = .init(initialValue: TimerType(rawValue: Int(group.timerType)) ?? .ring)
+        self._totalValue = .init(initialValue: group.totalTime())
+    }
     
     var body: some View {
         ZStack{
@@ -50,7 +57,8 @@ struct TimerView: View {
                 
                 ZStack{
                     if horizontalSizeClass == .compact{
-                        TimerValueControlView(totalValue: $totalValue)
+                        TimerValueControlView(totalValue: $totalValue,
+                                              trSession: trSession)
                             .padding(.bottom, 12)
                         
                         HStack{
@@ -74,9 +82,12 @@ struct TimerView: View {
         .popover(item: $editTimer) { timer in
             TimerDetailView(trTimer: timer)
         }
+        .onChange(of: trGroup.sessions) { _ in
+            self.trSession = trGroup.getActiveSession()!
+        }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                TimerValueControlView(totalValue: $totalValue)
+                TimerValueControlView(totalValue: $totalValue, trSession: trSession)
                 .onReceive(timer) { output in
                     totalValue = trGroup.totalTime()
                 }
@@ -136,13 +147,6 @@ struct TimerView: View {
         }
     }
     
-    init(group:TRGroup){
-        self.trGroup = group
-        self.trSession = group.getActiveSession()!
-        self._timerType = .init(initialValue: TimerType(rawValue: Int(group.timerType)) ?? .ring)
-        self._totalValue = .init(initialValue: group.totalTime())
-    }
-    
 }
 
 struct TimerValueControlView: View {
@@ -153,6 +157,7 @@ struct TimerValueControlView: View {
     @AppStorage("RingPlayVibration", store: userDefaults) var vibrate = false
     
     @State var showSettings:Bool = false
+    var trSession: TRSession
     
     var body: some View{
         Menu {
@@ -164,7 +169,7 @@ struct TimerValueControlView: View {
             
             Section {
                 Button(role: .destructive) {
-                    //TODO: セッションを終了しタイマーをリセット
+                    trSession.closeSession()
                 } label: {
                     Label("Timer.Button.CloseSession", systemImage: "xmark")
                 }

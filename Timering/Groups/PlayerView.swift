@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import ScreenCorners
 import SwiftUI
 
 struct PlayerView<Label: View, Content: View>: View {
     
     @Namespace var namespace
     @Binding var style: PlayerStyle
+    @Binding var allowFullPlayer: Bool
     @State var visibility: Visibility = .visible
     
     @State var viewHeight: CGFloat = 0
@@ -20,14 +22,25 @@ struct PlayerView<Label: View, Content: View>: View {
     
     var content: Content
     var label: Label
+    @State var radius: CGFloat
     
-    init(_ style: Binding<PlayerStyle>,
-         @ViewBuilder content: @escaping () -> Content,
-         @ViewBuilder label: @escaping () -> Label
+    init(
+        _ style: Binding<PlayerStyle>,
+        allowFullScreen: Binding<Bool>,
+        @ViewBuilder content: @escaping () -> Content,
+        @ViewBuilder label: @escaping () -> Label
     ) {
         self._style = style
+        self._allowFullPlayer = allowFullScreen
         self.label = label()
         self.content = content()
+        
+        self._radius = .init(initialValue: 0)
+        if let window = UIApplication.shared.currentUIWindow()?.windowScene?.windows.first {
+            self._radius = .init(initialValue: window.screen.displayCornerRadius)
+            print(self.radius, self._radius, Date())
+        }
+        print(self.radius, self._radius, Date())
     }
     
     var body: some View {
@@ -37,7 +50,7 @@ struct PlayerView<Label: View, Content: View>: View {
                 Spacer()
                 cell
                     .matchedGeometryEffect(id: "Player", in: namespace)
-                Divider()
+//                Divider()
             case .fullScreen:
                 fullScreen
             }
@@ -104,7 +117,7 @@ struct PlayerView<Label: View, Content: View>: View {
     var cell: some View {
         Button {
             withAnimation {
-                style = (style == .compact) ? .fullScreen:.compact
+                style = (style == .compact) ? (allowFullPlayer ? .fullScreen:.compact):.compact
             }
         } label: {
             label
@@ -114,58 +127,17 @@ struct PlayerView<Label: View, Content: View>: View {
     }
     
     func checkCollpase(_ percentage: CGFloat) {
-        print(cellOffset, viewHeight * percentage)
+//        print(cellOffset, viewHeight * percentage)
         if cellOffset > viewHeight * percentage && cellOffset > 0 {
             style = .compact
         }
     }
 }
 
-struct PlayerCellView: View {
-    
-    let symbol: String
-    let imageColor: Color
-    var title: String
-    var subtitle: String
-    var value: Double
-    
-    init(symbol: String, imageColor: Color, title: String, subtitle: String, value: Double) {
-        self.symbol = symbol
-        self.imageColor = imageColor
-        self.title = title
-        self.subtitle = subtitle
-        self.value = value
-    }
-    
-    var body: some View {
-        HStack(alignment: .center, spacing: 16) {
-            Image(systemName: symbol)
-                .foregroundStyle(imageColor.gradient)
-            
-            VStack(alignment: .leading) {
-                Text("aaaaaa")
-                    .font(.body)
-                    .foregroundColor(.primary)
-                Text("aaaaaa")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-            }
-            .padding(.vertical, 12)
-            
-            Spacer()
-            
-            Text("\(value, specifier: "%.1f")")
-                .font(.subheadline)
-                .foregroundColor(.primary)
-        }
-        .padding(.horizontal, 16)
-    }
-}
-
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PlayerView(.constant(.compact)) {
+            PlayerView(.constant(.compact), allowFullScreen: .constant(true)) {
                 ScrollView {
                     ForEach(0..<10) { i in
                         Text("\(i)")

@@ -13,6 +13,8 @@ struct ActivityView<Content: View, Player: View, Label: View>: View{
     @Environment(\.colorScheme) var colorScheme
     @State var playerStyle: PlayerStyle = .compact
     
+    @Binding var allowFullScreen: Bool
+    
     var content: () -> Content
     var player: () -> Player
     var label: () -> Label
@@ -33,7 +35,7 @@ struct ActivityView<Content: View, Player: View, Label: View>: View{
                 }
             }
             
-            PlayerView($playerStyle) {
+            PlayerView($playerStyle, allowFullScreen: $allowFullScreen) {
                 player()
             } label: {
                 label()
@@ -44,7 +46,7 @@ struct ActivityView<Content: View, Player: View, Label: View>: View{
 
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityView {
+        ActivityView(allowFullScreen: .constant(true)) {
             Text("aa")
         } player: {
             ScrollView {

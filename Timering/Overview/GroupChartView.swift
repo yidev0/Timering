@@ -8,16 +8,30 @@
 import SwiftUI
 import Charts
 
-@available(iOS 16.0, *)
 struct GroupChartView: View {
+    
+    var trGroup: TRGroup
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GroupBox {
+            Chart {
+                ForEach(trGroup.getSessions(), id: \.id) { session in
+                    BarMark(x: .value("Session", session.createDate?.toString() ?? "aa"),
+                            y: .value("Time", session.totalTime))
+                }
+            }
+            .onAppear {
+                print(trGroup.getSessions().count)
+            }
+        } label: {
+            Label(trGroup.title ?? "Untitled".localize(),
+                  systemImage: trGroup.icon ?? "timer")
+        }
     }
 }
 
-@available(iOS 16.0, *)
-struct GroupChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupChartView()
-    }
-}
+//struct GroupChartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupChartView()
+//    }
+//}

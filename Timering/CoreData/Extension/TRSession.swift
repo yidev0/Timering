@@ -46,9 +46,17 @@ extension TRSession{
         self.endDate = Date()
         self.isCompleted = true
         
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         let newSession = TRSession(context: context)
         newSession.createDate = Date()
+        newSession.endDate = nil
         newSession.isCompleted = false
+        newSession.group = self.group
         
         let timers = self.getTimers()
         for timer in timers {

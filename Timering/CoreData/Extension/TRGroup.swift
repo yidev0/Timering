@@ -14,10 +14,18 @@ extension TRGroup{
             if sessions.count == 1, let first = sessions.first{
                 return first
             } else {
-                return sessions.sorted(by: { $0.endDate ?? Date() > $1.endDate ?? Date() }).first!
+                return sessions.first(where: { $0.endDate == nil })
             }
         }
         return nil
+    }
+    
+    func getSessions() -> [TRSession] {
+        if let array = self.sessions?.allObjects.map({ $0 as! TRSession}){
+            return array
+        } else {
+            return []
+        }
     }
     
     func checkActivity() -> Bool{
